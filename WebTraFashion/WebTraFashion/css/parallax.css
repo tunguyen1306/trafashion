@@ -1,0 +1,45 @@
+.parallax {
+	line-height:27px;
+	font-size:15px;
+	color:#fff;
+	margin-top: 70px;
+}
+.parallax>div.link {
+	cursor:pointer
+}
+.parallax>div {
+	position:relative;
+	padding: 20.5% 0 22.5%;
+	color:#fff;
+	background-position:top;
+	background-repeat:no-repeat;
+	background-size:cover;
+	max-width: 1600px !important;
+}
+@media (min-width: 1600px) {
+	.parallax>div {
+		margin-left: -800px !important;
+	}
+}
+.parallax p {
+	position:relative;
+	display:block;
+	line-height: 13px;
+	margin-top: 3px;
+	margin-bottom: 58px;
+}
+.parallax {
+	text-align: right;
+}
+.parallax h1.mod1 {
+	text-align: right;
+}
+.parallax h1.mod1:before {
+	position: absolute;
+	right: 15px;
+	top: -36px;
+}
+.parallax .separator {
+	display: inline-block;
+	width: 130px;
+}
