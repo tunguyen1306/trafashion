@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 @import url(//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
 /*========================================================
                    Bootstrap Reset
@@ -825,16 +825,17 @@ div.required .control-label:after {
 }
 
 .separator, .separator1 {
-  background: url("../../../../../image/catalog/separator.png");
-  background-repeat: no-repeat;
-  display: block;
-  height: 17px;
-  margin-top: 28px;
-  margin-bottom: 28px;
+    
+    background: url("../img/separator.png");
+    background-repeat: no-repeat;
+    display: block;
+    height: 17px;
+    margin-top: 28px;
+    margin-bottom: 28px;
 }
 
 .separator1 {
-  background: url("../../../../../image/catalog/separator1.png");
+  background: url("../img/separator1.png");
   background-repeat: no-repeat;
   margin-top: 23px;
   margin-bottom: 21px;
@@ -3327,7 +3328,7 @@ input[type="checkbox"][name="agree"] + label:before, input[type="checkbox"][name
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  background: url("../../../../../image/catalog/menu-bg.jpg");
+  background: url("../img/menu-bg.jpg");
   background-repeat: no-repeat;
   background-position: top right;
   background-color: #fff;
