@@ -1,0 +1,51 @@
+﻿@model WebTraFashion.Models.tbl_slide_tra
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutMaster.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbl_slide_tra</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.img_slide_tra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.img_slide_tra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.title_slide_tra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.title_slide_tra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.des_slide_tra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.des_slide_tra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status_slide_tra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status_slide_tra)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_slide_tra }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

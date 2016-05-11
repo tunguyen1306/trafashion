@@ -1,0 +1,320 @@
+﻿<div id="container">
+    <div class="container">
+        <div class="row">
+            <div id="content" class="col-sm-12">
+                <div id="tm-newsletter-popup" class="newsletter-popup-wrap">
+                    <div class="newsletter-popup" style="background-image: url(http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/newsletter-popup-732x515.jpg)">
+                        <div class="box-content">
+
+                            <h3 class="mod1">Newsletter</h3>
+                            <p>
+                                Subscribe to the Handbags Store mailing list to receive updates on
+                                new arrivals, special offers and other discount information.
+                            </p>
+                            <form method="post" enctype="multipart/form-data" id="tm-newsletter-popup-form">
+                                <div class="tm-login-form">
+                                    <label class="control-label" for="input-tm-newsletter-popup-email"></label>
+                                    <input type="text" name="tm_newsletter_popup_email" value="" placeholder="Enter your e-mail" id="input-tm-newsletter-popup-email" class="form-control" />
+                                    <button type="submit" id="tm-newsletter-popup-button" class="newsletter-popup-btn"><i class="material-design-drafts"></i>Subscribe</button>
+                                    <span id="tm-newsletter-popup_error" class="newsletter-error"></span>
+                                    <span id="tm-newsletter-popup_success" class="newsletter-success"></span>
+                                </div>
+                            </form>
+                        </div>
+                        <a href="#" id="newsletter-popup-close-btn" class="newsletter-popup-close-btn fa fa-times"></a>
+                        <a href='#' id="newsletter-popup-dont-show" class="newsletter-popup-dont-show">
+                            Don't show this message again
+                        </a>
+                    </div>
+                </div>
+
+                <div id="banner0" class="banners">
+                    <div class="fleft	banner-1">
+                        <div class="banner-box">
+                            <a class="clearfix" href="index.php?route=product/category&amp;path=33">
+                                <img src="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/banner-1-780x390.jpg" alt="banner-1" class="img-responsive" />
+                                <div class="s-desc"><h2>Sale <span>get up to </span> <em>20% off</em></h2></div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="fleft	banner-2">
+                        <div class="banner-box">
+                            <a class="clearfix" href="index.php?route=product/category&amp;path=25">
+                                <img src="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/banner-2-780x390.jpg" alt="banner-2" class="img-responsive" />
+                                <div class="s-desc">
+                                    <h2 class="mod1">EXCELLENT <span>QUALITY</span></h2>
+                                    <p>We are professional, experienced and dedicated to your satisfaction.</p>
+                                    <span class="button">Shop now!</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="fleft	banner-3">
+                        <div class="banner-box">
+                            <a class="clearfix" href="index.php?route=product/category&amp;path=20">
+                                <img src="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/banner-3-780x390.jpg" alt="banner-3" class="img-responsive" />
+                                <div class="s-desc"><h2 class="mod2">new <span>arrivals<span></h2></div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="fleft	banner-4">
+                        <div class="banner-box">
+                            <a class="clearfix" href="index.php?route=product/category&amp;path=18">
+                                <img src="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/banner-4-780x390.jpg" alt="banner-4" class="img-responsive" />
+                                <div class="s-desc">
+                                    <h2 class="mod1">REASONABLE <span>PRICES</span></h2>
+                                    <p>
+                                        We are committed to
+                                        the highest quality
+                                    </p>
+                                    <span class="button">Shop now!</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="box latest">
+                    <div class="box-heading">
+                        <h3>Latest Products</h3>
+                        <span>
+                            Thank you for visiting our site! You are at the right place! We are focused on providing integrated solutions and services to customers around the world.
+                        </span>
+                    </div>
+                    <div class="box-content">
+                        <div class="box-carousel">
+
+                            @foreach (var item in Model)
+                            {
+                                <div class="product-thumb transition options">
+
+                                    <div class="product-option-wrap">
+                                        <div class="product-options form-horizontal">
+                                            <div class="options">
+                                                <a class="ajax-overlay_close" href='#'></a>
+                                                <h3>Available Options</h3>
+                                                <div class="form-group hidden">
+                                                    <div class="col-sm-8">
+                                                        <input type="text" name="product_id" value="49" class="form-control" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group required">
+                                                    <label class="control-label col-sm-12">Color</label>
+                                                    <div class="col-sm-12">
+                                                        <div id="input-option3703001">
+                                                            <div class="radio">
+                                                                <label for="option[3710003001]">
+                                                                    <input type="radio" hidden name="option[37]" id="option[3710003001]" value="100" />
+                                                                    black (+$10.00)
+                                                                </label>
+                                                            </div>
+                                                            <div class="radio">
+                                                                <label for="option[3710103001]">
+                                                                    <input type="radio" hidden name="option[37]" id="option[3710103001]" value="101" />
+                                                                    white (+$20.00)
+                                                                </label>
+                                                            </div>
+                                                            <div class="radio">
+                                                                <label for="option[3710203001]">
+                                                                    <input type="radio" hidden name="option[37]" id="option[3710203001]" value="102" />
+                                                                    red (+$15.00)
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group required">
+                                                    <label class="control-label col-sm-12" for="input-option3603001">Size</label>
+                                                    <div class="col-sm-12">
+                                                        <select name="option[36]" id="input-option3603001" class="form-control">
+                                                            <option value="">--- Please Select ---</option>
+                                                            <option value="97">
+                                                                Small (+$20.00)
+                                                            </option>
+                                                            <option value="98">
+                                                                Medium (+$15.00)
+                                                            </option>
+                                                            <option value="99">
+                                                                Large (+$10.00)
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <button class="product-btn-add" type="button" onclick="cart.addPopup($(this),'49');">
+                                                    <span>Add to Cart</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="quick_info">
+                                        <div id="quickview_latest_30010" class="quickview-style">
+                                            <div>
+                                                <div class="left col-sm-4">
+                                                    <div class="quickview_image image">
+                                                        <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/product&amp;product_id=49"><img alt="Vivienne Handbag" title="Vivienne Handbag" class="img-responsive" src="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/product-49-270x270.png" /></a>
+                                                    </div>
+                                                </div>
+                                                <div class="right col-sm-8">
+                                                    <h2>@item.name_products_tra</h2>
+                                                    <div class="inf">
+                                                        <p class="product_model model">Model: SAM1</p>
+                                                        <div class="price">
+                                                            <span class="price-new">@item.newprice_products_tra</span>
+                                                            <span class="price-old">@item.oldprice_products_tra</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="rating">
+                                                        <span class="fa-stack">
+                                                            <i class="material-icons-star   fa-stack-1x"></i>
+                                                            <i class="material-icons-star star  fa-stack-1x"></i>
+                                                        </span>
+                                                        <span class="fa-stack">
+                                                            <i class="material-icons-star   fa-stack-1x"></i>
+                                                            <i class="material-icons-star star  fa-stack-1x"></i>
+                                                        </span>
+                                                        <span class="fa-stack">
+                                                            <i class="material-icons-star   fa-stack-1x"></i>
+                                                            <i class="material-icons-star star  fa-stack-1x"></i>
+                                                        </span>
+                                                        <span class="fa-stack">
+                                                            <i class="material-icons-star   fa-stack-1x"></i>
+                                                            <i class="material-icons-star star  fa-stack-1x"></i>
+                                                        </span>
+                                                        <span class="fa-stack">
+                                                            <i class="material-icons-star   fa-stack-1x"></i>
+                                                            <i class="material-icons-star star  fa-stack-1x"></i>
+                                                        </span>
+                                                    </div>
+                                                    <button class="product-btn-add" data-toggle="tooltip" title="Add to Cart" type="button">
+                                                        <i class="mat-icons material-icons-shopping_basket"></i>
+                                                        <span>Add to Cart</span>
+                                                    </button>
+                                                    <ul class="product-buttons">
+                                                        <li>
+                                                            <button class="btn btn-icon" type="button" data-toggle="tooltip" title="Add to Wish List">
+                                                                <i class="mat-icons material-icons-favorite_border"></i>
+                                                                <span>Add to Wish List</span>
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button class="btn btn-icon" type="button" data-toggle="tooltip" title="Compare this Product">
+                                                                <i class="mat-icons material-icons-sort"></i>
+                                                                <span>Compare this Product</span>
+                                                            </button>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="clear"></div>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <div class="quickview_description description">
+                                                        <p>
+                                                            <b>
+                                                                Welcome to the world of fashion.
+                                                            </b> We are proud to present you the largest choice of handbags on the web.
+                                                            Here you can find a great number of different goods. Our store offers stylish, premium quality handbags at the lowest possible prices.
+                                                        </p>
+                                                        <p>
+                                                            <b>
+                                                                We have a perfect reputation and great experience
+                                                            </b> in this sphere and that is why our products are so popular and
+                                                            have many faithful fans all over the country. What we sell are not just simple handbags; the products of our shop are the
+                                                            part of a style because nowadays handbag is the essential detail of the women’s wardrobe. We know how important it is for the
+                                                            modern women to have several interesting and trendy bags.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="new_pr"><span>New</span></div>
+                                    <div class="aside-block">
+                                        <div class="image">
+                                            <a class="quickview quickview-latest" data-rel="details" href="#quickview_latest_30010">
+                                                Quick View
+                                            </a>
+                                            <a class="lazy" style="padding-bottom: 100%" href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/product&amp;product_id=49">
+                                                <img alt="Vivienne Handbag" title="Vivienne Handbag" class="img-responsive" data-src="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/product-49-270x270.png" src="#" />
+                                            </a>
+                                        </div>
+                                        <div class="caption">
+                                            <div class="name">
+                                                <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/product&amp;product_id=49">
+                                                    @item.name_products_tra
+                                                </a>
+                                            </div>
+
+                                            <div class="price">
+                                                <span class="price-new">
+                                                    @item.newprice_products_tra
+                                                </span>
+                                                <span class="price-old">
+                                                   @item.oldprice_products_tra
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="cart-button">
+                                            <div class="rating">
+                                                <span class="fa-stack">
+                                                    <i class="material-icons-star   fa-stack-1x"></i>
+                                                    <i class="material-icons-star star  fa-stack-1x"></i>
+                                                </span>
+                                                <span class="fa-stack">
+                                                    <i class="material-icons-star   fa-stack-1x"></i>
+                                                    <i class="material-icons-star star  fa-stack-1x"></i>
+                                                </span>
+                                                <span class="fa-stack">
+                                                    <i class="material-icons-star   fa-stack-1x"></i>
+                                                    <i class="material-icons-star star  fa-stack-1x"></i>
+                                                </span>
+                                                <span class="fa-stack">
+                                                    <i class="material-icons-star   fa-stack-1x"></i>
+                                                    <i class="material-icons-star star  fa-stack-1x"></i>
+                                                </span>
+                                                <span class="fa-stack">
+                                                    <i class="material-icons-star   fa-stack-1x"></i>
+                                                    <i class="material-icons-star star  fa-stack-1x"></i>
+                                                </span>
+                                            </div>
+                                            <div class="btns-block">
+                                                <button class="product-btn-add" data-toggle="tooltip" title="Add to Cart" type="button">
+                                                    <i class="mat-icons material-icons-shopping_basket"></i>
+                                                    <span class="hidden-xs hidden-sm hidden-md">Add to Cart</span>
+                                                </button>
+                                                <button class="product-btn" type="button" data-toggle="tooltip" title="Add to Wish List">
+                                                    <i class="mat-icons material-icons-favorite_border"></i>
+                                                </button>
+                                                <button class="product-btn" type="button" data-toggle="tooltip" title="Compare this Product">
+                                                    <i class="mat-icons material-icons-sort"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                            }
+                          
+
+                        </div>
+                    </div>
+                </div>
+                <div id="parallax_0" class="parallax">
+                    <div data-source-url="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/parallax-1-1600x1228.jpg" class="parallax-1 ">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h1 class="mod1">
+                                        Find all kinds of ladies' handbags
+                                        <span>suitable for any occasion</span>
+                                    </h1>
+                                    <div class="separator"></div>
+                                    <p>A great number of different grateful clients is the best prove<br></br> of the previous statement.</p>
+                                    <a class="button" href="index.php?route=product/product&product_id=28">Shop now!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

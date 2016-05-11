@@ -1,4 +1,5 @@
 var gl_path = jQuery('#gl_path').html();
+
 function include(scriptUrl) {
    
     document.write('<script src="' + scriptUrl + '"></script>');
@@ -141,7 +142,7 @@ include('/js/jquery.easing.1.3.js');
     var o = $('#image-additional');
     var o2 = $('#gallery');
     if (o.length || o2.length) {
-        include('/js/jquery.bxslider/jquery.bxslider.js');
+        include('/js/jquery.bxslider.js');
     }
 
     if (o.length) {
@@ -164,9 +165,9 @@ include('/js/jquery.easing.1.3.js');
     }
 
     if (o2.length) {
-        include('/js/photo-swipe/klass.min.js');
-        include('/js/photo-swipe/code.photoswipe.jquery-3.0.5.js');
-        include('/js/photo-swipe/code.photoswipe-3.0.5.min.js');
+        include('/js/klass.min.js');
+        include('/js/code.photoswipe.jquery-3.0.5.js');
+        include('/js/code.photoswipe-3.0.5.min.js');
         $(document).ready(function () {
             $('#gallery').bxSlider({
                 pager: false,
