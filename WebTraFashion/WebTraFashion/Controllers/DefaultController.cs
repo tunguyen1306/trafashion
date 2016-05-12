@@ -21,8 +21,8 @@ namespace WebTraFashion.Controllers
         }
         public ActionResult Slider()
         {
-            
-            return View();
+            var querySlide = from data in db.tbl_slide_tra where data.status_slide_tra == 1 orderby data.id_slide_tra descending select data;
+            return View(querySlide.ToList());
         }
         public ActionResult ListProducts()
         {
@@ -35,6 +35,11 @@ namespace WebTraFashion.Controllers
             return View();
         }
         public ActionResult container()
+        {
+
+            return View();
+        }
+        public ActionResult PageFooter()
         {
 
             return View();
