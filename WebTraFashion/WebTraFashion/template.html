@@ -11,7 +11,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Handbags Store</title>
-    <!--<base href="http://livedemo00.template-help.com/opencart_57682/" />-->
+    <!--<base href="" />-->
     <meta name="description" content="Handbags online Store" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script type="text/javascript">
@@ -20,7 +20,7 @@
         //]]>
     </script>
     <script type="text/javascript">window.NREUM || (NREUM = {}), __nr_require = function (e, t, n) { function r(n) { if (!t[n]) { var o = t[n] = { exports: {} }; e[n][0].call(o.exports, function (t) { var o = e[n][1][t]; return r(o || t) }, o, o.exports) } return t[n].exports } if ("function" == typeof __nr_require) return __nr_require; for (var o = 0; o < n.length; o++) r(n[o]); return r }({ 1: [function (e, t, n) { function r(e, t) { return function () { o(e, [(new Date).getTime()].concat(a(arguments)), null, t) } } var o = e("handle"), i = e(2), a = e(3); "undefined" == typeof window.newrelic && (newrelic = NREUM); var u = ["setPageViewName", "addPageAction", "setCustomAttribute", "finished", "addToTrace", "inlineHit"], c = ["addPageAction"], f = "api-"; i(u, function (e, t) { newrelic[t] = r(f + t, "api") }), i(c, function (e, t) { newrelic[t] = r(f + t) }), t.exports = newrelic, newrelic.noticeError = function (e) { "string" == typeof e && (e = new Error(e)), o("err", [e, (new Date).getTime()]) } }, {}], 2: [function (e, t, n) { function r(e, t) { var n = [], r = "", i = 0; for (r in e) o.call(e, r) && (n[i] = t(r, e[r]), i += 1); return n } var o = Object.prototype.hasOwnProperty; t.exports = r }, {}], 3: [function (e, t, n) { function r(e, t, n) { t || (t = 0), "undefined" == typeof n && (n = e ? e.length : 0); for (var r = -1, o = n - t || 0, i = Array(0 > o ? 0 : o) ; ++r < o;) i[r] = e[t + r]; return i } t.exports = r }, {}], ee: [function (e, t, n) { function r() { } function o(e) { function t(e) { return e && e instanceof r ? e : e ? u(e, a, i) : i() } function n(n, r, o) { e && e(n, r, o); for (var i = t(o), a = l(n), u = a.length, c = 0; u > c; c++) a[c].apply(i, r); var s = f[g[n]]; return s && s.push([m, n, r, i]), i } function p(e, t) { w[e] = l(e).concat(t) } function l(e) { return w[e] || [] } function d(e) { return s[e] = s[e] || o(n) } function v(e, t) { c(e, function (e, n) { t = t || "feature", g[n] = t, t in f || (f[t] = []) }) } var w = {}, g = {}, m = { on: p, emit: n, get: d, listeners: l, context: t, buffer: v }; return m } function i() { return new r } var a = "nr@context", u = e("gos"), c = e(2), f = {}, s = {}, p = t.exports = o(); p.backlog = f }, {}], gos: [function (e, t, n) { function r(e, t, n) { if (o.call(e, t)) return e[t]; var r = n(); if (Object.defineProperty && Object.keys) try { return Object.defineProperty(e, t, { value: r, writable: !0, enumerable: !1 }), r } catch (i) { } return e[t] = r, r } var o = Object.prototype.hasOwnProperty; t.exports = r }, {}], handle: [function (e, t, n) { function r(e, t, n, r) { o.buffer([e], r), o.emit(e, t, n) } var o = e("ee").get("handle"); t.exports = r, r.ee = o }, {}], id: [function (e, t, n) { function r(e) { var t = typeof e; return !e || "object" !== t && "function" !== t ? -1 : e === window ? 0 : a(e, i, function () { return o++ }) } var o = 1, i = "nr@id", a = e("gos"); t.exports = r }, {}], loader: [function (e, t, n) { function r() { if (!w++) { var e = v.info = NREUM.info, t = s.getElementsByTagName("script")[0]; if (e && e.licenseKey && e.applicationID && t) { c(l, function (t, n) { e[t] || (e[t] = n) }); var n = "https" === p.split(":")[0] || e.sslForHttp; v.proto = n ? "https://" : "http://", u("mark", ["onload", a()], null, "api"); var r = s.createElement("script"); r.src = v.proto + e.agent, t.parentNode.insertBefore(r, t) } } } function o() { "complete" === s.readyState && i() } function i() { u("mark", ["domContent", a()], null, "api") } function a() { return (new Date).getTime() } var u = e("handle"), c = e(2), f = window, s = f.document; NREUM.o = { ST: setTimeout, CT: clearTimeout, XHR: f.XMLHttpRequest, REQ: f.Request, EV: f.Event, PR: f.Promise, MO: f.MutationObserver }, e(1); var p = "" + location, l = { beacon: "bam.nr-data.net", errorBeacon: "bam.nr-data.net", agent: "js-agent.newrelic.com/nr-918.min.js" }, d = window.XMLHttpRequest && XMLHttpRequest.prototype && XMLHttpRequest.prototype.addEventListener && !/CriOS/.test(navigator.userAgent), v = t.exports = { offset: a(), origin: p, features: {}, xhrWrappable: d }; s.addEventListener ? (s.addEventListener("DOMContentLoaded", i, !1), f.addEventListener("load", r, !1)) : (s.attachEvent("onreadystatechange", o), f.attachEvent("onload", r)), u("mark", ["firstbyte", a()], null, "api"); var w = 0 }, {}] }, {}, ["loader"]);</script>
-    <link href="http://livedemo00.template-help.com/opencart_57682/~/img/favicon.png" rel="icon" />
+    <link href="~/img/favicon.png" rel="icon" />
 
     <script src="js/jquery-2.1.1.min.js"></script>
 
@@ -155,64 +155,64 @@
             </div>
             <div id="stuck" class="stuck-menu">
                 <div id="logo" class="logo">
-                    <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=common/home"><img src="http://livedemo00.template-help.com/opencart_57682/~/img/logo.png" title="Handbags online Store" alt="Handbags online Store" class="img-responsive" /></a>
+                    <a href="index.php?route=common/home"><img src="~/img/logo.png" title="Handbags online Store" alt="Handbags online Store" class="img-responsive" /></a>
                 </div>
                 <div id="menu-gadget" class="menu-gadget">
                     <ul class="menu">
                         <li>
-                            <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=18">CARPET BAGS </a>
+                            <a href="index.php?route=product/category&amp;path=18">CARPET BAGS </a>
                             <ul>
                                 <li>
-                                    <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=28" class="parent">CLUTCHES</a><ul>
+                                    <a href="index.php?route=product/category&amp;path=28" class="parent">CLUTCHES</a><ul>
                                         <li>
-                                            <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=31">CROSSBODY BAGS</a>
+                                            <a href="index.php?route=product/category&amp;path=31">CROSSBODY BAGS</a>
                                         </li>
                                         <li>
-                                            <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=35">HOBOS</a>
+                                            <a href="index.php?route=product/category&amp;path=35">HOBOS</a>
                                         </li>
                                         <li>
-                                            <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=32">SATCHELS</a>
+                                            <a href="index.php?route=product/category&amp;path=32">SATCHELS</a>
                                         </li>
                                         <li>
-                                            <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=30">SHOULDER BAGS</a>
+                                            <a href="index.php?route=product/category&amp;path=30">SHOULDER BAGS</a>
                                         </li>
                                         <li>
-                                            <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=29">TOTES</a>
+                                            <a href="index.php?route=product/category&amp;path=29">TOTES</a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=36" class="parent">BUCKET BAGS</a><ul>
+                                    <a href="index.php?route=product/category&amp;path=36" class="parent">BUCKET BAGS</a><ul>
                                         <li>
-                                            <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=37">BACKPACKS</a>
+                                            <a href="index.php?route=product/category&amp;path=37">BACKPACKS</a>
                                         </li>
                                         <li>
-                                            <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=38">EVENING</a>
+                                            <a href="index.php?route=product/category&amp;path=38">EVENING</a>
                                         </li>
                                         <li>
-                                            <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=40">SMALL ACCESSORIES</a>
+                                            <a href="index.php?route=product/category&amp;path=40">SMALL ACCESSORIES</a>
                                         </li>
                                         <li>
-                                            <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=39">WALLETS</a>
+                                            <a href="index.php?route=product/category&amp;path=39">WALLETS</a>
                                         </li>
                                     </ul>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=20">HANDBAGS </a>
+                            <a href="index.php?route=product/category&amp;path=20">HANDBAGS </a>
                         </li>
                         <li>
-                            <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=25">BRANDS</a>
+                            <a href="index.php?route=product/category&amp;path=25">BRANDS</a>
                         </li>
                         <li>
-                            <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=33">LAPTOP BAGS </a>
+                            <a href="index.php?route=product/category&amp;path=33">LAPTOP BAGS </a>
                         </li>
                         <li>
-                            <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=41">TOTE BAGS </a>
+                            <a href="index.php?route=product/category&amp;path=41">TOTE BAGS </a>
                         </li>
                         <li>
-                            <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=42">VINTAGE</a>
+                            <a href="index.php?route=product/category&amp;path=42">VINTAGE</a>
                         </li>
                     </ul>
                 </div>
@@ -220,59 +220,59 @@
                     <div id="tm_menu" class="nav__primary">
                         <ul class="menu">
                             <li>
-                                <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=18">CARPET BAGS </a>
+                                <a href="index.php?route=product/category&amp;path=18">CARPET BAGS </a>
                                 <ul>
                                     <li>
-                                        <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=28" class="parent">CLUTCHES</a><ul>
+                                        <a href="index.php?route=product/category&amp;path=28" class="parent">CLUTCHES</a><ul>
                                             <li>
-                                                <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=31">CROSSBODY BAGS</a>
+                                                <a href="index.php?route=product/category&amp;path=31">CROSSBODY BAGS</a>
                                             </li>
                                             <li>
-                                                <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=35">HOBOS</a>
+                                                <a href="index.php?route=product/category&amp;path=35">HOBOS</a>
                                             </li>
                                             <li>
-                                                <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=32">SATCHELS</a>
+                                                <a href="index.php?route=product/category&amp;path=32">SATCHELS</a>
                                             </li>
                                             <li>
-                                                <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=30">SHOULDER BAGS</a>
+                                                <a href="index.php?route=product/category&amp;path=30">SHOULDER BAGS</a>
                                             </li>
                                             <li>
-                                                <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=29">TOTES</a>
+                                                <a href="index.php?route=product/category&amp;path=29">TOTES</a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=36" class="parent">BUCKET BAGS</a><ul>
+                                        <a href="index.php?route=product/category&amp;path=36" class="parent">BUCKET BAGS</a><ul>
                                             <li>
-                                                <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=37">BACKPACKS</a>
+                                                <a href="index.php?route=product/category&amp;path=37">BACKPACKS</a>
                                             </li>
                                             <li>
-                                                <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=38">EVENING</a>
+                                                <a href="index.php?route=product/category&amp;path=38">EVENING</a>
                                             </li>
                                             <li>
-                                                <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=40">SMALL ACCESSORIES</a>
+                                                <a href="index.php?route=product/category&amp;path=40">SMALL ACCESSORIES</a>
                                             </li>
                                             <li>
-                                                <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=39">WALLETS</a>
+                                                <a href="index.php?route=product/category&amp;path=39">WALLETS</a>
                                             </li>
                                         </ul>
                                     </li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=20">HANDBAGS </a>
+                                <a href="index.php?route=product/category&amp;path=20">HANDBAGS </a>
                             </li>
                             <li>
-                                <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=25">BRANDS</a>
+                                <a href="index.php?route=product/category&amp;path=25">BRANDS</a>
                             </li>
                             <li>
-                                <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=33">LAPTOP BAGS </a>
+                                <a href="index.php?route=product/category&amp;path=33">LAPTOP BAGS </a>
                             </li>
                             <li>
-                                <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=41">TOTE BAGS </a>
+                                <a href="index.php?route=product/category&amp;path=41">TOTE BAGS </a>
                             </li>
                             <li>
-                                <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/category&amp;path=42">VINTAGE</a>
+                                <a href="index.php?route=product/category&amp;path=42">VINTAGE</a>
                             </li>
                         </ul>
                         <div class="clear"></div>
@@ -324,7 +324,7 @@
             <div class="fluid_container">
                 <div class="camera_container">
                     <div id="camera_wrap_0">
-                        <div title="slide-1" data-thumb="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/slide-1-1600x885.jpg" data-src="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/slide-1-1600x885.jpg">
+                        <div title="slide-1" data-thumb="image/cache/catalog/slide-1-1600x885.jpg" data-src="image/cache/catalog/slide-1-1600x885.jpg">
                             <div class="camera_caption fadeIn">
                                 <div class="container">
                                     <h1 class="mod1">
@@ -340,7 +340,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div title="slide-2" data-thumb="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/slide-2-1600x885.jpg" data-src="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/slide-2-1600x885.jpg">
+                        <div title="slide-2" data-thumb="image/cache/catalog/slide-2-1600x885.jpg" data-src="image/cache/catalog/slide-2-1600x885.jpg">
                             <div class="camera_caption fadeIn">
                                 <div class="container">
                                     <h1 class="mod1">
@@ -356,7 +356,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div title="slide-3" data-thumb="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/slide-3-1600x885.jpg" data-src="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/slide-3-1600x885.jpg">
+                        <div title="slide-3" data-thumb="image/cache/catalog/slide-3-1600x885.jpg" data-src="image/cache/catalog/slide-3-1600x885.jpg">
                             <div class="camera_caption fadeIn">
                                 <div class="container">
                                     <h1 class="mod1">
@@ -382,7 +382,7 @@
                 <div class="row">
                     <div id="content" class="col-sm-12">
                         <div id="tm-newsletter-popup" class="newsletter-popup-wrap">
-                            <div class="newsletter-popup" style="background-image: url(http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/newsletter-popup-732x515.jpg)">
+                            <div class="newsletter-popup" style="background-image: url(image/cache/catalog/newsletter-popup-732x515.jpg)">
                                 <div class="box-content">
 
                                     <h3 class="mod1">Newsletter</h3>
@@ -477,7 +477,7 @@
                             <div class="fleft	banner-1">
                                 <div class="banner-box">
                                     <a class="clearfix" href="index.php?route=product/category&amp;path=33">
-                                        <img src="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/banner-1-780x390.jpg" alt="banner-1" class="img-responsive" />
+                                        <img src="image/cache/catalog/banner-1-780x390.jpg" alt="banner-1" class="img-responsive" />
                                         <div class="s-desc"><h2>Sale <span>get up to </span> <em>20% off</em></h2></div>
                                     </a>
                                 </div>
@@ -485,7 +485,7 @@
                             <div class="fleft	banner-2">
                                 <div class="banner-box">
                                     <a class="clearfix" href="index.php?route=product/category&amp;path=25">
-                                        <img src="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/banner-2-780x390.jpg" alt="banner-2" class="img-responsive" />
+                                        <img src="image/cache/catalog/banner-2-780x390.jpg" alt="banner-2" class="img-responsive" />
                                         <div class="s-desc">
                                             <h2 class="mod1">EXCELLENT <span>QUALITY</span></h2>
                                             <p>We are professional, experienced and dedicated to your satisfaction.</p>
@@ -497,7 +497,7 @@
                             <div class="fleft	banner-3">
                                 <div class="banner-box">
                                     <a class="clearfix" href="index.php?route=product/category&amp;path=20">
-                                        <img src="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/banner-3-780x390.jpg" alt="banner-3" class="img-responsive" />
+                                        <img src="image/cache/catalog/banner-3-780x390.jpg" alt="banner-3" class="img-responsive" />
                                         <div class="s-desc"><h2 class="mod2">new <span>arrivals<span></h2></div>
                                     </a>
                                 </div>
@@ -505,7 +505,7 @@
                             <div class="fleft	banner-4">
                                 <div class="banner-box">
                                     <a class="clearfix" href="index.php?route=product/category&amp;path=18">
-                                        <img src="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/banner-4-780x390.jpg" alt="banner-4" class="img-responsive" />
+                                        <img src="image/cache/catalog/banner-4-780x390.jpg" alt="banner-4" class="img-responsive" />
                                         <div class="s-desc">
                                             <h2 class="mod1">REASONABLE <span>PRICES</span></h2>
                                             <p>
@@ -592,7 +592,7 @@
                                                 <div>
                                                     <div class="left col-sm-4">
                                                         <div class="quickview_image image">
-                                                            <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/product&amp;product_id=49"><img alt="Vivienne Handbag" title="Vivienne Handbag" class="img-responsive" src="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/product-49-270x270.png" /></a>
+                                                            <a href="index.php?route=product/product&amp;product_id=49"><img alt="Vivienne Handbag" title="Vivienne Handbag" class="img-responsive" src="image/cache/catalog/product-49-270x270.png" /></a>
                                                         </div>
                                                     </div>
                                                     <div class="right col-sm-8">
@@ -673,13 +673,13 @@
                                                 <a class="quickview quickview-latest" data-rel="details" href="#quickview_latest_30010">
                                                     Quick View
                                                 </a>
-                                                <a class="lazy" style="padding-bottom: 100%" href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/product&amp;product_id=49">
-                                                    <img alt="Vivienne Handbag" title="Vivienne Handbag" class="img-responsive" data-src="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/product-49-270x270.png" src="#" />
+                                                <a class="lazy" style="padding-bottom: 100%" href="index.php?route=product/product&amp;product_id=49">
+                                                    <img alt="Vivienne Handbag" title="Vivienne Handbag" class="img-responsive" data-src="image/cache/catalog/product-49-270x270.png" src="#" />
                                                 </a>
                                             </div>
                                             <div class="caption">
                                                 <div class="name">
-                                                    <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/product&amp;product_id=49">
+                                                    <a href="index.php?route=product/product&amp;product_id=49">
                                                         Vivienne Handbag
                                                     </a>
                                                 </div>
@@ -797,14 +797,14 @@
                                                 <div>
                                                     <div class="left col-sm-4">
                                                         <div class="quickview_image image">
-                                                            <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/product&amp;product_id=48"><img alt="Versace Bag" title="Versace Bag" class="img-responsive" src="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/product-19-270x270.png" /></a>
+                                                            <a href="index.php?route=product/product&amp;product_id=48"><img alt="Versace Bag" title="Versace Bag" class="img-responsive" src="image/cache/catalog/product-19-270x270.png" /></a>
                                                         </div>
                                                     </div>
                                                     <div class="right col-sm-8">
                                                         <h2>Versace Bag</h2>
                                                         <div class="inf">
                                                             <p class="quickview_manufacture manufacture manufacture">
-                                                                Brand: <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/manufacturer/info&amp;manufacturer_id=8">Versace</a>
+                                                                Brand: <a href="index.php?route=product/manufacturer/info&amp;manufacturer_id=8">Versace</a>
                                                             </p>
                                                             <p class="product_model model">Model: product 20</p>
                                                             <div class="price">
@@ -880,13 +880,13 @@
                                                 <a class="quickview quickview-latest" data-rel="details" href="#quickview_latest_30020">
                                                     Quick View
                                                 </a>
-                                                <a class="lazy" style="padding-bottom: 100%" href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/product&amp;product_id=48">
-                                                    <img alt="Versace Bag" title="Versace Bag" class="img-responsive" data-src="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/product-19-270x270.png" src="#" />
+                                                <a class="lazy" style="padding-bottom: 100%" href="index.php?route=product/product&amp;product_id=48">
+                                                    <img alt="Versace Bag" title="Versace Bag" class="img-responsive" data-src="image/cache/catalog/product-19-270x270.png" src="#" />
                                                 </a>
                                             </div>
                                             <div class="caption">
                                                 <div class="name">
-                                                    <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/product&amp;product_id=48">
+                                                    <a href="index.php?route=product/product&amp;product_id=48">
                                                         Versace Bag
                                                     </a>
                                                 </div>
@@ -999,14 +999,14 @@
                                                 <div>
                                                     <div class="left col-sm-4">
                                                         <div class="quickview_image image">
-                                                            <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/product&amp;product_id=47"><img alt="Valentino Bags" title="Valentino Bags" class="img-responsive" src="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/product-10-270x270.png" /></a>
+                                                            <a href="index.php?route=product/product&amp;product_id=47"><img alt="Valentino Bags" title="Valentino Bags" class="img-responsive" src="image/cache/catalog/product-10-270x270.png" /></a>
                                                         </div>
                                                     </div>
                                                     <div class="right col-sm-8">
                                                         <h2>Valentino Bags</h2>
                                                         <div class="inf">
                                                             <p class="quickview_manufacture manufacture manufacture">
-                                                                Brand: <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/manufacturer/info&amp;manufacturer_id=7">Michael Kors</a>
+                                                                Brand: <a href="index.php?route=product/manufacturer/info&amp;manufacturer_id=7">Michael Kors</a>
                                                             </p>
                                                             <p class="product_model model">Model: Product 21</p>
                                                             <div class="price">
@@ -1083,13 +1083,13 @@
                                                 <a class="quickview quickview-latest" data-rel="details" href="#quickview_latest_30030">
                                                     Quick View
                                                 </a>
-                                                <a class="lazy" style="padding-bottom: 100%" href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/product&amp;product_id=47">
-                                                    <img alt="Valentino Bags" title="Valentino Bags" class="img-responsive" data-src="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/product-10-270x270.png" src="#" />
+                                                <a class="lazy" style="padding-bottom: 100%" href="index.php?route=product/product&amp;product_id=47">
+                                                    <img alt="Valentino Bags" title="Valentino Bags" class="img-responsive" data-src="image/cache/catalog/product-10-270x270.png" src="#" />
                                                 </a>
                                             </div>
                                             <div class="caption">
                                                 <div class="name">
-                                                    <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/product&amp;product_id=47">
+                                                    <a href="index.php?route=product/product&amp;product_id=47">
                                                         Valentino Bags
                                                     </a>
                                                 </div>
@@ -1182,14 +1182,14 @@
                                                 <div>
                                                     <div class="left col-sm-4">
                                                         <div class="quickview_image image">
-                                                            <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/product&amp;product_id=46"><img alt="Too Hot Handle" title="Too Hot Handle" class="img-responsive" src="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/product-55-270x270.png" /></a>
+                                                            <a href="index.php?route=product/product&amp;product_id=46"><img alt="Too Hot Handle" title="Too Hot Handle" class="img-responsive" src="image/cache/catalog/product-55-270x270.png" /></a>
                                                         </div>
                                                     </div>
                                                     <div class="right col-sm-8">
                                                         <h2>Too Hot Handle</h2>
                                                         <div class="inf">
                                                             <p class="quickview_manufacture manufacture manufacture">
-                                                                Brand: <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/manufacturer/info&amp;manufacturer_id=10">Miranda</a>
+                                                                Brand: <a href="index.php?route=product/manufacturer/info&amp;manufacturer_id=10">Miranda</a>
                                                             </p>
                                                             <p class="product_model model">Model: Product 19</p>
                                                             <div class="price">
@@ -1265,13 +1265,13 @@
                                                 <a class="quickview quickview-latest" data-rel="details" href="#quickview_latest_30040">
                                                     Quick View
                                                 </a>
-                                                <a class="lazy" style="padding-bottom: 100%" href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/product&amp;product_id=46">
-                                                    <img alt="Too Hot Handle" title="Too Hot Handle" class="img-responsive" data-src="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/product-55-270x270.png" src="#" />
+                                                <a class="lazy" style="padding-bottom: 100%" href="index.php?route=product/product&amp;product_id=46">
+                                                    <img alt="Too Hot Handle" title="Too Hot Handle" class="img-responsive" data-src="image/cache/catalog/product-55-270x270.png" src="#" />
                                                 </a>
                                             </div>
                                             <div class="caption">
                                                 <div class="name">
-                                                    <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/product&amp;product_id=46">
+                                                    <a href="index.php?route=product/product&amp;product_id=46">
                                                         Too Hot Handle
                                                     </a>
                                                 </div>
@@ -1384,14 +1384,14 @@
                                                 <div>
                                                     <div class="left col-sm-4">
                                                         <div class="quickview_image image">
-                                                            <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/product&amp;product_id=45"><img alt="Sofia" title="Sofia" class="img-responsive" src="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/product-37-270x270.png" /></a>
+                                                            <a href="index.php?route=product/product&amp;product_id=45"><img alt="Sofia" title="Sofia" class="img-responsive" src="image/cache/catalog/product-37-270x270.png" /></a>
                                                         </div>
                                                     </div>
                                                     <div class="right col-sm-8">
                                                         <h2>Sofia</h2>
                                                         <div class="inf">
                                                             <p class="quickview_manufacture manufacture manufacture">
-                                                                Brand: <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/manufacturer/info&amp;manufacturer_id=8">Versace</a>
+                                                                Brand: <a href="index.php?route=product/manufacturer/info&amp;manufacturer_id=8">Versace</a>
                                                             </p>
                                                             <p class="product_model model">Model: Product 18</p>
                                                             <div class="price">
@@ -1468,13 +1468,13 @@
                                                 <a class="quickview quickview-latest" data-rel="details" href="#quickview_latest_30050">
                                                     Quick View
                                                 </a>
-                                                <a class="lazy" style="padding-bottom: 100%" href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/product&amp;product_id=45">
-                                                    <img alt="Sofia" title="Sofia" class="img-responsive" data-src="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/product-37-270x270.png" src="#" />
+                                                <a class="lazy" style="padding-bottom: 100%" href="index.php?route=product/product&amp;product_id=45">
+                                                    <img alt="Sofia" title="Sofia" class="img-responsive" data-src="image/cache/catalog/product-37-270x270.png" src="#" />
                                                 </a>
                                             </div>
                                             <div class="caption">
                                                 <div class="name">
-                                                    <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/product&amp;product_id=45">
+                                                    <a href="index.php?route=product/product&amp;product_id=45">
                                                         Sofia
                                                     </a>
                                                 </div>
@@ -1567,14 +1567,14 @@
                                                 <div>
                                                     <div class="left col-sm-4">
                                                         <div class="quickview_image image">
-                                                            <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/product&amp;product_id=44"><img alt="Small Satchel" title="Small Satchel" class="img-responsive" src="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/product-34-270x270.png" /></a>
+                                                            <a href="index.php?route=product/product&amp;product_id=44"><img alt="Small Satchel" title="Small Satchel" class="img-responsive" src="image/cache/catalog/product-34-270x270.png" /></a>
                                                         </div>
                                                     </div>
                                                     <div class="right col-sm-8">
                                                         <h2>Small Satchel</h2>
                                                         <div class="inf">
                                                             <p class="quickview_manufacture manufacture manufacture">
-                                                                Brand: <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/manufacturer/info&amp;manufacturer_id=8">Versace</a>
+                                                                Brand: <a href="index.php?route=product/manufacturer/info&amp;manufacturer_id=8">Versace</a>
                                                             </p>
                                                             <p class="product_model model">Model: Product 17</p>
                                                             <div class="price">
@@ -1636,13 +1636,13 @@
                                                 <a class="quickview quickview-latest" data-rel="details" href="#quickview_latest_30060">
                                                     Quick View
                                                 </a>
-                                                <a class="lazy" style="padding-bottom: 100%" href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/product&amp;product_id=44">
-                                                    <img alt="Small Satchel" title="Small Satchel" class="img-responsive" data-src="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/product-34-270x270.png" src="#" />
+                                                <a class="lazy" style="padding-bottom: 100%" href="index.php?route=product/product&amp;product_id=44">
+                                                    <img alt="Small Satchel" title="Small Satchel" class="img-responsive" data-src="image/cache/catalog/product-34-270x270.png" src="#" />
                                                 </a>
                                             </div>
                                             <div class="caption">
                                                 <div class="name">
-                                                    <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/product&amp;product_id=44">
+                                                    <a href="index.php?route=product/product&amp;product_id=44">
                                                         Small Satchel
                                                     </a>
                                                 </div>
@@ -1738,14 +1738,14 @@
                                                 <div>
                                                     <div class="left col-sm-4">
                                                         <div class="quickview_image image">
-                                                            <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/product&amp;product_id=43"><img alt="Salvatore" title="Salvatore" class="img-responsive" src="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/product-31-270x270.png" /></a>
+                                                            <a href="index.php?route=product/product&amp;product_id=43"><img alt="Salvatore" title="Salvatore" class="img-responsive" src="image/cache/catalog/product-31-270x270.png" /></a>
                                                         </div>
                                                     </div>
                                                     <div class="right col-sm-8">
                                                         <h2>Salvatore</h2>
                                                         <div class="inf">
                                                             <p class="quickview_manufacture manufacture manufacture">
-                                                                Brand: <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/manufacturer/info&amp;manufacturer_id=8">Versace</a>
+                                                                Brand: <a href="index.php?route=product/manufacturer/info&amp;manufacturer_id=8">Versace</a>
                                                             </p>
                                                             <p class="product_model model">Model: Product 16</p>
                                                             <div class="price">
@@ -1822,13 +1822,13 @@
                                                 <a class="quickview quickview-latest" data-rel="details" href="#quickview_latest_30070">
                                                     Quick View
                                                 </a>
-                                                <a class="lazy" style="padding-bottom: 100%" href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/product&amp;product_id=43">
-                                                    <img alt="Salvatore" title="Salvatore" class="img-responsive" data-src="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/product-31-270x270.png" src="#" />
+                                                <a class="lazy" style="padding-bottom: 100%" href="index.php?route=product/product&amp;product_id=43">
+                                                    <img alt="Salvatore" title="Salvatore" class="img-responsive" data-src="image/cache/catalog/product-31-270x270.png" src="#" />
                                                 </a>
                                             </div>
                                             <div class="caption">
                                                 <div class="name">
-                                                    <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/product&amp;product_id=43">
+                                                    <a href="index.php?route=product/product&amp;product_id=43">
                                                         Salvatore
                                                     </a>
                                                 </div>
@@ -1986,14 +1986,14 @@
                                                 <div>
                                                     <div class="left col-sm-4">
                                                         <div class="quickview_image image">
-                                                            <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/product&amp;product_id=42"><img alt="Padlock Shopper" title="Padlock Shopper" class="img-responsive" src="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/product-22-270x270.png" /></a>
+                                                            <a href="index.php?route=product/product&amp;product_id=42"><img alt="Padlock Shopper" title="Padlock Shopper" class="img-responsive" src="image/cache/catalog/product-22-270x270.png" /></a>
                                                         </div>
                                                     </div>
                                                     <div class="right col-sm-8">
                                                         <h2>Padlock Shopper</h2>
                                                         <div class="inf">
                                                             <p class="quickview_manufacture manufacture manufacture">
-                                                                Brand: <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/manufacturer/info&amp;manufacturer_id=8">Versace</a>
+                                                                Brand: <a href="index.php?route=product/manufacturer/info&amp;manufacturer_id=8">Versace</a>
                                                             </p>
                                                             <p class="product_model model">Model: Product 15</p>
                                                             <div class="price">
@@ -2070,13 +2070,13 @@
                                                 <a class="quickview quickview-latest" data-rel="details" href="#quickview_latest_30080">
                                                     Quick View
                                                 </a>
-                                                <a class="lazy" style="padding-bottom: 100%" href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/product&amp;product_id=42">
-                                                    <img alt="Padlock Shopper" title="Padlock Shopper" class="img-responsive" data-src="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/product-22-270x270.png" src="#" />
+                                                <a class="lazy" style="padding-bottom: 100%" href="index.php?route=product/product&amp;product_id=42">
+                                                    <img alt="Padlock Shopper" title="Padlock Shopper" class="img-responsive" data-src="image/cache/catalog/product-22-270x270.png" src="#" />
                                                 </a>
                                             </div>
                                             <div class="caption">
                                                 <div class="name">
-                                                    <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/product&amp;product_id=42">
+                                                    <a href="index.php?route=product/product&amp;product_id=42">
                                                         Padlock Shopper
                                                     </a>
                                                 </div>
@@ -2132,7 +2132,7 @@
                                 </div>
                             </div>
                         </div><div id="parallax_0" class="parallax">
-                            <div data-source-url="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/parallax-1-1600x1228.jpg" class="parallax-1 ">
+                            <div data-source-url="image/cache/catalog/parallax-1-1600x1228.jpg" class="parallax-1 ">
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-sm-12">
@@ -2164,7 +2164,7 @@
                 <div id="about_block0" class="about_block">
                     <div class="about-1">
                         <div class="about-box">
-                            <img src="http://livedemo00.template-help.com/opencart_57682/image/cache/catalog/client_photo-584x427.png" alt="about-1" class="img-responsive" />
+                            <img src="image/cache/catalog/client_photo-584x427.png" alt="about-1" class="img-responsive" />
                             <div class="s-desc">
                                 <div class="under-block">
                                     <blockquote>
@@ -2311,18 +2311,18 @@
                             <h5>Information</h5>
                             <ul class="list-unstyled">
                                 <li>
-                                    <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=information/information&amp;information_id=4">About</a>
+                                    <a href="index.php?route=information/information&amp;information_id=4">About</a>
                                 </li>
                                 <li>
-                                    <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=information/information&amp;information_id=6">Delivery Information</a>
+                                    <a href="index.php?route=information/information&amp;information_id=6">Delivery Information</a>
                                 </li>
                                 <li>
-                                    <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=information/information&amp;information_id=3">Privacy Policy</a>
+                                    <a href="index.php?route=information/information&amp;information_id=3">Privacy Policy</a>
                                 </li>
                                 <li>
-                                    <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=information/information&amp;information_id=5">Terms &amp; Conditions</a>
+                                    <a href="index.php?route=information/information&amp;information_id=5">Terms &amp; Conditions</a>
                                 </li>
-                                <li><a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=simple_blog/article">Blog</a></li>
+                                <li><a href="index.php?route=simple_blog/article">Blog</a></li>
                             </ul>
                         </div>
                     </div>
@@ -2331,13 +2331,13 @@
                             <h5>Customer Service</h5>
                             <ul class="list-unstyled">
                                 <li>
-                                    <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=information/contact">Contact Us</a>
+                                    <a href="index.php?route=information/contact">Contact Us</a>
                                 </li>
                                 <li>
-                                    <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=account/return/add">Returns</a>
+                                    <a href="index.php?route=account/return/add">Returns</a>
                                 </li>
                                 <li>
-                                    <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=information/sitemap">Site Map</a>
+                                    <a href="index.php?route=information/sitemap">Site Map</a>
                                 </li>
                             </ul>
                         </div>
@@ -2347,16 +2347,16 @@
                             <h5>Extras</h5>
                             <ul class="list-unstyled">
                                 <li>
-                                    <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/manufacturer">Brands</a>
+                                    <a href="index.php?route=product/manufacturer">Brands</a>
                                 </li>
                                 <li>
-                                    <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=account/voucher">Gift Vouchers</a>
+                                    <a href="index.php?route=account/voucher">Gift Vouchers</a>
                                 </li>
                                 <li>
-                                    <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=affiliate/account">Affiliates</a>
+                                    <a href="index.php?route=affiliate/account">Affiliates</a>
                                 </li>
                                 <li>
-                                    <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=product/special">Specials</a>
+                                    <a href="index.php?route=product/special">Specials</a>
                                 </li>
                             </ul>
                         </div>
@@ -2366,16 +2366,16 @@
                             <h5>My Account</h5>
                             <ul class="list-unstyled">
                                 <li>
-                                    <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=account/account">My Account</a>
+                                    <a href="index.php?route=account/account">My Account</a>
                                 </li>
                                 <li>
-                                    <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=account/order">Order History</a>
+                                    <a href="index.php?route=account/order">Order History</a>
                                 </li>
                                 <li>
-                                    <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=account/wishlist">Wish List</a>
+                                    <a href="index.php?route=account/wishlist">Wish List</a>
                                 </li>
                                 <li>
-                                    <a href="http://livedemo00.template-help.com/opencart_57682/index.php?route=account/newsletter">Newsletter</a>
+                                    <a href="index.php?route=account/newsletter">Newsletter</a>
                                 </li>
                             </ul>
                         </div>
