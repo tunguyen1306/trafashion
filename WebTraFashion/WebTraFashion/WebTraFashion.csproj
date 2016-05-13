@@ -614,6 +614,7 @@
     <Content Include="Global.asax" />
     <Content Include="img\client_signature.png" />
     <Content Include="img\logo-footer.png" />
+    <Content Include="img\Logo.png" />
     <Content Include="img\menu-bg.jpg" />
     <Content Include="img\parallax-2.jpg" />
     <Content Include="img\prod_inf_img1.jpg" />
