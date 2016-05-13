@@ -29,11 +29,16 @@ namespace WebTraFashion.Controllers
 
             return View();
         }
-        public ActionResult Detail()
+        public ActionResult Detail(string id )
         {
-
-            return View();
+            var id_ = int.Parse(id.Split('-').Last());
+            var qr = from dataNew in db.tbl_products_tra
+                     where dataNew.status_products_tra == 1 && dataNew.id_products_tra == id_
+                     select dataNew;
+            return View(qr.ToList());
+           
         }
+      
         public ActionResult container()
         {
 

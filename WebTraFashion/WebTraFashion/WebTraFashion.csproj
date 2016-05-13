@@ -152,6 +152,7 @@
     <Compile Include="Models\tbl_slide_tra.cs">
       <DependentUpon>DataWeb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UrlFriendly.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

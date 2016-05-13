@@ -1,4 +1,6 @@
-﻿<div id="container">
+﻿@using System.Configuration;
+@using WebTraFashion.Models;
+<div id="container">
     <div class="container">
         <div class="row">
             <div id="content" class="col-sm-12">
@@ -150,16 +152,17 @@
                                             <div>
                                                 <div class="left col-sm-4">
                                                     <div class="quickview_image image">
-                                                        <a href="index.php?route=product/product&amp;product_id=49"><img alt="Vivienne Handbag" title="Vivienne Handbag" class="img-responsive" src="~/img/product-49-270x270.png" /></a>
+                                                        <a href="index.php?route=product/product&amp;product_id=49">
+                                                        <img alt="@item.name_products_tra" title="@item.name_products_tra" class="img-responsive" src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra" data-src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra" /></a>
                                                     </div>
                                                 </div>
                                                 <div class="right col-sm-8">
                                                     <h2>@item.name_products_tra</h2>
                                                     <div class="inf">
-                                                        <p class="product_model model">Model: SAM1</p>
+                                                        <p class="product_model model">Model: @item.code_products_tra</p>
                                                         <div class="price">
-                                                            <span class="price-new">@item.newprice_products_tra</span>
-                                                            <span class="price-old">@item.oldprice_products_tra</span>
+                                                            @*<span class="price-new">@item.oldprice_products_tra</span>
+                                                            <span class="price-old">@item.newprice_products_tra</span>*@
                                                         </div>
                                                     </div>
                                                     <div class="rating">
@@ -229,26 +232,22 @@
                                     <div class="aside-block">
                                         <div class="image">
                                             <a class="quickview quickview-latest" data-rel="details" href="#quickview_latest_30010">
-                                                Quick View
+                                                Xem nhanh
                                             </a>
-                                            <a class="lazy" style="padding-bottom: 100%" href="index.php?route=product/product&amp;product_id=49">
-                                                <img alt="Vivienne Handbag" title="Vivienne Handbag" class="img-responsive" data-src="~/img/product-49-270x270.png" src="#" />
+                                            <a class="lazy" style="padding-bottom: 100%" href="@Url.Action("Detail","Default",new { id=item.name_products_tra + "-" + item.id_products_tra })">
+                                                <img alt="@item.name_products_tra" title="@item.name_products_tra" class="img-responsive" data-src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra"  src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra" />
                                             </a>
                                         </div>
                                         <div class="caption">
                                             <div class="name">
-                                                <a href="index.php?route=product/product&amp;product_id=49">
+                                                <a href="@Url.Action("Detail","Default",new { id= item.name_products_tra + "-" + item.id_products_tra })">
                                                     @item.name_products_tra
                                                 </a>
                                             </div>
 
                                             <div class="price">
-                                                <span class="price-new">
-                                                    @item.newprice_products_tra
-                                                </span>
-                                                <span class="price-old">
-                                                   @item.oldprice_products_tra
-                                                </span>
+                                                <span class="price-new">@item.oldprice_products_tra</span>
+                                                <span class="price-old">@item.newprice_products_tra</span>
                                             </div>
                                         </div>
                                         <div class="cart-button">
