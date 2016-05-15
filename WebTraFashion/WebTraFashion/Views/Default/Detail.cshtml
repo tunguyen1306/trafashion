@@ -21,19 +21,11 @@
         
     
 @Html.Partial("Header")
-<div class="container">
-    <ul class="breadcrumb product-bread">
-        <li>
-            <a href="index.php?route=common/home">Home</a>
-        </li>
-        <li>
-            <a href="Versace">Versace Bag</a>
-        </li>
-    </ul>
-</div>
+
+
+@Html.Partial("Breadcrumb")
 @foreach (var item in Model.ToList())
 {
-
 
     <div class="product-bg">
         <div class="container">
@@ -43,7 +35,7 @@
 
                     <div id="default_gallery" class="product-gallery">
                         <div id="product-image" class="product-image">
-                            <div class="magnificent-wrap">
+                            <div class="magnificent-wrap hidden-xs">
                                 <div class="magnificent" data-magnificent="product-image">
                                     <div class="polaroid">
                                         <div class="inner">
@@ -174,77 +166,7 @@
                     </div>
                     <div id="product">
 
-                        @*<div class="product-options form-horizontal">
-                            <h3>Available Options</h3>
-                            <div class="form-group required">
-                                <label class="control-label col-sm-12">Color</label>
-                                <div class="col-sm-12">
-                                    <div id="input-option35">
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="option[35]" value="94" />
-                                                black (+$10.00)
-                                            </label>
-                                        </div>
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="option[35]" value="95" />
-                                                white (+$20.00)
-                                            </label>
-                                        </div>
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="option[35]" value="96" />
-                                                red (+$15.00)
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group required">
-                                <label class="control-label col-sm-12" for="input-option34">Size</label>
-                                <div class="col-sm-12">
-                                    <select name="option[34]" id="input-option34" class="form-control">
-                                        <option value="">--- Please Select ---</option>
-                                        <option value="91">
-                                            Small (+$20.00)
-                                        </option>
-                                        <option value="92">
-                                            Medium (+$15.00)
-                                        </option>
-                                        <option value="93">
-                                            Large (+$10.00)
-                                        </option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>*@
 
-                        <div class="product-reccurings">
-                        </div>
-
-                        @*<div class="form-group form-horizontal add-to-cart-form">
-                            <div class="form-group">
-                                <div class="col-sm-12 quantity">
-                                    <label class="control-label" for="input-quantity">Qty</label>
-                                    <a class="counter counter-minus material-design-horizontal39" href='#'></a>
-                                    <input type="text" name="quantity" value="1" size="2" id="input-quantity" class="form-control" />
-                                    <input type="hidden" name="product_id" value="48" />
-                                    <a class="counter counter-plus material-design-add186" href='#'></a>
-                                    <button type="button" id="button-cart" data-loading-text="Loading..." class="product-btn-add"><i class="mat-icons material-icons-shopping_basket"></i>Add to Cart</button>
-                                </div>
-                            </div>
-                            <ul class="product-buttons">
-                                <li>
-                                    <button class="product-btn" data-toggle="tooltip" title="Add to Wish List" onclick="wishlist.add('48');"><i class="mat-icons material-icons-favorite_border"></i></button>
-                                </li>
-                                <li>
-                                    <button type="button" class="product-btn" data-toggle="tooltip" title="Compare this Product" onclick="compare.add('48');">
-                                        <i class="mat-icons material-icons-sort"></i>
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>*@
                         <div class="product-share">
 
                             <div class="addthis_sharing_toolbox"></div>
@@ -257,25 +179,16 @@
             </div>
         </div>
     </div>
+
+
     <div class="product-info-section">
         <div class="product-info">
             <div class="info_1">
                 <div class="info_cnt">
-                    <h3 class="mod1">Description</h3>
+                    <h3 class="mod1">Mô tả</h3>
                     <div class="description_paragraph">
-                        <p>
-                            <b>
-                                Welcome to the world of fashion.
-                            </b> We are proud to present you the largest choice of handbags on the web.
-                            Here you can find a great number of different goods. Our store offers stylish, premium quality handbags at the lowest possible prices.
-                        </p>
-                        <p>
-                            <b>
-                                We have a perfect reputation and great experience
-                            </b> in this sphere and that is why our products are so popular and
-                            have many faithful fans all over the country. What we sell are not just simple handbags; the products of our shop are the
-                            part of a style because nowadays handbag is the essential detail of the women’s wardrobe. We know how important it is for the
-                            modern women to have several interesting and trendy bags.
+                        <p style="white-space:pre-line;">
+                            @item.des_products_tra
                         </p>
                     </div>
                 </div>

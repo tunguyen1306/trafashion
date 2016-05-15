@@ -1,6 +1,6 @@
 ﻿@using System.Configuration
 <div class="related-products product-section">
-    <h3 class="product-section_title mod1">Related Products</h3>
+    <h3 class="product-section_title mod1">Sản phẩm liên quan</h3>
     <div class="box-carousel">
 
         @foreach (var item in Model)
@@ -72,7 +72,7 @@
                         <div>
                             <div class="left col-sm-4">
                                 <div class="quickview_image image">
-                                    <a href="index.php?route=product/product&amp;product_id=49">
+                                    <a href="@Url.Action("Detail","Default",new { id=item.name_products_tra + "-" + item.id_products_tra })">
                                         <img alt="@item.name_products_tra" title="@item.name_products_tra" class="img-responsive" src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra" data-src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra" />
                                     </a>
                                 </div>
@@ -130,19 +130,8 @@
                             </div>
                             <div class="col-sm-12">
                                 <div class="quickview_description description">
-                                    <p>
-                                        <b>
-                                            Welcome to the world of fashion.
-                                        </b> We are proud to present you the largest choice of handbags on the web.
-                                        Here you can find a great number of different goods. Our store offers stylish, premium quality handbags at the lowest possible prices.
-                                    </p>
-                                    <p>
-                                        <b>
-                                            We have a perfect reputation and great experience
-                                        </b> in this sphere and that is why our products are so popular and
-                                        have many faithful fans all over the country. What we sell are not just simple handbags; the products of our shop are the
-                                        part of a style because nowadays handbag is the essential detail of the women’s wardrobe. We know how important it is for the
-                                        modern women to have several interesting and trendy bags.
+                                    <p style="white-space:pre-line;">
+                                        @item.des_products_tra
                                     </p>
                                 </div>
                             </div>

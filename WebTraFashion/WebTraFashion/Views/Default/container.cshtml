@@ -43,7 +43,7 @@
                     </div>
                     <div class="fleft	banner-2">
                         <div class="banner-box">
-                            <a class="clearfix" href="@Url.Action("ListProducts","Default",new { id="sale"+"-"+5})">
+                            <a class="clearfix" href="@Url.Action("ListProducts","Default",new { id="Phụ kiện"+"-"+4})">
                                 <img src="~/img/banner-2-780x390.jpg" alt="banner-2" class="img-responsive" />
                                 <div class="s-desc">
                                     <h2 class="mod1">CHẤT LƯỢNG TUYỆT VỜI</h2>
@@ -55,7 +55,7 @@
                     </div>
                     <div class="fleft	banner-3">
                         <div class="banner-box">
-                            <a class="clearfix" href="@Url.Action("ListProducts","Default",new { id="sale"+"-"+5})">
+                            <a class="clearfix" href="@Url.Action("ListProducts","Default",new { id="Vali"+"-"+3})">
                                 <img src="~/img/banner-3-780x390.jpg" alt="banner-3" class="img-responsive" />
                                 <div class="s-desc"><h2 class="mod2">new <span>arrivals</span></h2></div>
                             </a>
@@ -63,7 +63,7 @@
                     </div>
                     <div class="fleft	banner-4">
                         <div class="banner-box">
-                            <a class="clearfix" href="@Url.Action("ListProducts","Default",new { id="sale"+"-"+5})">
+                            <a class="clearfix" href="@Url.Action("ListProducts","Default",new { id="Ví"+"-"+1})">
                                 <img src="~/img/banner-4-780x390.jpg" alt="banner-4" class="img-responsive" />
                                 <div class="s-desc">
                                     <h2 class="mod1">GIÁ CẢ HỢP LÝ</h2>
@@ -153,7 +153,7 @@
                                             <div>
                                                 <div class="left col-sm-4">
                                                     <div class="quickview_image image">
-                                                        <a href="index.php?route=product/product&amp;product_id=49">
+                                                        <a href="@Url.Action("Detail","Default",new { id=item.name_products_tra + "-" + item.id_products_tra })">
                                                         <img alt="@item.name_products_tra" title="@item.name_products_tra" class="img-responsive" src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra" data-src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra" /></a>
                                                     </div>
                                                 </div>
@@ -210,19 +210,8 @@
                                                 </div>
                                                 <div class="col-sm-12">
                                                     <div class="quickview_description description">
-                                                        <p>
-                                                            <b>
-                                                                Welcome to the world of fashion.
-                                                            </b> We are proud to present you the largest choice of handbags on the web.
-                                                            Here you can find a great number of different goods. Our store offers stylish, premium quality handbags at the lowest possible prices.
-                                                        </p>
-                                                        <p>
-                                                            <b>
-                                                                We have a perfect reputation and great experience
-                                                            </b> in this sphere and that is why our products are so popular and
-                                                            have many faithful fans all over the country. What we sell are not just simple handbags; the products of our shop are the
-                                                            part of a style because nowadays handbag is the essential detail of the women’s wardrobe. We know how important it is for the
-                                                            modern women to have several interesting and trendy bags.
+                                                        <p style="white-space:pre-line;">
+                                                            @item.des_products_tra
                                                         </p>
                                                     </div>
                                                 </div>
