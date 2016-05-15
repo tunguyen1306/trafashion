@@ -49,6 +49,7 @@
     //    }
     //});
 });
+
 jQuery(document).ready(function () {
     jQuery("#parallax_0>div").cherryFixedParallax({
         invert: false,

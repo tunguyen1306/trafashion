@@ -8,7 +8,7 @@
 @{
 
     TrafashionEntities db = new TrafashionEntities();
-    var querySlide = from data in db.tbl_slide_tra where data.status_slide_tra==1 orderby data.id_slide_tra descending select data ;
+    var querySlide = from data in db.tbl_slide_tra where data.status_slide_tra == 1 orderby data.id_slide_tra descending select data;
     var queryProducts = from data in db.tbl_products_tra where data.status_products_tra == 1 orderby data.id_products_tra descending select data;
 
 }
@@ -21,6 +21,7 @@
 @Html.Partial("Slider", querySlide.ToList())
 
 @Html.Partial("container", queryProducts.ToList())
+
 <div class="content_bottom">
     <div class="container">
         <div id="about_block0" class="about_block">
@@ -72,19 +73,18 @@
     </div>
     <div class="parallax-bg" style="background: url('/img/parallax-2.jpg');">
         <div id="tm-newsletter" class="box newsletter">
-            <div class="box-heading"><h3>Newsletter</h3></div>
+            <div class="box-heading"><h2 style="color:#ffffff;">Đăng ký nhận tin</h2></div>
             <div class="box-content">
                 <p class="newsletter-description">
-                    Subscribe to the Handbags Store mailing list to receive updates on
-                    new arrivals, special offers and other discount information.
-                </p> <form method="post" enctype="multipart/form-data" id="tm-newsletter-form">
+                    Đăng ký Email để nhận thông tin sản phẩm mới nhất và thông tin khuyến mãi.
+                </p> <form method="post" action="@Url.Action("RegisMail","Default")" enctype="multipart/form-data" id="tm-newsletter-form">
                     <div class="tm-login-form">
                         <label class="control-label" for="input-tm-newsletter-email"></label>
-                        <input type="text" name="tm_newsletter_email" value="" placeholder="Enter your e-mail" id="input-tm-newsletter-email" class="form-control" />
+                        <input type="text" name="email" value="" placeholder="Nhập Email của bạn" id="input-tm-newsletter-email" class="form-control" />
                     </div>
                     <span id="tm-newsletter_error" class="newsletter-error"></span>
                     <span id="tm-newsletter_success" class="newsletter-success"></span>
-                    <button type="submit" id="tm-newsletter-button" class="dropdown-btn"><i class="material-design-drafts"></i>Subscribe</button>
+                    <button type="submit" id="tm-newsletter-button"  class="dropdown-btn"><i class="material-design-drafts"></i>Đăng ký</button>
                 </form>
             </div>
         </div>
@@ -93,8 +93,10 @@
 
     </script>
 </div>
+
+
 <footer>
-   
+
     <div class="container">
         <div class="row">
             <div class="col-xs-6 col-sm-3 col-md-3">
@@ -193,7 +195,7 @@
                 </div>
                 <div>
                     <address class="material-design-phone370">
-                        <a href="callto:800-2345-6789">800-2345-6789</a>
+                        <a href="callto:0938715689">0938-715-689</a>
                     </address>
                 </div>
                 <div>
@@ -221,5 +223,5 @@
                 </div>
             </div>
         </div>
-        </div>
+    </div>
 </footer>

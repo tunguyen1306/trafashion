@@ -3,6 +3,23 @@
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_LayoutMaster.cshtml";
 }
+@using System.Configuration
+@using WebTraFashion.Models
+@model IEnumerable<WebTraFashion.Models.tbl_products_tra>
+@using System.Web.Mvc;
+@{
+
+    TrafashionEntities db = new TrafashionEntities();
+    var queryProduct = from data in db.tbl_products_tra where data.status_products_tra == 1 orderby data.id_products_tra descending select data;
+   
+
+}
+
+
+
+
+        
+    
 @Html.Partial("Header")
 <div class="container">
     <ul class="breadcrumb product-bread">
@@ -14,294 +31,304 @@
         </li>
     </ul>
 </div>
-<div class="product-bg">
-    <div class="container">
-        <div class="row product-content-columns">
+@foreach (var item in Model.ToList())
+{
 
-            <div class="col-sm-5 col-lg-7 product_page-left">
 
-                <div id="default_gallery" class="product-gallery">
-                    <div id="product-image" class="product-image">
-                        <div class="magnificent-wrap">
-                            <div class="magnificent" data-magnificent="product-image">
-                                <div class="polaroid">
+    <div class="product-bg">
+        <div class="container">
+            <div class="row product-content-columns">
+
+                <div class="col-sm-5 col-lg-7 product_page-left">
+
+                    <div id="default_gallery" class="product-gallery">
+                        <div id="product-image" class="product-image">
+                            <div class="magnificent-wrap">
+                                <div class="magnificent" data-magnificent="product-image">
+                                    <div class="polaroid">
+                                        <div class="inner">
+                                            <img src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra"
+                                                 alt="@item.name_products_tra" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="magnificent-viewport-wrap">
+                                <div data-magnificent-viewport="product-image">
                                     <div class="inner">
-                                        <img src="img/product-19-800x800.png" alt="Versace Bag" />
+                                        <img src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra" alt="Versace Bag" />
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="magnificent-viewport-wrap">
-                            <div data-magnificent-viewport="product-image">
-                                <div class="inner">
-                                    <img src="img/product-19-800x800.png" alt="Versace Bag" />
-                                </div>
-                            </div>
-                        </div>
-                        <script class="source">
-                                    $(function () {
-                                        $('#product-image [data-magnificent]').magnificent();
-                                    });
-                        </script>
-                    </div>
-                    <div class="image-thumb">
-                        <ul id="image-additional" class="image-additional">
-                            <li>
-                                <a href="#" data-image="img/product-19-800x800.png">
-                                    <img src="img/product-19-800x800.png" alt="" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" data-image="img/product-19-800x800.png">
-                                    <img src="img/product-19-88x88.png" alt="" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" data-image="img/product-20-800x800.png">
-                                    <img src="img/product-20-88x88.png" alt="" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" data-image="img/product-21-800x800.png">
-                                    <img src="img/product-21-88x88.png" alt="" />
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <script type="text/javascript">
-                            jQuery(document).ready(function () {
-                                var myPhotoSwipe = $("#gallery a").photoSwipe({
-                                    enableMouseWheel: false,
-                                    enableKeyboard: false,
-                                    captionAndToolbarAutoHideDelay: 0
+                            <script class="source">
+                                $(function () {
+                                    $('#product-image [data-magnificent]').magnificent();
                                 });
-                            });
-                </script>
-                <div id="full_gallery">
-                    <ul id="gallery">
-                        <li>
-                            <a href="img/product-19-800x800.png" data-something="something" data-another-thing="anotherthing"><img src="img/product-19-800x800.png" title="Versace Bag" alt="Versace Bag" /></a>
-                        </li>
-                        <li>
-                            <a href="img/product-19-800x800.png" data-something="something1" data-another-thing="anotherthing1"><img src="img/product-19-800x800.png" alt="Versace Bag" /></a>
-                        </li>
-                        <li>
-                            <a href="img/product-20-800x800.png" data-something="something1" data-another-thing="anotherthing1"><img src="img/product-20-800x800.png" alt="Versace Bag" /></a>
-                        </li>
-                        <li>
-                            <a href="img/product-21-800x800.png" data-something="something1" data-another-thing="anotherthing1"><img src="img/product-21-800x800.png" alt="Versace Bag" /></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="col-sm-7 col-lg-5 product_page-right">
-                <div class="general_info product-info">
-                    <h2 class="product-title">Versace Bag</h2>
-                    <div class="separator1"></div>
-                    <div class="price-section">
-                        <span class="price-new"></span>
-                        <span class="price-new">$100.00</span>
-                        <div class="reward-block">
+                            </script>
+                        </div>
+                        <div class="image-thumb">
+                            <ul id="image-additional" class="image-additional">
+                                <li>
+                                    <a href="#" data-image="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra">
+                                        <img src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra" alt="" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" data-image="@ConfigurationManager.AppSettings["domain"]@item.img1_products_tra.ToString().Split('_')[0]/@item.img1_products_tra">
+                                        <img src="@ConfigurationManager.AppSettings["domain"]@item.img1_products_tra.ToString().Split('_')[0]/@item.img1_products_tra" alt="" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" data-image="@ConfigurationManager.AppSettings["domain"]@item.img2_products_tra.ToString().Split('_')[0]/@item.img2_products_tra">
+                                        <img src="@ConfigurationManager.AppSettings["domain"]@item.img2_products_tra.ToString().Split('_')[0]/@item.img2_products_tra" alt="" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" data-image="@ConfigurationManager.AppSettings["domain"]@item.img3_products_tra.ToString().Split('_')[0]/@item.img3_products_tra">
+                                        <img src="@ConfigurationManager.AppSettings["domain"]@item.img3_products_tra.ToString().Split('_')[0]/@item.img3_products_tra" alt="" />
+                                    </a>
+                                </li>
+                          
+                            </ul>
                         </div>
                     </div>
 
-                    <div class="rating-section product-rating-status">
-                        <div class="rating">
-                            <span class="fa-stack">
-                                <i class="material-icons-star   fa-stack-1x"></i>
-                                <i class="material-icons-star star  fa-stack-1x"></i>
-                            </span>
-                            <span class="fa-stack">
-                                <i class="material-icons-star   fa-stack-1x"></i>
-                                <i class="material-icons-star star  fa-stack-1x"></i>
-                            </span>
-                            <span class="fa-stack">
-                                <i class="material-icons-star   fa-stack-1x"></i>
-                                <i class="material-icons-star star  fa-stack-1x"></i>
-                            </span>
-                            <span class="fa-stack">
-                                <i class="material-icons-star   fa-stack-1x"></i>
-                                <i class="material-icons-star star  fa-stack-1x"></i>
-                            </span>
-                            <span class="fa-stack">
-                                <i class="material-icons-star   fa-stack-1x"></i>
-                                <i class="material-icons-star star  fa-stack-1x"></i>
-                            </span>
-                            <span class="review-link review-link-show">
-                                <a href="#">1 reviews</a>
-                            </span>
-                            <span class="review-link review-link-write">
-                                <a href="#">Write a review</a>
-                            </span>
-                        </div>
-                    </div>
-                    <ul class="list-unstyled product-section">
-                        <li>
-                            <strong>Brand:</strong>
-                            <a href="apple">Versace</a>
-                        </li>
-                        <li><strong>Product Code:</strong> <span>product 20</span></li>
-                        <li>
-                            <strong>Availability: </strong><span class="stock">In Stock</span>
-                        </li>
-                    </ul>
-                </div>
-                <div id="product">
-
-                    <div class="product-options form-horizontal">
-                        <h3>Available Options</h3>
-                        <div class="form-group required">
-                            <label class="control-label col-sm-12">Color</label>
-                            <div class="col-sm-12">
-                                <div id="input-option35">
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" name="option[35]" value="94" />
-                                            black (+$10.00)
-                                        </label>
-                                    </div>
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" name="option[35]" value="95" />
-                                            white (+$20.00)
-                                        </label>
-                                    </div>
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" name="option[35]" value="96" />
-                                            red (+$15.00)
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group required">
-                            <label class="control-label col-sm-12" for="input-option34">Size</label>
-                            <div class="col-sm-12">
-                                <select name="option[34]" id="input-option34" class="form-control">
-                                    <option value="">--- Please Select ---</option>
-                                    <option value="91">
-                                        Small (+$20.00)
-                                    </option>
-                                    <option value="92">
-                                        Medium (+$15.00)
-                                    </option>
-                                    <option value="93">
-                                        Large (+$10.00)
-                                    </option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-reccurings">
-                    </div>
-
-                    <div class="form-group form-horizontal add-to-cart-form">
-                        <div class="form-group">
-                            <div class="col-sm-12 quantity">
-                                <label class="control-label" for="input-quantity">Qty</label>
-                                <a class="counter counter-minus material-design-horizontal39" href='#'></a>
-                                <input type="text" name="quantity" value="1" size="2" id="input-quantity" class="form-control" />
-                                <input type="hidden" name="product_id" value="48" />
-                                <a class="counter counter-plus material-design-add186" href='#'></a>
-                                <button type="button" id="button-cart" data-loading-text="Loading..." class="product-btn-add"><i class="mat-icons material-icons-shopping_basket"></i>Add to Cart</button>
-                            </div>
-                        </div>
-                        <ul class="product-buttons">
+                    <div id="full_gallery">
+                        <ul id="gallery">
                             <li>
-                                <button class="product-btn" data-toggle="tooltip" title="Add to Wish List" onclick="wishlist.add('48');"><i class="mat-icons material-icons-favorite_border"></i></button>
+                                <a href="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra" data-something="something" data-another-thing="anotherthing">
+                                    <img src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra" title="Versace Bag" alt="Versace Bag" />
+                                </a>
                             </li>
                             <li>
-                                <button type="button" class="product-btn" data-toggle="tooltip" title="Compare this Product" onclick="compare.add('48');">
-                                    <i class="mat-icons material-icons-sort"></i>
-                                </button>
+                                <a href="@ConfigurationManager.AppSettings["domain"]@item.img1_products_tra.ToString().Split('_')[0]/@item.img1_products_tra" data-something="something1" data-another-thing="anotherthing1">
+                                    <img src="@ConfigurationManager.AppSettings["domain"]@item.img1_products_tra.ToString().Split('_')[0]/@item.img1_products_tra" alt="Versace Bag" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@ConfigurationManager.AppSettings["domain"]@item.img2_products_tra.ToString().Split('_')[0]/@item.img2_products_tra" data-something="something1" data-another-thing="anotherthing1">
+                                    <img src="@ConfigurationManager.AppSettings["domain"]@item.img2_products_tra.ToString().Split('_')[0]/@item.img2_products_tra" alt="Versace Bag" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@ConfigurationManager.AppSettings["domain"]@item.img3_products_tra.ToString().Split('_')[0]/@item.img3_products_tra" data-something="something1" data-another-thing="anotherthing1">
+                                    <img src="@ConfigurationManager.AppSettings["domain"]@item.img3_products_tra.ToString().Split('_')[0]/@item.img3_products_tra" alt="Versace Bag" />
+                                </a>
+                            </li>
+                  
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-sm-7 col-lg-5 product_page-right">
+                    <div class="general_info product-info">
+                        <h2 class="product-title">@item.name_products_tra</h2>
+                        <div class="separator1"></div>
+                        <div class="price-section">
+                            <span class="price-new"></span>
+                            <span class="price-new">@item.newprice_products_tra</span>
+                            <div class="reward-block">
+                            </div>
+                        </div>
+
+                        <div class="rating-section product-rating-status">
+                            <div class="rating">
+                                <span class="fa-stack">
+                                    <i class="material-icons-star   fa-stack-1x"></i>
+                                    <i class="material-icons-star star  fa-stack-1x"></i>
+                                </span>
+                                <span class="fa-stack">
+                                    <i class="material-icons-star   fa-stack-1x"></i>
+                                    <i class="material-icons-star star  fa-stack-1x"></i>
+                                </span>
+                                <span class="fa-stack">
+                                    <i class="material-icons-star   fa-stack-1x"></i>
+                                    <i class="material-icons-star star  fa-stack-1x"></i>
+                                </span>
+                                <span class="fa-stack">
+                                    <i class="material-icons-star   fa-stack-1x"></i>
+                                    <i class="material-icons-star star  fa-stack-1x"></i>
+                                </span>
+                                <span class="fa-stack">
+                                    <i class="material-icons-star   fa-stack-1x"></i>
+                                    <i class="material-icons-star star  fa-stack-1x"></i>
+                                </span>
+                                <span class="review-link review-link-show">
+                                    <a href="#">1 reviews</a>
+                                </span>
+                                <span class="review-link review-link-write">
+                                    <a href="#">Write a review</a>
+                                </span>
+                            </div>
+                        </div>
+                        <ul class="list-unstyled product-section">
+                            <li>
+                                <strong>Brand:</strong>
+                                <a href="apple">Versace</a>
+                            </li>
+                            <li><strong>Product Code:</strong> <span>@item.code_products_tra</span></li>
+                            <li>
+                                <strong>Availability: </strong><span class="stock">In Stock</span>
                             </li>
                         </ul>
                     </div>
-                    <div class="product-share">
+                    <div id="product">
 
-                        <div class="addthis_sharing_toolbox"></div>
+                        @*<div class="product-options form-horizontal">
+                            <h3>Available Options</h3>
+                            <div class="form-group required">
+                                <label class="control-label col-sm-12">Color</label>
+                                <div class="col-sm-12">
+                                    <div id="input-option35">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="option[35]" value="94" />
+                                                black (+$10.00)
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="option[35]" value="95" />
+                                                white (+$20.00)
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="option[35]" value="96" />
+                                                red (+$15.00)
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group required">
+                                <label class="control-label col-sm-12" for="input-option34">Size</label>
+                                <div class="col-sm-12">
+                                    <select name="option[34]" id="input-option34" class="form-control">
+                                        <option value="">--- Please Select ---</option>
+                                        <option value="91">
+                                            Small (+$20.00)
+                                        </option>
+                                        <option value="92">
+                                            Medium (+$15.00)
+                                        </option>
+                                        <option value="93">
+                                            Large (+$10.00)
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>*@
 
-                        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55e053ac02ebd38e" async="async"></script>
+                        <div class="product-reccurings">
+                        </div>
 
+                        @*<div class="form-group form-horizontal add-to-cart-form">
+                            <div class="form-group">
+                                <div class="col-sm-12 quantity">
+                                    <label class="control-label" for="input-quantity">Qty</label>
+                                    <a class="counter counter-minus material-design-horizontal39" href='#'></a>
+                                    <input type="text" name="quantity" value="1" size="2" id="input-quantity" class="form-control" />
+                                    <input type="hidden" name="product_id" value="48" />
+                                    <a class="counter counter-plus material-design-add186" href='#'></a>
+                                    <button type="button" id="button-cart" data-loading-text="Loading..." class="product-btn-add"><i class="mat-icons material-icons-shopping_basket"></i>Add to Cart</button>
+                                </div>
+                            </div>
+                            <ul class="product-buttons">
+                                <li>
+                                    <button class="product-btn" data-toggle="tooltip" title="Add to Wish List" onclick="wishlist.add('48');"><i class="mat-icons material-icons-favorite_border"></i></button>
+                                </li>
+                                <li>
+                                    <button type="button" class="product-btn" data-toggle="tooltip" title="Compare this Product" onclick="compare.add('48');">
+                                        <i class="mat-icons material-icons-sort"></i>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>*@
+                        <div class="product-share">
+
+                            <div class="addthis_sharing_toolbox"></div>
+
+                            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55e053ac02ebd38e" async="async"></script>
+
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="product-info-section">
-    <div class="product-info">
-        <div class="info_1">
-            <div class="info_cnt">
-                <h3 class="mod1">Description</h3>
-                <div class="description_paragraph">
-                    <p>
-                        <b>
-                            Welcome to the world of fashion.
-                        </b> We are proud to present you the largest choice of handbags on the web.
-                        Here you can find a great number of different goods. Our store offers stylish, premium quality handbags at the lowest possible prices.
-                    </p>
-                    <p>
-                        <b>
-                            We have a perfect reputation and great experience
-                        </b> in this sphere and that is why our products are so popular and
-                        have many faithful fans all over the country. What we sell are not just simple handbags; the products of our shop are the
-                        part of a style because nowadays handbag is the essential detail of the women’s wardrobe. We know how important it is for the
-                        modern women to have several interesting and trendy bags.
-                    </p>
+    <div class="product-info-section">
+        <div class="product-info">
+            <div class="info_1">
+                <div class="info_cnt">
+                    <h3 class="mod1">Description</h3>
+                    <div class="description_paragraph">
+                        <p>
+                            <b>
+                                Welcome to the world of fashion.
+                            </b> We are proud to present you the largest choice of handbags on the web.
+                            Here you can find a great number of different goods. Our store offers stylish, premium quality handbags at the lowest possible prices.
+                        </p>
+                        <p>
+                            <b>
+                                We have a perfect reputation and great experience
+                            </b> in this sphere and that is why our products are so popular and
+                            have many faithful fans all over the country. What we sell are not just simple handbags; the products of our shop are the
+                            part of a style because nowadays handbag is the essential detail of the women’s wardrobe. We know how important it is for the
+                            modern women to have several interesting and trendy bags.
+                        </p>
+                    </div>
+                </div>
+                <img src="~/img/prod_inf_img1.jpg" alt="">
+            </div>
+            <div class="info_2">
+                <img src="~/img/prod_inf_img2.jpg" alt="">
+                <div class="info_cnt">
+                    <h3 class="mod1">Specification</h3>
+                    <table class="table table-bordered">
+                        <ul>
+                            <li>
+                                <span>Soft suede leather stash clutch in Midnight Suede</span>
+                            </li>
+                            <li>
+                                <span>Casual, medium size</span>
+                            </li>
+                            <li>
+                                <span>100% Milled leather</span>
+                            </li>
+                            <li>
+                                <span>Round sides</span>
+                            </li>
+                            <li>
+                                <span>Top zipper closure</span>
+                            </li>
+                            <li>
+                                <span>Silver hardware</span>
+                            </li>
+                            <li>
+                                <span>Heat pressed logo</span>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <span>Fully lined cloth interior</span>
+                            </li>
+                            <li>
+                                <span>Made in USA </span>
+                            </li>
+                        </ul>
+                    </table>
                 </div>
             </div>
-            <img src="~/img/prod_inf_img1.jpg" alt="">
-        </div>
-        <div class="info_2">
-            <img src="~/img/prod_inf_img2.jpg" alt="">
-            <div class="info_cnt">
-                <h3 class="mod1">Specification</h3>
-                <table class="table table-bordered">
-                    <ul>
-                        <li>
-                            <span>Soft suede leather stash clutch in Midnight Suede</span>
-                        </li>
-                        <li>
-                            <span>Casual, medium size</span>
-                        </li>
-                        <li>
-                            <span>100% Milled leather</span>
-                        </li>
-                        <li>
-                            <span>Round sides</span>
-                        </li>
-                        <li>
-                            <span>Top zipper closure</span>
-                        </li>
-                        <li>
-                            <span>Silver hardware</span>
-                        </li>
-                        <li>
-                            <span>Heat pressed logo</span>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <span>Fully lined cloth interior</span>
-                        </li>
-                        <li>
-                            <span>Made in USA </span>
-                        </li>
-                    </ul>
-                </table>
+            <div class="info_3">
+                <img src="~/img/prod_inf_img3.jpg" alt="">
+                <img src="~/img/prod_inf_img4.jpg" alt="">
             </div>
         </div>
-        <div class="info_3">
-            <img src="~/img/prod_inf_img3.jpg" alt="">
-            <img src="~/img/prod_inf_img4.jpg" alt="">
-        </div>
     </div>
-</div>
+
+}
+
 <div class="container">
     <div class="row">
         <div id="content" class="col-sm-12 product_page">
@@ -351,742 +378,18 @@
                     </div>
                 </form>
             </div>
-
-            <div class="related-products product-section">
-                <h3 class="product-section_title mod1">Related Products</h3>
-                <div class="box-carousel">
-                    <div class="product-thumb transition options">
-
-                        <div class="product-option-wrap">
-                            <div class="product-options form-horizontal">
-                                <div class="options">
-                                    <a class="ajax-overlay_close" href='#'></a>
-                                    <h3>Available Options</h3>
-                                    <div class="form-group hidden">
-                                        <div class="col-sm-8">
-                                            <input type="text" name="product_id" value="28" class="form-control" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-sm-12">Color</label>
-                                        <div class="col-sm-12">
-                                            <div id="input-option210001">
-                                                <div class="radio">
-                                                    <label for="option[2410001]">
-                                                        <input type="radio" hidden name="option[2]" id="option[2410001]" value="4" />
-                                                        black (+$10.00)
-                                                    </label>
-                                                </div>
-                                                <div class="radio">
-                                                    <label for="option[2510001]">
-                                                        <input type="radio" hidden name="option[2]" id="option[2510001]" value="5" />
-                                                        white (+$20.00)
-                                                    </label>
-                                                </div>
-                                                <div class="radio">
-                                                    <label for="option[2610001]">
-                                                        <input type="radio" hidden name="option[2]" id="option[2610001]" value="6" />
-                                                        red (+$15.00)
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group required">
-                                        <label class="control-label col-sm-12" for="input-option110001">Size</label>
-                                        <div class="col-sm-12">
-                                            <select name="option[1]" id="input-option110001" class="form-control">
-                                                <option value="">--- Please Select ---</option>
-                                                <option value="1">
-                                                    Small (+$20.00)
-                                                </option>
-                                                <option value="2">
-                                                    Medium (+$15.00)
-                                                </option>
-                                                <option value="3">
-                                                    Large (+$10.00)
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <button class="product-btn-add" type="button" onclick="cart.addPopup($(this),'28');">
-                                        <span>Add to Cart</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="image">
-                            <a class="lazy" style="padding-bottom: 100%" href="Michael Kors">
-                                <img alt="Alexander McQueen" title="Alexander McQueen" class="img-responsive" data-src="img/product-10-270x270.png" src="#" />
-                            </a>
-                        </div>
-                        <div class="caption">
-                            <div class="name">
-                                <a href="Michael Kors">Alexander McQueen</a>
-                            </div>
-
-
-                            <p class="price">
-                                <span class="price-new">$80.00</span> <span class="price-old">$100.00</span>
-                            </p>
-                        </div>
-                        <div class="cart-button">
-                            <div class="rating">
-                                <span class="fa-stack">
-                                    <i class="material-icons-star   fa-stack-1x"></i>
-                                    <i class="material-icons-star star  fa-stack-1x"></i>
-                                </span>
-                                <span class="fa-stack">
-                                    <i class="material-icons-star   fa-stack-1x"></i>
-                                    <i class="material-icons-star star  fa-stack-1x"></i>
-                                </span>
-                                <span class="fa-stack">
-                                    <i class="material-icons-star   fa-stack-1x"></i>
-                                    <i class="material-icons-star star  fa-stack-1x"></i>
-                                </span>
-                                <span class="fa-stack">
-                                    <i class="material-icons-star   fa-stack-1x"></i>
-                                    <i class="material-icons-star star  fa-stack-1x"></i>
-                                </span>
-                                <span class="fa-stack">
-                                    <i class="material-icons-star   fa-stack-1x"></i>
-                                    <i class="material-icons-star star  fa-stack-1x"></i>
-                                </span>
-                            </div>
-                            <div class="btns-block">
-                                <button class="product-btn-add" data-toggle="tooltip" title="Add to Cart" type="button" onclick="ajaxAdd($(this),28);">
-                                    <i class="mat-icons material-icons-shopping_basket"></i>
-                                    <span class="hidden-xs hidden-sm hidden-md">Add to Cart</span>
-                                </button>
-                                <button class="product-btn" type="button" data-toggle="tooltip" title="Add to Wish List" onclick="wishlist.add('28');">
-                                    <i class="mat-icons material-icons-favorite_border"></i>
-                                </button>
-                                <button class="product-btn" type="button" data-toggle="tooltip" title="Compare this Product" onclick="compare.add('28');">
-                                    <i class="mat-icons material-icons-sort"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="product-thumb transition options">
-
-                        <div class="product-option-wrap">
-                            <div class="product-options form-horizontal">
-                                <div class="options">
-                                    <a class="ajax-overlay_close" href='#'></a>
-                                    <h3>Available Options</h3>
-                                    <div class="form-group hidden">
-                                        <div class="col-sm-8">
-                                            <input type="text" name="product_id" value="30" class="form-control" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group required">
-                                        <label class="control-label col-sm-12">Color</label>
-                                        <div class="col-sm-12">
-                                            <div id="input-option610002">
-                                                <div class="radio">
-                                                    <label for="option[61610002]">
-                                                        <input type="radio" hidden name="option[6]" id="option[61610002]" value="16" />
-                                                        black (+$20.00)
-                                                    </label>
-                                                </div>
-                                                <div class="radio">
-                                                    <label for="option[61710002]">
-                                                        <input type="radio" hidden name="option[6]" id="option[61710002]" value="17" />
-                                                        white (+$15.00)
-                                                    </label>
-                                                </div>
-                                                <div class="radio">
-                                                    <label for="option[61810002]">
-                                                        <input type="radio" hidden name="option[6]" id="option[61810002]" value="18" />
-                                                        red (+$10.00)
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group required">
-                                        <label class="control-label col-sm-12" for="input-option510002">Size</label>
-                                        <div class="col-sm-12">
-                                            <select name="option[5]" id="input-option510002" class="form-control">
-                                                <option value="">--- Please Select ---</option>
-                                                <option value="13">
-                                                    Small (+$10.00)
-                                                </option>
-                                                <option value="14">
-                                                    Medium (+$15.00)
-                                                </option>
-                                                <option value="15">
-                                                    Large (+$20.00)
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <button class="product-btn-add" type="button" onclick="cart.addPopup($(this),'30');">
-                                        <span>Add to Cart</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="image">
-                            <a class="lazy" style="padding-bottom: 100%" href="Jean Paul">
-                                <img alt="Evening Clutch" title="Evening Clutch" class="img-responsive" data-src="img/product-13-270x270.png" src="#" />
-                            </a>
-                        </div>
-                        <div class="caption">
-                            <div class="name">
-                                <a href="Jean Paul">Evening Clutch</a>
-                            </div>
-
-
-                            <p class="price">
-                                <span class="price-new">$80.00</span> <span class="price-old">$100.00</span>
-                            </p>
-                        </div>
-                        <div class="cart-button">
-                            <div class="rating">
-                                <span class="fa-stack">
-                                    <i class="material-icons-star   fa-stack-1x"></i>
-                                    <i class="material-icons-star star  fa-stack-1x"></i>
-                                </span>
-                                <span class="fa-stack">
-                                    <i class="material-icons-star   fa-stack-1x"></i>
-                                    <i class="material-icons-star star  fa-stack-1x"></i>
-                                </span>
-                                <span class="fa-stack">
-                                    <i class="material-icons-star   fa-stack-1x"></i>
-                                    <i class="material-icons-star star  fa-stack-1x"></i>
-                                </span>
-                                <span class="fa-stack">
-                                    <i class="material-icons-star   fa-stack-1x"></i>
-                                    <i class="material-icons-star star  fa-stack-1x"></i>
-                                </span>
-                                <span class="fa-stack">
-                                    <i class="material-icons-star   fa-stack-1x"></i>
-                                    <i class="material-icons-star star  fa-stack-1x"></i>
-                                </span>
-                            </div>
-                            <div class="btns-block">
-                                <button class="product-btn-add" data-toggle="tooltip" title="Add to Cart" type="button" onclick="ajaxAdd($(this),30);">
-                                    <i class="mat-icons material-icons-shopping_basket"></i>
-                                    <span class="hidden-xs hidden-sm hidden-md">Add to Cart</span>
-                                </button>
-                                <button class="product-btn" type="button" data-toggle="tooltip" title="Add to Wish List" onclick="wishlist.add('30');">
-                                    <i class="mat-icons material-icons-favorite_border"></i>
-                                </button>
-                                <button class="product-btn" type="button" data-toggle="tooltip" title="Compare this Product" onclick="compare.add('30');">
-                                    <i class="mat-icons material-icons-sort"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="product-thumb transition ">
-                        <div class="image">
-                            <a class="lazy" style="padding-bottom: 100%" href="McQ">
-                                <img alt="Jean Paul" title="Jean Paul" class="img-responsive" data-src="img/product-52-270x270.png" src="#" />
-                            </a>
-                        </div>
-                        <div class="caption">
-                            <div class="name">
-                                <a href="McQ">Jean Paul</a>
-                            </div>
-
-
-                            <p class="price">
-                                <span class="price-new">$150.00</span> <span class="price-old">$200.00</span>
-                            </p>
-                        </div>
-                        <div class="cart-button">
-                            <div class="btns-block">
-                                <button class="product-btn-add" data-toggle="tooltip" title="Add to Cart" type="button" onclick="ajaxAdd($(this),33);">
-                                    <i class="mat-icons material-icons-shopping_basket"></i>
-                                    <span class="hidden-xs hidden-sm hidden-md">Add to Cart</span>
-                                </button>
-                                <button class="product-btn" type="button" data-toggle="tooltip" title="Add to Wish List" onclick="wishlist.add('33');">
-                                    <i class="mat-icons material-icons-favorite_border"></i>
-                                </button>
-                                <button class="product-btn" type="button" data-toggle="tooltip" title="Compare this Product" onclick="compare.add('33');">
-                                    <i class="mat-icons material-icons-sort"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="product-thumb transition options">
-
-                        <div class="product-option-wrap">
-                            <div class="product-options form-horizontal">
-                                <div class="options">
-                                    <a class="ajax-overlay_close" href='#'></a>
-                                    <h3>Available Options</h3>
-                                    <div class="form-group hidden">
-                                        <div class="col-sm-8">
-                                            <input type="text" name="product_id" value="35" class="form-control" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group required">
-                                        <label class="control-label col-sm-12">Color</label>
-                                        <div class="col-sm-12">
-                                            <div id="input-option1510004">
-                                                <div class="radio">
-                                                    <label for="option[154310004]">
-                                                        <input type="radio" hidden name="option[15]" id="option[154310004]" value="43" />
-                                                        black (+$10.00)
-                                                    </label>
-                                                </div>
-                                                <div class="radio">
-                                                    <label for="option[154410004]">
-                                                        <input type="radio" hidden name="option[15]" id="option[154410004]" value="44" />
-                                                        white (+$20.00)
-                                                    </label>
-                                                </div>
-                                                <div class="radio">
-                                                    <label for="option[154510004]">
-                                                        <input type="radio" hidden name="option[15]" id="option[154510004]" value="45" />
-                                                        red (+$15.00)
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group required">
-                                        <label class="control-label col-sm-12
-                                                ">Checkbox</label>
-                                        <div class="col-sm-12">
-                                            <div id="input-option1310004">
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" name="option[13][]" value="37" />
-                                                        Checkbox 1 (+$10.00)
-                                                    </label>
-                                                </div>
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" name="option[13][]" value="38" />
-                                                        Checkbox 2 (+$15.00)
-                                                    </label>
-                                                </div>
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" name="option[13][]" value="39" />
-                                                        Checkbox 3 (+$10.00)
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group required">
-                                        <label class="control-label col-sm-12" for="input-option1410004">Size</label>
-                                        <div class="col-sm-12">
-                                            <select name="option[14]" id="input-option1410004" class="form-control">
-                                                <option value="">--- Please Select ---</option>
-                                                <option value="40">
-                                                    Small (+$5.00)
-                                                </option>
-                                                <option value="41">
-                                                    Medium (+$10.00)
-                                                </option>
-                                                <option value="42">
-                                                    Large (+$15.00)
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <button class="product-btn-add" type="button" onclick="cart.addPopup($(this),'35');">
-                                        <span>Add to Cart</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="image">
-                            <a class="lazy" style="padding-bottom: 100%" href="Miranda">
-                                <img alt="Michael Kors" title="Michael Kors" class="img-responsive" data-src="img/product-46-270x270.png" src="#" />
-                            </a>
-                        </div>
-                        <div class="caption">
-                            <div class="name">
-                                <a href="Miranda">Michael Kors</a>
-                            </div>
-
-
-                            <p class="price">
-                                $100.00
-                            </p>
-                        </div>
-                        <div class="cart-button">
-                            <div class="rating">
-                                <span class="fa-stack">
-                                    <i class="material-icons-star   fa-stack-1x"></i>
-                                    <i class="material-icons-star star  fa-stack-1x"></i>
-                                </span>
-                                <span class="fa-stack">
-                                    <i class="material-icons-star   fa-stack-1x"></i>
-                                    <i class="material-icons-star star  fa-stack-1x"></i>
-                                </span>
-                                <span class="fa-stack">
-                                    <i class="material-icons-star   fa-stack-1x"></i>
-                                    <i class="material-icons-star star  fa-stack-1x"></i>
-                                </span>
-                                <span class="fa-stack">
-                                    <i class="material-icons-star   fa-stack-1x"></i>
-                                    <i class="material-icons-star star  fa-stack-1x"></i>
-                                </span>
-                                <span class="fa-stack">
-                                    <i class="material-icons-star   fa-stack-1x"></i>
-                                    <i class="material-icons-star star  fa-stack-1x"></i>
-                                </span>
-                            </div>
-                            <div class="btns-block">
-                                <button class="product-btn-add" data-toggle="tooltip" title="Add to Cart" type="button" onclick="ajaxAdd($(this),35);">
-                                    <i class="mat-icons material-icons-shopping_basket"></i>
-                                    <span class="hidden-xs hidden-sm hidden-md">Add to Cart</span>
-                                </button>
-                                <button class="product-btn" type="button" data-toggle="tooltip" title="Add to Wish List" onclick="wishlist.add('35');">
-                                    <i class="mat-icons material-icons-favorite_border"></i>
-                                </button>
-                                <button class="product-btn" type="button" data-toggle="tooltip" title="Compare this Product" onclick="compare.add('35');">
-                                    <i class="mat-icons material-icons-sort"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="product-thumb transition options">
-
-                        <div class="product-option-wrap">
-                            <div class="product-options form-horizontal">
-                                <div class="options">
-                                    <a class="ajax-overlay_close" href='#'></a>
-                                    <h3>Available Options</h3>
-                                    <div class="form-group hidden">
-                                        <div class="col-sm-8">
-                                            <input type="text" name="product_id" value="41" class="form-control" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group required">
-                                        <label class="control-label col-sm-12" for="input-option2010005">Size</label>
-                                        <div class="col-sm-12">
-                                            <select name="option[20]" id="input-option2010005" class="form-control">
-                                                <option value="">--- Please Select ---</option>
-                                                <option value="58">
-                                                    Small (+$20.00)
-                                                </option>
-                                                <option value="59">
-                                                    Medium (+$15.00)
-                                                </option>
-                                                <option value="60">
-                                                    Large (+$10.00)
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <button class="product-btn-add" type="button" onclick="cart.addPopup($(this),'41');">
-                                        <span>Add to Cart</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="image">
-                            <a class="lazy" style="padding-bottom: 100%" href="Salvatore">
-                                <img alt="Miranda Shoulder " title="Miranda Shoulder " class="img-responsive" data-src="img/product-13-270x270.png" src="#" />
-                            </a>
-                        </div>
-                        <div class="caption">
-                            <div class="name">
-                                <a href="Salvatore">Miranda Shoulder </a>
-                            </div>
-
-
-                            <p class="price">
-                                <span class="price-new">$90.00</span> <span class="price-old">$100.00</span>
-                            </p>
-                        </div>
-                        <div class="cart-button">
-                            <div class="btns-block">
-                                <button class="product-btn-add" data-toggle="tooltip" title="Add to Cart" type="button" onclick="ajaxAdd($(this),41);">
-                                    <i class="mat-icons material-icons-shopping_basket"></i>
-                                    <span class="hidden-xs hidden-sm hidden-md">Add to Cart</span>
-                                </button>
-                                <button class="product-btn" type="button" data-toggle="tooltip" title="Add to Wish List" onclick="wishlist.add('41');">
-                                    <i class="mat-icons material-icons-favorite_border"></i>
-                                </button>
-                                <button class="product-btn" type="button" data-toggle="tooltip" title="Compare this Product" onclick="compare.add('41');">
-                                    <i class="mat-icons material-icons-sort"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="product-thumb transition options">
-
-                        <div class="product-option-wrap">
-                            <div class="product-options form-horizontal">
-                                <div class="options">
-                                    <a class="ajax-overlay_close" href='#'></a>
-                                    <h3>Available Options</h3>
-                                    <div class="form-group hidden">
-                                        <div class="col-sm-8">
-                                            <input type="text" name="product_id" value="42" class="form-control" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group required">
-                                        <label class="control-label col-sm-12">Color</label>
-                                        <div class="col-sm-12">
-                                            <div id="input-option2510006">
-                                                <div class="radio">
-                                                    <label for="option[256410006]">
-                                                        <input type="radio" hidden name="option[25]" id="option[256410006]" value="64" />
-                                                        black (+$10.00)
-                                                    </label>
-                                                </div>
-                                                <div class="radio">
-                                                    <label for="option[256510006]">
-                                                        <input type="radio" hidden name="option[25]" id="option[256510006]" value="65" />
-                                                        white (+$20.00)
-                                                    </label>
-                                                </div>
-                                                <div class="radio">
-                                                    <label for="option[256610006]">
-                                                        <input type="radio" hidden name="option[25]" id="option[256610006]" value="66" />
-                                                        red (+$15.00)
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group required">
-                                        <label class="control-label col-sm-12
-                                            " for="input-option2110006">Time</label>
-                                        <div class="col-sm-12">
-                                            <div class="input-group time">
-                                                <input type="text" name="option[21]" value="" data-date-format="HH:mm" id="input-option2110006" class="form-control" />
-                                                <span class="input-group-btn">
-                                                    <button type="button" class="btn btn-default">
-                                                        <i class="fa fa-calendar"></i>
-                                                    </button>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group required">
-                                        <label class="control-label col-sm-12
-                                            " for="input-option2210006">Date &amp; Time</label>
-                                        <div class="col-sm-12">
-                                            <div class="input-group datetime">
-                                                <input type="text" name="option[22]" value="2014-12-18 12:25" data-date-format="YYYY-MM-DD HH:mm" id="input-option2210006" class="form-control" />
-                                                <span class="input-group-btn">
-                                                    <button type="button" class="btn btn-default">
-                                                        <i class="fa fa-calendar"></i>
-                                                    </button>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group required">
-                                        <label class="control-label col-sm-12" for="input-option2310006">Size</label>
-                                        <div class="col-sm-12">
-                                            <select name="option[23]" id="input-option2310006" class="form-control">
-                                                <option value="">--- Please Select ---</option>
-                                                <option value="61">
-                                                    Small (+$20.00)
-                                                </option>
-                                                <option value="62">
-                                                    Medium (+$15.00)
-                                                </option>
-                                                <option value="63">
-                                                    Large (+$10.00)
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group required">
-                                        <label class="control-label col-sm-12
-                                            " for="input-option2410006">Delivery Date</label>
-                                        <div class="col-sm-12">
-                                            <div class="input-group date">
-                                                <input type="text" name="option[24]" value="2014-12-18" data-date-format="YYYY-MM-DD" id="input-option2410006" class="form-control" />
-                                                <span class="input-group-btn">
-                                                    <button class="btn btn-default" type="button"><i class="fa fa-calendar"></i></button>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button class="product-btn-add" type="button" onclick="cart.addPopup($(this),'42');">
-                                        <span>Add to Cart</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="image">
-                            <a class="lazy" style="padding-bottom: 100%" href="Miranda">
-                                <img alt="Padlock Shopper" title="Padlock Shopper" class="img-responsive" data-src="img/product-22-270x270.png" src="#" />
-                            </a>
-                        </div>
-                        <div class="caption">
-                            <div class="name">
-                                <a href="Miranda">Padlock Shopper</a>
-                            </div>
-
-
-                            <p class="price">
-                                <span class="price-new">$90.00</span> <span class="price-old">$100.00</span>
-                            </p>
-                        </div>
-                        <div class="cart-button">
-                            <div class="rating">
-                                <span class="fa-stack">
-                                    <i class="material-icons-star   fa-stack-1x"></i>
-                                    <i class="material-icons-star star  fa-stack-1x"></i>
-                                </span>
-                                <span class="fa-stack">
-                                    <i class="material-icons-star   fa-stack-1x"></i>
-                                    <i class="material-icons-star star  fa-stack-1x"></i>
-                                </span>
-                                <span class="fa-stack">
-                                    <i class="material-icons-star   fa-stack-1x"></i>
-                                    <i class="material-icons-star star  fa-stack-1x"></i>
-                                </span>
-                                <span class="fa-stack">
-                                    <i class="material-icons-star   fa-stack-1x"></i>
-                                    <i class="material-icons-star star  fa-stack-1x"></i>
-                                </span>
-                                <span class="fa-stack">
-                                    <i class="material-icons-star   fa-stack-1x"></i>
-                                    <i class="material-icons-star star  fa-stack-1x"></i>
-                                </span>
-                            </div>
-                            <div class="btns-block">
-                                <button class="product-btn-add" data-toggle="tooltip" title="Add to Cart" type="button" onclick="ajaxAdd($(this),42);">
-                                    <i class="mat-icons material-icons-shopping_basket"></i>
-                                    <span class="hidden-xs hidden-sm hidden-md">Add to Cart</span>
-                                </button>
-                                <button class="product-btn" type="button" data-toggle="tooltip" title="Add to Wish List" onclick="wishlist.add('42');">
-                                    <i class="mat-icons material-icons-favorite_border"></i>
-                                </button>
-                                <button class="product-btn" type="button" data-toggle="tooltip" title="Compare this Product" onclick="compare.add('42');">
-                                    <i class="mat-icons material-icons-sort"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="product-thumb transition options">
-
-                        <div class="product-option-wrap">
-                            <div class="product-options form-horizontal">
-                                <div class="options">
-                                    <a class="ajax-overlay_close" href='#'></a>
-                                    <h3>Available Options</h3>
-                                    <div class="form-group hidden">
-                                        <div class="col-sm-8">
-                                            <input type="text" name="product_id" value="47" class="form-control" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group required">
-                                        <label class="control-label col-sm-12">Color</label>
-                                        <div class="col-sm-12">
-                                            <div id="input-option3310007">
-                                                <div class="radio">
-                                                    <label for="option[338810007]">
-                                                        <input type="radio" hidden name="option[33]" id="option[338810007]" value="88" />
-                                                        black (+$10.00)
-                                                    </label>
-                                                </div>
-                                                <div class="radio">
-                                                    <label for="option[338910007]">
-                                                        <input type="radio" hidden name="option[33]" id="option[338910007]" value="89" />
-                                                        white (+$20.00)
-                                                    </label>
-                                                </div>
-                                                <div class="radio">
-                                                    <label for="option[339010007]">
-                                                        <input type="radio" hidden name="option[33]" id="option[339010007]" value="90" />
-                                                        red (+$15.00)
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group required">
-                                        <label class="control-label col-sm-12" for="input-option3210007">Size</label>
-                                        <div class="col-sm-12">
-                                            <select name="option[32]" id="input-option3210007" class="form-control">
-                                                <option value="">--- Please Select ---</option>
-                                                <option value="85">
-                                                    Small (+$20.00)
-                                                </option>
-                                                <option value="86">
-                                                    Medium (+$15.00)
-                                                </option>
-                                                <option value="87">
-                                                    Large (+$10.00)
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <button class="product-btn-add" type="button" onclick="cart.addPopup($(this),'47');">
-                                        <span>Add to Cart</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="image">
-                            <a class="lazy" style="padding-bottom: 100%" href="Valentino Bags">
-                                <img alt="Valentino Bags" title="Valentino Bags" class="img-responsive" data-src="img/product-10-270x270.png" src="#" />
-                            </a>
-                        </div>
-                        <div class="caption">
-                            <div class="name">
-                                <a href="Valentino Bags">Valentino Bags</a>
-                            </div>
-
-
-                            <p class="price">
-                                <span class="price-new">$60.00</span> <span class="price-old">$100.00</span>
-                            </p>
-                        </div>
-                        <div class="cart-button">
-                            <div class="rating">
-                                <span class="fa-stack">
-                                    <i class="material-icons-star   fa-stack-1x"></i>
-                                    <i class="material-icons-star star  fa-stack-1x"></i>
-                                </span>
-                                <span class="fa-stack">
-                                    <i class="material-icons-star   fa-stack-1x"></i>
-                                    <i class="material-icons-star star  fa-stack-1x"></i>
-                                </span>
-                                <span class="fa-stack">
-                                    <i class="material-icons-star   fa-stack-1x"></i>
-                                    <i class="material-icons-star star  fa-stack-1x"></i>
-                                </span>
-                                <span class="fa-stack">
-                                    <i class="material-icons-star   fa-stack-1x"></i>
-                                    <i class="material-icons-star star  fa-stack-1x"></i>
-                                </span>
-                                <span class="fa-stack">
-                                    <i class="material-icons-star   fa-stack-1x"></i>
-                                    <i class="material-icons-star star  fa-stack-1x"></i>
-                                </span>
-                            </div>
-                            <div class="btns-block">
-                                <button class="product-btn-add" data-toggle="tooltip" title="Add to Cart" type="button" onclick="ajaxAdd($(this),47);">
-                                    <i class="mat-icons material-icons-shopping_basket"></i>
-                                    <span class="hidden-xs hidden-sm hidden-md">Add to Cart</span>
-                                </button>
-                                <button class="product-btn" type="button" data-toggle="tooltip" title="Add to Wish List" onclick="wishlist.add('47');">
-                                    <i class="mat-icons material-icons-favorite_border"></i>
-                                </button>
-                                <button class="product-btn" type="button" data-toggle="tooltip" title="Compare this Product" onclick="compare.add('47');">
-                                    <i class="mat-icons material-icons-sort"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-                </div>
-            </div>
+            @Html.Partial("relatedProduct", queryProduct.ToList())
+           
         </div>
     </div>
 </div>
 
+<script>
+    jQuery(document).ready(function () {
+        var myPhotoSwipe = $("#gallery a").photoSwipe({
+            enableMouseWheel: true,
+            enableKeyboard: false,
+            captionAndToolbarAutoHideDelay: 0
+        });
+    });
+</script>
