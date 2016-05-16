@@ -14,7 +14,7 @@
     }
     if (url.indexOf('/Default/Detail')) {
         $('body').removeClass('common-home');
-        $('body').addClass('product-product-48');
+        $('body').addClass('product-category-18');
         $('body').removeClass('product-category-18');
     } 
        
@@ -49,6 +49,7 @@
     //    }
     //});
 });
+
 jQuery(document).ready(function () {
     jQuery("#parallax_0>div").cherryFixedParallax({
         invert: false,

@@ -11,16 +11,15 @@
                     <div class="newsletter-popup" style="background-image: url(~/img/newsletter-popup-732x515.jpg)">
                         <div class="box-content">
 
-                            <h3 class="mod1">Newsletter</h3>
+                            <h3 class="mod1">Bản Tin</h3>
                             <p>
-                                Subscribe to the Handbags Store mailing list to receive updates on
-                                new arrivals, special offers and other discount information.
+                                Đăng ký Email để nhận tin tức mới về sản phẩm
                             </p>
                             <form method="post" enctype="multipart/form-data" id="tm-newsletter-popup-form">
                                 <div class="tm-login-form">
                                     <label class="control-label" for="input-tm-newsletter-popup-email"></label>
                                     <input type="text" name="tm_newsletter_popup_email" value="" placeholder="Enter your e-mail" id="input-tm-newsletter-popup-email" class="form-control" />
-                                    <button type="submit" id="tm-newsletter-popup-button" class="newsletter-popup-btn"><i class="material-design-drafts"></i>Subscribe</button>
+                                    <button type="submit" id="tm-newsletter-popup-button" class="newsletter-popup-btn"><i class="material-design-drafts"></i>Đăng ký</button>
                                     <span id="tm-newsletter-popup_error" class="newsletter-error"></span>
                                     <span id="tm-newsletter-popup_success" class="newsletter-success"></span>
                                 </div>
@@ -36,7 +35,7 @@
                 <div id="banner0" class="banners">
                     <div class="fleft	banner-1">
                         <div class="banner-box">
-                            <a class="clearfix" href="index.php?route=product/category&amp;path=33">
+                            <a class="clearfix" href="@Url.Action("ListProducts","Default",new { id= "sale" + "-" + 5 })">
                                 <img src="~/img/banner-1-780x390.jpg" alt="banner-1" class="img-responsive" />
                                 <div class="s-desc"><h2>Sale <span>get up to </span> <em>20% off</em></h2></div>
                             </a>
@@ -44,11 +43,11 @@
                     </div>
                     <div class="fleft	banner-2">
                         <div class="banner-box">
-                            <a class="clearfix" href="index.php?route=product/category&amp;path=25">
+                            <a class="clearfix" href="@Url.Action("ListProducts","Default",new { id="Phụ kiện"+"-"+4})">
                                 <img src="~/img/banner-2-780x390.jpg" alt="banner-2" class="img-responsive" />
                                 <div class="s-desc">
-                                    <h2 class="mod1">EXCELLENT <span>QUALITY</span></h2>
-                                    <p>We are professional, experienced and dedicated to your satisfaction.</p>
+                                    <h2 class="mod1">CHẤT LƯỢNG TUYỆT VỜI</h2>
+                                    <p>Chúng tôi là chuyên nghiệp, giàu kinh nghiệm và tận tâm với sự hài lòng của bạn.</p>
                                     <span class="button">Shop now!</span>
                                 </div>
                             </a>
@@ -56,7 +55,7 @@
                     </div>
                     <div class="fleft	banner-3">
                         <div class="banner-box">
-                            <a class="clearfix" href="index.php?route=product/category&amp;path=20">
+                            <a class="clearfix" href="@Url.Action("ListProducts","Default",new { id="Vali"+"-"+3})">
                                 <img src="~/img/banner-3-780x390.jpg" alt="banner-3" class="img-responsive" />
                                 <div class="s-desc"><h2 class="mod2">new <span>arrivals</span></h2></div>
                             </a>
@@ -64,13 +63,12 @@
                     </div>
                     <div class="fleft	banner-4">
                         <div class="banner-box">
-                            <a class="clearfix" href="index.php?route=product/category&amp;path=18">
+                            <a class="clearfix" href="@Url.Action("ListProducts","Default",new { id="Ví"+"-"+1})">
                                 <img src="~/img/banner-4-780x390.jpg" alt="banner-4" class="img-responsive" />
                                 <div class="s-desc">
-                                    <h2 class="mod1">REASONABLE <span>PRICES</span></h2>
+                                    <h2 class="mod1">GIÁ CẢ HỢP LÝ</h2>
                                     <p>
-                                        We are committed to
-                                        the highest quality
+                                        Chúng tôi cam kết chất lượng cao nhất
                                     </p>
                                     <span class="button">Shop now!</span>
                                 </div>
@@ -80,9 +78,9 @@
                 </div>
                 <div class="box latest">
                     <div class="box-heading">
-                        <h3>Latest Products</h3>
+                        <h3>Sản phẩm mới</h3>
                         <span>
-                            Thank you for visiting our site! You are at the right place! We are focused on providing integrated solutions and services to customers around the world.
+                            Cám ơn đã ghé thăm trang của chúng tôi! Bạn đang ở đúng nơi! Chúng tôi đang tập trung vào việc cung cấp các giải pháp và dịch vụ tích hợp cho các khách hàng trên toàn thế giới.
                         </span>
                     </div>
                     <div class="box-content">
@@ -92,7 +90,7 @@
                             {
                                 <div class="product-thumb transition options">
 
-                                    <div class="product-option-wrap">
+                                    @*<div class="product-option-wrap">
                                         <div class="product-options form-horizontal">
                                             <div class="options">
                                                 <a class="ajax-overlay_close" href='#'></a>
@@ -149,13 +147,13 @@
                                                 </button>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>*@
                                     <div class="quick_info">
                                         <div id="quickview_latest_30010" class="quickview-style">
                                             <div>
                                                 <div class="left col-sm-4">
                                                     <div class="quickview_image image">
-                                                        <a href="index.php?route=product/product&amp;product_id=49">
+                                                        <a href="@Url.Action("Detail","Default",new { id=item.name_products_tra + "-" + item.id_products_tra })">
                                                         <img alt="@item.name_products_tra" title="@item.name_products_tra" class="img-responsive" src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra" data-src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra" /></a>
                                                     </div>
                                                 </div>
@@ -164,8 +162,8 @@
                                                     <div class="inf">
                                                         <p class="product_model model">Model: @item.code_products_tra</p>
                                                         <div class="price">
-                                                            @*<span class="price-new">@item.oldprice_products_tra</span>
-                                                            <span class="price-old">@item.newprice_products_tra</span>*@
+                                                            <span class="price-new">@item.oldprice_products_tra</span>
+                                                            <span class="price-old">@item.newprice_products_tra</span>
                                                         </div>
                                                     </div>
                                                     <div class="rating">
@@ -212,19 +210,8 @@
                                                 </div>
                                                 <div class="col-sm-12">
                                                     <div class="quickview_description description">
-                                                        <p>
-                                                            <b>
-                                                                Welcome to the world of fashion.
-                                                            </b> We are proud to present you the largest choice of handbags on the web.
-                                                            Here you can find a great number of different goods. Our store offers stylish, premium quality handbags at the lowest possible prices.
-                                                        </p>
-                                                        <p>
-                                                            <b>
-                                                                We have a perfect reputation and great experience
-                                                            </b> in this sphere and that is why our products are so popular and
-                                                            have many faithful fans all over the country. What we sell are not just simple handbags; the products of our shop are the
-                                                            part of a style because nowadays handbag is the essential detail of the women’s wardrobe. We know how important it is for the
-                                                            modern women to have several interesting and trendy bags.
+                                                        <p style="white-space:pre-line;">
+                                                            @item.des_products_tra
                                                         </p>
                                                     </div>
                                                 </div>
@@ -299,7 +286,7 @@
                     </div>
                 </div>
                 <div id="parallax_0" class="parallax">
-                    <div data-source-url="~/img/parallax-1-1600x1228.jpg" class="parallax-1 ">
+                    <div data-source-url="/img/parallax-1-1600x1228.jpg" class="parallax-1 ">
                         <div class="container">
                             <div class="row">
                                 <div class="col-sm-12">

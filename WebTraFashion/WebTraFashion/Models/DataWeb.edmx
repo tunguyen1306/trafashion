@@ -20,6 +20,7 @@
           <Property Name="status_products_tra" Type="int" />
           <Property Name="newprice_products_tra" Type="nvarchar" MaxLength="200" />
           <Property Name="oldprice_products_tra" Type="nvarchar" MaxLength="200" />
+          <Property Name="type_products_tra" Type="int" />
         </EntityType>
         <EntityType Name="tbl_slide_tra">
           <Key>
@@ -68,6 +69,7 @@
           <Property Name="status_products_tra" Type="Int32" />
           <Property Name="newprice_products_tra" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="oldprice_products_tra" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="type_products_tra" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -89,6 +91,7 @@
           <EntitySetMapping Name="tbl_products_tra">
             <EntityTypeMapping TypeName="TrafashionModel.tbl_products_tra">
               <MappingFragment StoreEntitySet="tbl_products_tra">
+                <ScalarProperty Name="type_products_tra" ColumnName="type_products_tra" />
                 <ScalarProperty Name="oldprice_products_tra" ColumnName="oldprice_products_tra" />
                 <ScalarProperty Name="newprice_products_tra" ColumnName="newprice_products_tra" />
                 <ScalarProperty Name="status_products_tra" ColumnName="status_products_tra" />
