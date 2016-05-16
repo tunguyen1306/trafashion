@@ -20,14 +20,14 @@
     {
         <meta property="og:title" content="@item.name_products_tra" />
 
-        <meta property="og:url" content="http://trafashion.com/Default/Detail/@item.name_products_tra+'-'+@item.id_products_tra" />
+        <meta property="og:url" content="http://trafashion.com/Default/Detail/@item.id_products_tra" />
         <meta name="description" content="@item.des_products_tra">
         <meta property="og:description" content="@item.des_products_tra" />
         <meta name="keywords" content="túi xách,balo,vali,hàng xách tay,hàng xách tay chất lượng cao,sản phẩm xách tay" />
         <meta property="og:image" content="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.Split('_')[0]/@item.img_products_tra" />
     }
 
-
+    }
     @Html.Partial("Header")
 
 

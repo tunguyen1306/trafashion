@@ -1,8 +1,10 @@
-﻿@using System.Linq;
+﻿
+@using WebTraFashion.Models
+@using System.Linq;
 @using System.Web;
 @using System.Web.Mvc;
-@using WebTraFashion.Models;
 @using System.Configuration
+@model IEnumerable<tbl_products_tra>
 <div id="container">
     <div class="container">
         <div class="row">
@@ -35,7 +37,7 @@
                 <div id="banner0" class="banners">
                     <div class="fleft	banner-1">
                         <div class="banner-box">
-                            <a class="clearfix" href="@Url.Action("ListProducts","Default",new { id= "sale" + "-" + 5 })">
+                            <a class="clearfix" href="@Url.Action("ListProducts","Default",new { id= ("sale").UrlFrendly() + "-" + 5 })">
                                 <img src="~/img/banner-1-780x390.jpg" alt="banner-1" class="img-responsive" />
                                 <div class="s-desc"><h2>Sale <span>get up to </span> <em>20% off</em></h2></div>
                             </a>
@@ -43,7 +45,7 @@
                     </div>
                     <div class="fleft	banner-2">
                         <div class="banner-box">
-                            <a class="clearfix" href="@Url.Action("ListProducts","Default",new { id="Phụ kiện"+"-"+4})">
+                            <a class="clearfix" href="@Url.Action("ListProducts","Default",new { id=("Phụ kiện").UrlFrendly()+"-"+4})">
                                 <img src="~/img/banner-2-780x390.jpg" alt="banner-2" class="img-responsive" />
                                 <div class="s-desc">
                                     <h2 class="mod1">CHẤT LƯỢNG TUYỆT VỜI</h2>
@@ -55,7 +57,7 @@
                     </div>
                     <div class="fleft	banner-3">
                         <div class="banner-box">
-                            <a class="clearfix" href="@Url.Action("ListProducts","Default",new { id="Vali"+"-"+3})">
+                            <a class="clearfix" href="@Url.Action("ListProducts","Default",new { id=("Vali").UrlFrendly()+"-"+3})">
                                 <img src="~/img/banner-3-780x390.jpg" alt="banner-3" class="img-responsive" />
                                 <div class="s-desc"><h2 class="mod2">new <span>arrivals</span></h2></div>
                             </a>
@@ -63,7 +65,7 @@
                     </div>
                     <div class="fleft	banner-4">
                         <div class="banner-box">
-                            <a class="clearfix" href="@Url.Action("ListProducts","Default",new { id="Ví"+"-"+1})">
+                            <a class="clearfix" href="@Url.Action("ListProducts","Default",new { id=("Ví").UrlFrendly()+"-"+1})">
                                 <img src="~/img/banner-4-780x390.jpg" alt="banner-4" class="img-responsive" />
                                 <div class="s-desc">
                                     <h2 class="mod1">GIÁ CẢ HỢP LÝ</h2>
@@ -153,7 +155,7 @@
                                             <div>
                                                 <div class="left col-sm-4">
                                                     <div class="quickview_image image">
-                                                        <a href="@Url.Action("Detail","Default",new { id=item.name_products_tra + "-" + item.id_products_tra })">
+                                                        <a href="@Url.Action("Detail","Default",new { id=item.name_products_tra.UrlFrendly() + "-" + item.id_products_tra })">
                                                             @*data-src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra"*@
                                                         <img alt="@item.name_products_tra" title="@item.name_products_tra" class="img-responsive" src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra"  /></a>
                                                     </div>
@@ -225,7 +227,7 @@
                                             <a class="quickview quickview-latest hidden-xs" data-rel="details" href="#quickview_latest_@item.id_products_tra">
                                                 Xem nhanh
                                             </a>
-                                            <a class="lazy" style="padding-bottom: 100%" href="@Url.Action("Detail","Default",new { id=item.name_products_tra + "-" + item.id_products_tra })">
+                                            <a class="lazy" style="padding-bottom: 100%" href="@Url.Action("Detail","Default",new { id=item.name_products_tra.UrlFrendly() + "-" + item.id_products_tra })">
                                                 @*data-src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra"*@
                                                 <img alt="@item.name_products_tra" title="@item.name_products_tra" class="img-responsive"   src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra" />
                                             </a>

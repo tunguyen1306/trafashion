@@ -1,4 +1,10 @@
-﻿@using System.Configuration
+﻿
+@using WebTraFashion.Models
+@using System.Linq;
+@using System.Web;
+@using System.Web.Mvc;
+@using System.Configuration
+@model IEnumerable<tbl_products_tra>
 <div class="related-products product-section">
     <h3 class="product-section_title mod1">Sản phẩm liên quan</h3>
     <div class="box-carousel">
@@ -72,7 +78,7 @@
                         <div>
                             <div class="left col-sm-4">
                                 <div class="quickview_image image">
-                                    <a href="@Url.Action("Detail","Default",new { id=item.name_products_tra + "-" + item.id_products_tra })">
+                                    <a href="@Url.Action("Detail","Default",new { id=item.name_products_tra.UrlFrendly() + "-" + item.id_products_tra })">
                                         @*data-src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra"*@
                                         <img alt="@item.name_products_tra" title="@item.name_products_tra" class="img-responsive" src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra"  />
                                     </a>
@@ -145,7 +151,7 @@
                         <a class="quickview quickview-latest hidden-xs" data-rel="details" href="#quickview_latest_@item.id_products_tra">
                             Xem nhanh
                         </a>
-                        <a class="lazy" style="padding-bottom: 100%" href="@Url.Action("Detail","Default",new { id=item.name_products_tra + "-" + item.id_products_tra })">
+                        <a class="lazy" style="padding-bottom: 100%" href="@Url.Action("Detail","Default",new { id=item.name_products_tra.UrlFrendly() + "-" + item.id_products_tra })">
                             @*data-src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra"*@
                             <img alt="@item.name_products_tra" title="@item.name_products_tra" class="img-responsive"  src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra" />
                         </a>
