@@ -74,7 +74,7 @@ namespace WebTraFashion.Controllers
             var mail = new MailMessage();
             mail.To.Add("tunguyen.it.dev@gmail.com");
             mail.From = new MailAddress("tunguyen.it.dev@gmail.com");
-            mail.Subject = "Email hách hàng đăng ký nhận tin";
+            mail.Subject = "Email khách hàng đăng ký nhận tin";
             mail.Body = "Email của khách là:"+email;
             mail.IsBodyHtml = true;
             var smtp = new SmtpClient();
@@ -86,6 +86,30 @@ namespace WebTraFashion.Controllers
             smtp.EnableSsl = true;
             smtp.Send(mail);
             return View("Default");
+        }
+        public ActionResult Contact()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult SendMail(string email,string name,int phone,string content)
+        {
+            var t = email;
+            var mail = new MailMessage();
+            mail.To.Add("tunguyen.it.dev@gmail.com");
+            mail.From = new MailAddress("tunguyen.it.dev@gmail.com");
+            mail.Subject = "Thông tin khách hàng";
+            mail.Body ="Tên khách hàng: "+name+"--- Số điện thoại: "+phone+ "------ Email của khách là:" + email+" ------- Nội dung: "+ content;
+            mail.IsBodyHtml = true;
+            var smtp = new SmtpClient();
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 587;
+            smtp.UseDefaultCredentials = false;
+            smtp.Credentials = new NetworkCredential
+                ("tunguyen.it.dev@gmail.com", "Anhyeuem3");
+            smtp.EnableSsl = true;
+            smtp.Send(mail);
+            return View("Contact");
         }
     }
 }

@@ -1443,8 +1443,8 @@ header .nav {
   display: block;
   position: relative;
   height: 0;
-  overflow: hidden;
-  background: transparent url(../image/lazy-loader.gif) no-repeat center center;
+  /*overflow: hidden;
+  background: transparent url(../image/lazy-loader.gif) no-repeat center center;*/
 }
 .lazy img {
   position: absolute;
@@ -1457,7 +1457,7 @@ header .nav {
   -o-transition: 1s all ease;
   -webkit-transition: 1s all ease;
   transition: 1s all ease;
-  opacity: 0;
+  /*opacity: 0;*/
   -webkit-backface-visibility: hidden;
 }
 .lazy.lazy-loaded {

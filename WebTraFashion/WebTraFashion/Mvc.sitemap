@@ -5,7 +5,8 @@
 
   <mvcSiteMapNode title="Trang chủ" controller="Default" action="Default">
     <mvcSiteMapNode title="Chi tiết" controller="Default" action="Detail" preservedRouteParameters="id"/>
-    <mvcSiteMapNode title="Chi tiết" controller="Default" action="ListProducts" preservedRouteParameters="id"/>
+    <mvcSiteMapNode title="Danh sách" controller="Default" action="ListProducts" preservedRouteParameters="id"/>
+    <mvcSiteMapNode title="Liên hệ" controller="Default" action="Contact"/>
   </mvcSiteMapNode>
 
 </mvcSiteMap>

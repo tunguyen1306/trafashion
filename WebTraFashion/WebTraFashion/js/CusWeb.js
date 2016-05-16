@@ -5,17 +5,26 @@
         $('body').removeClass('common-home');
         $('body').addClass('product-category-18');
         $('body').removeClass('product-product-48');
+        $('body').removeClass('information-contact');
 
     }
     if (url.indexOf('/Default/Default')) {
         $('body').addClass('common-home');
         $('body').removeClass('product-category-18');
         $('body').removeClass('product-product-48');
+        $('body').removeClass('information-contact');
     }
     if (url.indexOf('/Default/Detail')) {
         $('body').removeClass('common-home');
         $('body').addClass('product-category-18');
         $('body').removeClass('product-category-18');
+        $('body').removeClass('information-contact');
+    }
+    if (url.indexOf('/Default/Contact')) {
+        $('body').removeClass('common-home');
+        $('body').removeClass('product-category-18');
+        $('body').removeClass('product-category-18');
+        $('body').addClass('information-contact');
     } 
        
 

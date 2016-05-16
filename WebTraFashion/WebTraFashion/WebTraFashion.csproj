@@ -150,6 +150,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ClassAll.cs" />
     <Compile Include="Models\DataWeb.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -644,6 +645,7 @@
     <Content Include="img\favicon.png" />
     <Content Include="img\logo-footer.png" />
     <Content Include="img\Logo.png" />
+    <Content Include="img\logoFooter.png" />
     <Content Include="img\menu-bg.jpg" />
     <Content Include="img\parallax-1-1600x1228.jpg" />
     <Content Include="img\parallax-2.jpg" />
@@ -1090,6 +1092,10 @@
     <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
     <Content Include="Views\Default\Breadcrumb.cshtml" />
+    <Content Include="Views\Default\Featured.cshtml" />
+    <Content Include="Views\Default\LatestProducts.cshtml" />
+    <Content Include="Views\Default\Footer.cshtml" />
+    <Content Include="Views\Default\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

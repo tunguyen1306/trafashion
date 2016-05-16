@@ -148,13 +148,14 @@
                                             </div>
                                         </div>
                                     </div>*@
-                                    <div class="quick_info">
-                                        <div id="quickview_latest_30010" class="quickview-style">
+                                    <div class="quick_info hidden-xs">
+                                        <div id="quickview_latest_@item.id_products_tra" class="quickview-style">
                                             <div>
                                                 <div class="left col-sm-4">
                                                     <div class="quickview_image image">
                                                         <a href="@Url.Action("Detail","Default",new { id=item.name_products_tra + "-" + item.id_products_tra })">
-                                                        <img alt="@item.name_products_tra" title="@item.name_products_tra" class="img-responsive" src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra" data-src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra" /></a>
+                                                            @*data-src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra"*@
+                                                        <img alt="@item.name_products_tra" title="@item.name_products_tra" class="img-responsive" src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra"  /></a>
                                                     </div>
                                                 </div>
                                                 <div class="right col-sm-8">
@@ -221,11 +222,12 @@
                                     <div class="new_pr"><span>New</span></div>
                                     <div class="aside-block">
                                         <div class="image">
-                                            <a class="quickview quickview-latest" data-rel="details" href="#quickview_latest_30010">
+                                            <a class="quickview quickview-latest hidden-xs" data-rel="details" href="#quickview_latest_@item.id_products_tra">
                                                 Xem nhanh
                                             </a>
                                             <a class="lazy" style="padding-bottom: 100%" href="@Url.Action("Detail","Default",new { id=item.name_products_tra + "-" + item.id_products_tra })">
-                                                <img alt="@item.name_products_tra" title="@item.name_products_tra" class="img-responsive" data-src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra"  src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra" />
+                                                @*data-src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra"*@
+                                                <img alt="@item.name_products_tra" title="@item.name_products_tra" class="img-responsive"   src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra" />
                                             </a>
                                         </div>
                                         <div class="caption">
@@ -296,7 +298,7 @@
                                     </h1>
                                     <div class="separator"></div>
                                     <p>A great number of different grateful clients is the best prove<br></br> of the previous statement.</p>
-                                    <a class="button" href="index.php?route=product/product&product_id=28">Shop now!</a>
+                                    <a class="button">Shop now!</a>
                                 </div>
                             </div>
                         </div>

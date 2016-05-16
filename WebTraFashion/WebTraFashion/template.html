@@ -592,7 +592,7 @@
                                                 <div>
                                                     <div class="left col-sm-4">
                                                         <div class="quickview_image image">
-                                                            <a href="index.php?route=product/product&amp;product_id=49"><img alt="Vivienne Handbag" title="Vivienne Handbag" class="img-responsive" src="img/product-49-270x270.png" /></a>
+                                                            <a href="@Url.Action("Detail","Default",new { id=item.name_products_tra + "-" + item.id_products_tra })"><img alt="Vivienne Handbag" title="Vivienne Handbag" class="img-responsive" src="img/product-49-270x270.png" /></a>
                                                         </div>
                                                     </div>
                                                     <div class="right col-sm-8">
@@ -673,13 +673,13 @@
                                                 <a class="quickview quickview-latest" data-rel="details" href="#quickview_latest_30010">
                                                     Quick View
                                                 </a>
-                                                <a class="lazy" style="padding-bottom: 100%" href="index.php?route=product/product&amp;product_id=49">
+                                                <a class="lazy" style="padding-bottom: 100%" href="@Url.Action("Detail","Default",new { id=item.name_products_tra + "-" + item.id_products_tra })">
                                                     <img alt="Vivienne Handbag" title="Vivienne Handbag" class="img-responsive" data-src="img/product-49-270x270.png" src="#" />
                                                 </a>
                                             </div>
                                             <div class="caption">
                                                 <div class="name">
-                                                    <a href="index.php?route=product/product&amp;product_id=49">
+                                                    <a href="@Url.Action("Detail","Default",new { id=item.name_products_tra + "-" + item.id_products_tra })">
                                                         Vivienne Handbag
                                                     </a>
                                                 </div>

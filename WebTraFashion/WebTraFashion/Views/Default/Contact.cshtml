@@ -1,0 +1,107 @@
+﻿
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_LayoutMaster.cshtml";
+}
+@Html.Partial("Header")
+<div class="container">
+    @Html.Partial("Breadcrumb")
+    <div class="row">
+        <div id="content" class="col-sm-12 contact_page">
+            <h1 class="no-line">Liên hệ</h1>
+            <div class="map" id="googleMap" style="width:100%;height:500px;">
+
+            </div>
+            <script src="http://maps.googleapis.com/maps/api/js"></script>
+            <script>
+                $(function () {
+                    initialize();
+                })
+                function initialize() {
+                    var mapProp = {
+                        center: new google.maps.LatLng(51.508742, -0.120850),
+                        zoom: 5,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    };
+                    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+                }
+                google.maps.event.addDomListener(window, 'load', initialize);
+            </script>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img src="~/img/Logo.png" alt="Tra Fashion" title="Tra Fashion" class="img-thumbnail" />
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="icon material-design-phone370">
+                                <strong>Điện thoại</strong><br>
+                                <a href="callto:0938715689">0938-715-689</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="icon fa fa-key">
+                                <strong>Giờ mở của</strong><br />
+                                8:00 am to 22:00 pm
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="icon material-design-home149">
+                                <strong>Địa chỉ</strong><br />
+                                <address>
+                                    Glasgow D04 89GR
+                                </address>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="icon fa fa-fax">
+                                <strong>Fax</strong><br>
+                                800-2345-6789
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="icon fa fa-comments-o">
+                                <strong>Comments</strong><br />
+                                We are glad to see you here!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form action="@Url.Action("SendMail","Default")" method="post" enctype="multipart/form-data" class="form-horizontal">
+                <h3>Gửi thông tin</h3>
+                <fieldset class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group required">
+                            <label class="control-label" for="input-name">Tên của bạn</label>
+                            <input type="text" name="name" value="" id="input-name" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group required">
+                            <label class="control-label" for="input-email">Email</label>
+                            <input type="text" name="email" value="" id="input-email" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group required">
+                            <label class="control-label" for="input-email">Số điện thoại</label>
+                            <input type="text" name="phone" value="" id="input-email" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group required">
+                            <label class="control-label" for="input-enquiry">Nội dung</label>
+                            <textarea name="content" rows="10" id="input-enquiry" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="buttons">
+                    <div class="pull-right">
+                        <input class="btn btn-primary" type="submit" value="Submit" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
