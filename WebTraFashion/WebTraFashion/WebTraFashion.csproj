@@ -152,7 +152,6 @@
     <Compile Include="Models\tbl_slide_tra.cs">
       <DependentUpon>DataWeb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\UrlFriendly.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -613,6 +612,10 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="img\banner-1-780x390.jpg" />
+    <Content Include="img\banner-2-780x390.jpg" />
+    <Content Include="img\banner-3-780x390.jpg" />
+    <Content Include="img\banner-4-780x390.jpg" />
     <Content Include="img\client_signature.png" />
     <Content Include="img\logo-footer.png" />
     <Content Include="img\Logo.png" />
