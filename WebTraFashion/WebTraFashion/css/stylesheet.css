@@ -2013,7 +2013,24 @@ header .nav {
   line-height: 47px;
   z-index: 9;
 }
-
+.new_pr1 {
+  font-size: 12px;
+  text-transform: uppercase;
+  text-align: center;
+  display: inline-block;
+  position: absolute;
+  width: 47px;
+  height: 47px;
+  border-radius: 50%;
+  background: #333;
+  color: #fff;
+  top: 10px;
+  right: 11px!important;
+  background-color: #b4a376;
+  color: #FFF;
+  line-height: 47px;
+  z-index: 9;
+}
 .new_pr {
   background: #fff;
   color: #b4a376;

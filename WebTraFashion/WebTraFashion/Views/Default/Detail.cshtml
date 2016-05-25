@@ -1,313 +1,347 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_LayoutMaster.cshtml";
 }
 @using System.Configuration
 @using WebTraFashion.Models
-@model IEnumerable<WebTraFashion.Models.tbl_products_tra>
+@model WebTraFashion.Models.ClassAll
 @using System.Web.Mvc;
 @{
 
     TrafashionEntities db = new TrafashionEntities();
-    var queryProduct = from data in db.tbl_products_tra where data.status_products_tra == 1 orderby data.id_products_tra descending select data;
+    var queryProducts =
+            from data in db.tbl_products_tra
+            join datapic in db.tblSysPictures on data.id_products_tra equals datapic.advert_id
+            where data.status_products_tra == 1 && datapic.position == 1
+            orderby data.id_products_tra descending
+            select new ClassAll { tblProdu = data, tblPicture = datapic };
 
 
 }
 
-@section share_fb{
-    @foreach (var item in Model)
-    {
-        <meta property="og:title" content="@item.name_products_tra" />
 
-        <meta property="og:url" content="http://trafashion.com/Default/Detail/@item.id_products_tra" />
-        <meta name="description" content="@item.des_products_tra">
-        <meta property="og:description" content="@item.des_products_tra" />
-        <meta name="keywords" content="túi xách,balo,vali,hàng xách tay,hàng xách tay chất lượng cao,sản phẩm xách tay" />
-        <meta property="og:image" content="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.Split('_')[0]/@item.img_products_tra" />
-        <meta property="og:image:width" content="600" />
-        <meta property="og:image:height" content="315" />
-    }
-
-    }
-    @Html.Partial("Header")
+@Html.Partial("Header")
 
 
-    @Html.Partial("Breadcrumb")
-    @foreach (var item in Model.ToList())
-    {
+@Html.Partial("Breadcrumb")
 
-        <div class="product-bg">
-            <div class="container">
-                <div class="row product-content-columns">
-
-                    <div class="col-sm-5 col-lg-7 product_page-left">
-
-                        <div id="default_gallery" class="product-gallery">
-                            <div id="product-image" class="product-image">
-                                <div class="magnificent-wrap hidden-xs">
-                                    <div class="magnificent" data-magnificent="product-image">
-                                        <div class="polaroid">
-                                            <div class="inner">
-                                                <img src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra"
-                                                     alt="@item.name_products_tra" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="magnificent-viewport-wrap">
-                                    <div data-magnificent-viewport="product-image">
-                                        <div class="inner">
-                                            <img src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra" alt="Versace Bag" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <script class="source">
-                                $(function () {
-                                    $('#product-image [data-magnificent]').magnificent();
-                                });
-                                </script>
-                            </div>
-                            <div class="image-thumb">
-                                <ul id="image-additional" class="image-additional">
-                                    <li>
-                                        <a href="#" data-image="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra">
-                                            <img src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra" alt="" />
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" data-image="@ConfigurationManager.AppSettings["domain"]@item.img1_products_tra.ToString().Split('_')[0]/@item.img1_products_tra">
-                                            <img src="@ConfigurationManager.AppSettings["domain"]@item.img1_products_tra.ToString().Split('_')[0]/@item.img1_products_tra" alt="" />
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" data-image="@ConfigurationManager.AppSettings["domain"]@item.img2_products_tra.ToString().Split('_')[0]/@item.img2_products_tra">
-                                            <img src="@ConfigurationManager.AppSettings["domain"]@item.img2_products_tra.ToString().Split('_')[0]/@item.img2_products_tra" alt="" />
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" data-image="@ConfigurationManager.AppSettings["domain"]@item.img3_products_tra.ToString().Split('_')[0]/@item.img3_products_tra">
-                                            <img src="@ConfigurationManager.AppSettings["domain"]@item.img3_products_tra.ToString().Split('_')[0]/@item.img3_products_tra" alt="" />
-                                        </a>
-                                    </li>
-
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div id="full_gallery">
-                            <ul id="gallery">
-                                <li>
-                                    <a href="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra" data-something="something" data-another-thing="anotherthing">
-                                        <img src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra" title="Versace Bag" alt="Versace Bag" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="@ConfigurationManager.AppSettings["domain"]@item.img1_products_tra.ToString().Split('_')[0]/@item.img1_products_tra" data-something="something1" data-another-thing="anotherthing1">
-                                        <img src="@ConfigurationManager.AppSettings["domain"]@item.img1_products_tra.ToString().Split('_')[0]/@item.img1_products_tra" alt="Versace Bag" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="@ConfigurationManager.AppSettings["domain"]@item.img2_products_tra.ToString().Split('_')[0]/@item.img2_products_tra" data-something="something1" data-another-thing="anotherthing1">
-                                        <img src="@ConfigurationManager.AppSettings["domain"]@item.img2_products_tra.ToString().Split('_')[0]/@item.img2_products_tra" alt="Versace Bag" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="@ConfigurationManager.AppSettings["domain"]@item.img3_products_tra.ToString().Split('_')[0]/@item.img3_products_tra" data-something="something1" data-another-thing="anotherthing1">
-                                        <img src="@ConfigurationManager.AppSettings["domain"]@item.img3_products_tra.ToString().Split('_')[0]/@item.img3_products_tra" alt="Versace Bag" />
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-7 col-lg-5 product_page-right">
-                        <div class="general_info product-info">
-                            <h2 class="product-title">@item.name_products_tra</h2>
-                            <div class="separator1"></div>
-                            <div class="price-section">
-                                <span class="price-new"></span>
-                                <span class="price-new">@item.newprice_products_tra</span>
-                                <div class="reward-block">
-                                </div>
-                            </div>
-
-                            <div class="rating-section product-rating-status">
-                                <div class="rating">
-                                    <span class="fa-stack">
-                                        <i class="material-icons-star   fa-stack-1x"></i>
-                                        <i class="material-icons-star star  fa-stack-1x"></i>
-                                    </span>
-                                    <span class="fa-stack">
-                                        <i class="material-icons-star   fa-stack-1x"></i>
-                                        <i class="material-icons-star star  fa-stack-1x"></i>
-                                    </span>
-                                    <span class="fa-stack">
-                                        <i class="material-icons-star   fa-stack-1x"></i>
-                                        <i class="material-icons-star star  fa-stack-1x"></i>
-                                    </span>
-                                    <span class="fa-stack">
-                                        <i class="material-icons-star   fa-stack-1x"></i>
-                                        <i class="material-icons-star star  fa-stack-1x"></i>
-                                    </span>
-                                    <span class="fa-stack">
-                                        <i class="material-icons-star   fa-stack-1x"></i>
-                                        <i class="material-icons-star star  fa-stack-1x"></i>
-                                    </span>
-                                    <span class="review-link review-link-show">
-                                        <a href="#">1 reviews</a>
-                                    </span>
-                                    <span class="review-link review-link-write">
-                                        <a href="#">Write a review</a>
-                                    </span>
-                                </div>
-                            </div>
-                            <ul class="list-unstyled product-section">
-                                <li>
-                                    <strong>Brand:</strong>
-                                    <a href="apple">Versace</a>
-                                </li>
-                                <li><strong>Product Code:</strong> <span>@item.code_products_tra</span></li>
-                                <li>
-                                    <strong>Availability: </strong><span class="stock">In Stock</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div id="product">
-
-
-                            <div class="product-share">
-
-                                <div class="addthis_sharing_toolbox"></div>
-
-                                <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55e053ac02ebd38e" async="async"></script>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="product-info-section">
-            <div class="product-info">
-                <div class="info_1">
-                    <div class="info_cnt">
-                        <h3 class="mod1">Mô tả</h3>
-                        <div class="description_paragraph">
-                            <p style="white-space:pre-line;">
-                                @item.des_products_tra
-                            </p>
-                        </div>
-                    </div>
-                    <img src="~/img/prod_inf_img1.jpg" alt="">
-                </div>
-                @*<div class="info_2">
-                        <img src="~/img/prod_inf_img2.jpg" alt="">
-                        <div class="info_cnt">
-                            <h3 class="mod1">Specification</h3>
-                            <table class="table table-bordered">
-                                <ul>
-                                    <li>
-                                        <span>Soft suede leather stash clutch in Midnight Suede</span>
-                                    </li>
-                                    <li>
-                                        <span>Casual, medium size</span>
-                                    </li>
-                                    <li>
-                                        <span>100% Milled leather</span>
-                                    </li>
-                                    <li>
-                                        <span>Round sides</span>
-                                    </li>
-                                    <li>
-                                        <span>Top zipper closure</span>
-                                    </li>
-                                    <li>
-                                        <span>Silver hardware</span>
-                                    </li>
-                                    <li>
-                                        <span>Heat pressed logo</span>
-                                    </li>
-                                </ul>
-                                <ul>
-                                    <li>
-                                        <span>Fully lined cloth interior</span>
-                                    </li>
-                                    <li>
-                                        <span>Made in USA </span>
-                                    </li>
-                                </ul>
-                            </table>
-                        </div>
-                    </div>*@
-                <div class="info_3">
-                    <img src="~/img/prod_inf_img3.jpg" alt="">
-                    <img src="~/img/prod_inf_img4.jpg" alt="">
-                </div>
-            </div>
-        </div>
-
-    }
-
+<div class="product-bg">
     <div class="container">
-        <div class="row">
-            <div id="content" class="col-sm-12 product_page">
+        <div class="row product-content-columns">
 
-                <div id="tab-review" class="tab-pane product-reviews product-section">
-                    <h3 class="mod1">Reviews (1)</h3>
-                    <form class="form-horizontal" id="form-review">
+            <div class="col-sm-5 col-lg-7 product_page-left">
 
-                        <div id="review"></div>
+                <div id="default_gallery" class="product-gallery">
+                    @foreach (var item in Model.tblistPicture.Where(x => x.position == 1))
+                    {
 
-                        <div class="review-form-title">
-                            <h3 class="product-section_title" id="reviews_form_title">Write a review</h3>
-                        </div>
-                        <div class="product-review-form" id="reviews_form">
-                            <div class="form-group required">
-                                <div class="col-sm-12">
-                                    <label class="control-label" for="input-name">Your Name</label>
-                                    <input type="text" name="name" value="" id="input-name" class="form-control" />
+                    <div id="product-image" class="product-image">
+                        <div class="magnificent-wrap hidden-xs">
+                            <div class="magnificent" data-magnificent="product-image">
+                                <div class="polaroid">
+                                    <div class="inner">
+                                        <img src="@ConfigurationManager.AppSettings["domain"]@item.originalFilepath.ToString().Split('_')[0]/@item.originalFilepath" />
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group required">
-                                <div class="col-sm-12">
-                                    <label class="control-label" for="input-review">Your Review</label>
-                                    <textarea name="text" rows="5" id="input-review"></textarea>
-                                    <div class="help-block"><span class="text-danger">Note:</span> HTML is not translated!</div>
-                                </div>
-                            </div>
-                            <div class="form-group required">
-                                <div class="col-sm-12">
-                                    <label class="control-label">Rating</label>
-                                    &nbsp;&nbsp;&nbsp; Bad&nbsp;
-                                    <input type="radio" name="rating" value="1" />
-                                    &nbsp;
-                                    <input type="radio" name="rating" value="2" />
-                                    &nbsp;
-                                    <input type="radio" name="rating" value="3" />
-                                    &nbsp;
-                                    <input type="radio" name="rating" value="4" />
-                                    &nbsp;
-                                    <input type="radio" name="rating" value="5" />
-                                    &nbsp;Good
-                                </div>
-                            </div>
-                            <div class="buttons clearfix">
-                                <button type="button" id="button-review" data-loading-text="Loading..." class="btn btn-primary">Tiếp tục</button>
                             </div>
                         </div>
-                    </form>
+                        <div class="magnificent-viewport-wrap">
+                            <div data-magnificent-viewport="product-image">
+                                <div class="inner">
+                                    <img src="@ConfigurationManager.AppSettings["domain"]@item.originalFilepath.ToString().Split('_')[0]/@item.originalFilepath" />
+                                </div>
+                            </div>
+                        </div>
+                        <script class="source">
+                            $(function () {
+                                $('#product-image [data-magnificent]').magnificent();
+                            });
+                        </script>
+                    </div>
+                    }
+                    <div class="image-thumb">
+
+
+                        <ul id="image-additional" class="image-additional">
+                            @foreach (var item in Model.tblistPicture.OrderBy(x => x.position))
+                            {
+                            <li>
+                                <a href="#" data-image="@ConfigurationManager.AppSettings["domain"]@item.originalFilepath.ToString().Split('_')[0]/@item.originalFilepath">
+                                    <img src="@ConfigurationManager.AppSettings["domain"]@item.originalFilepath.ToString().Split('_')[0]/@item.originalFilepath" />
+                                </a>
+                            </li>
+                            }
+
+                        </ul>
+                    </div>
                 </div>
-                @Html.Partial("relatedProduct", queryProduct.ToList())
 
+                <div id="full_gallery">
+                    <ul id="gallery">
+                        @foreach (var item in Model.tblistPicture.OrderBy(x => x.position))
+                        {
+                        <li>
+                            <a href="#" data-image="@ConfigurationManager.AppSettings["domain"]@item.originalFilepath.ToString().Split('_')[0]/@item.originalFilepath">
+                                <img src="@ConfigurationManager.AppSettings["domain"]@item.originalFilepath.ToString().Split('_')[0]/@item.originalFilepath" />
+                            </a>
+                        </li>
+                        }
+
+                    </ul>
+                </div>
             </div>
+            @foreach (var item in Model.tblistPro)
+            {
+            <div class="col-sm-7 col-lg-5 product_page-right">
+                <div class="general_info product-info">
+                    <h2 class="product-title">@item.name_products_tra</h2>
+                    <div class="separator1"></div>
+                    <div class="price-section">
+                        <span class="price-new">@item.newprice_products_tra</span>
+                        <span class="price-old">@item.oldprice_products_tra</span>
+                        <div class="reward-block">
+                        </div>
+                    </div>
+
+                    <div class="rating-section product-rating-status">
+                        <div class="rating">
+                            <span class="fa-stack">
+                                <i class="material-icons-star   fa-stack-1x"></i>
+                                <i class="material-icons-star star  fa-stack-1x"></i>
+                            </span>
+                            <span class="fa-stack">
+                                <i class="material-icons-star   fa-stack-1x"></i>
+                                <i class="material-icons-star star  fa-stack-1x"></i>
+                            </span>
+                            <span class="fa-stack">
+                                <i class="material-icons-star   fa-stack-1x"></i>
+                                <i class="material-icons-star star  fa-stack-1x"></i>
+                            </span>
+                            <span class="fa-stack">
+                                <i class="material-icons-star   fa-stack-1x"></i>
+                                <i class="material-icons-star star  fa-stack-1x"></i>
+                            </span>
+                            <span class="fa-stack">
+                                <i class="material-icons-star   fa-stack-1x"></i>
+                                <i class="material-icons-star star  fa-stack-1x"></i>
+                            </span>
+                            <span class="review-link review-link-show">
+                                <a href="#">1 reviews</a>
+                            </span>
+                            <span class="review-link review-link-write">
+                                <a href="#">Write a review</a>
+                            </span>
+                        </div>
+                    </div>
+                    <ul class="list-unstyled product-section">
+                        <li>
+                            <strong>Brand:</strong>
+                            <a href="apple">Versace</a>
+                        </li>
+                        <li><strong>Product Code:</strong> <span>@item.code_products_tra</span></li>
+                        <li>
+                            <strong>Availability: </strong><span class="stock">In Stock</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="product-reccurings">
+                </div>
+
+                <div class="form-group form-horizontal add-to-cart-form">
+                    <div class="form-group">
+                        <div class="col-sm-12 quantity">
+
+                            <button type="button" id="button-cart" data-loading-text="Loading..." class="product-btn-add" data-toggle="modal" data-target="#myModal_@item.id_products_tra"><i class="mat-icons material-icons-shopping_basket"></i>Mua hàng</button>
+                            <button type="button" id="button-cart" data-loading-text="Loading..." class="product-btn-add"><i class="mat-icons material-icons-shopping_basket"></i>Đặt hàng</button>
+
+                        </div>
+                    </div>
+                    <ul class="product-buttons">
+                        <li>
+                            <button class="product-btn" data-toggle="tooltip" title="Add to Wish List"><i class="mat-icons material-icons-favorite_border"></i></button>
+                        </li>
+                        <li>
+                            <button type="button" class="product-btn" data-toggle="tooltip" title="Compare this Product">
+                                <i class="mat-icons material-icons-sort"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <div id="product">
+
+
+                    <div class="product-share">
+
+                        <div class="addthis_sharing_toolbox"></div>
+
+                        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55e053ac02ebd38e" async="async"></script>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trigger the modal with a button -->
+            <!-- Modal -->
+            <div id="myModal_@item.id_products_tra" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">@item.name_products_tra</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    Mã sản phẩm: @item.code_products_tra<br />
+                                    Giá: @item.newprice_products_tra
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <label>Họ và tên</label>
+                                        <input class="form-control" name="txtName">
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <label>Số điện thoại</label>
+                                        <input class="form-control" name="txtPhone">
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input class="form-control" name="txtEmail">
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3">
+                                </div>
+                                <div class="col-lg-9">
+                                    <div class="form-group">
+                                        <label>Nội dung</label>
+                                        <textarea class="form-control" name="txtContent"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            @section share_fb{
+
+            <meta property="og:title" content="@item.name_products_tra" />
+
+            <meta property="og:url" content="http://trafashion.com/Default/Detail/@item.id_products_tra" />
+            <meta name="description" content="@item.des_products_tra">
+            <meta property="og:description" content="@item.des_products_tra" />
+            <meta name="keywords" content="túi xách,balo,vali,hàng xách tay,hàng xách tay chất lượng cao,sản phẩm xách tay" />
+            @*<meta property="og:image" content="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.Split('_')[0]/@item.img_products_tra" />*@
+            <meta property="og:image:width" content="600" />
+            <meta property="og:image:height" content="315" />
+            @foreach (var item1 in Model.tblistPicture.Where(x => x.position == 1))
+            {
+            <meta property="og:image" content="@ConfigurationManager.AppSettings["domain"]@item1.originalFilepath.Split('_')[0]/@item1.originalFilepath" />
+            }
+
+            }
+            }
+
         </div>
     </div>
+</div>
+@foreach (var item in Model.tblistPro)
+{
+<div class="product-info-section">
+    <div class="product-info">
+        <div class="info_1">
+            <div class="info_cnt">
+                <h3 class="mod1">Mô tả</h3>
+                <div class="description_paragraph">
+                    <p style="white-space:pre-line;">
+                        @item.des_products_tra
+                    </p>
+                </div>
+            </div>
+            <img src="~/img/prod_inf_img1.jpg" alt="">
+        </div>
 
-    <script>
+        <div class="info_3">
+            <img src="~/img/prod_inf_img3.jpg" alt="">
+            <img src="~/img/prod_inf_img4.jpg" alt="">
+        </div>
+    </div>
+</div>
+}
+
+<div class="container">
+    <div class="row">
+        <div id="content" class="col-sm-12 product_page">
+
+            <div id="tab-review" class="tab-pane product-reviews product-section">
+                <h3 class="mod1">Reviews (1)</h3>
+                <form class="form-horizontal" id="form-review">
+
+                    <div id="review"></div>
+
+                    <div class="review-form-title">
+                        <h3 class="product-section_title" id="reviews_form_title">Write a review</h3>
+                    </div>
+                    <div class="product-review-form" id="reviews_form">
+                        <div class="form-group required">
+                            <div class="col-sm-12">
+                                <label class="control-label" for="input-name">Your Name</label>
+                                <input type="text" name="name" value="" id="input-name" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group required">
+                            <div class="col-sm-12">
+                                <label class="control-label" for="input-review">Your Review</label>
+                                <textarea name="text" rows="5" id="input-review"></textarea>
+                                <div class="help-block"><span class="text-danger">Note:</span> HTML is not translated!</div>
+                            </div>
+                        </div>
+                        <div class="form-group required">
+                            <div class="col-sm-12">
+                                <label class="control-label">Rating</label>
+                                &nbsp;&nbsp;&nbsp; Bad&nbsp;
+                                <input type="radio" name="rating" value="1" />
+                                &nbsp;
+                                <input type="radio" name="rating" value="2" />
+                                &nbsp;
+                                <input type="radio" name="rating" value="3" />
+                                &nbsp;
+                                <input type="radio" name="rating" value="4" />
+                                &nbsp;
+                                <input type="radio" name="rating" value="5" />
+                                &nbsp;Good
+                            </div>
+                        </div>
+                        <div class="buttons clearfix">
+                            <button type="button" id="button-review" data-loading-text="Loading..." class="btn btn-primary">Tiếp tục</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            @Html.Partial("relatedProduct", queryProducts.ToList())
+
+        </div>
+    </div>
+</div>
+
+
+
+<script>
     jQuery(document).ready(function () {
         var myPhotoSwipe = $("#gallery a").photoSwipe({
             enableMouseWheel: true,
@@ -315,5 +349,5 @@
             captionAndToolbarAutoHideDelay: 0
         });
     });
-    </script>
-    @Html.Partial("Footer")
+</script>
+@Html.Partial("Footer")

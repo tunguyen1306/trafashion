@@ -10,21 +10,26 @@
 
     TrafashionEntities db = new TrafashionEntities();
     var querySlide = from data in db.tbl_slide_tra where data.status_slide_tra == 1 orderby data.id_slide_tra descending select data;
-    var queryProducts = from data in db.tbl_products_tra where data.status_products_tra == 1 orderby data.id_products_tra descending select data;
+    var queryProducts =
+        from data in db.tbl_products_tra
+        join datapic in db.tblSysPictures on data.id_products_tra equals datapic.advert_id
+        where data.status_products_tra == 1 && datapic.position == 1
+        orderby data.id_products_tra descending
+        select new ClassAll { tblProdu = data, tblPicture = datapic };
 
 }
 
 @section share_fb{
-   
-<meta property="og:title" content="Trafashion chuyên các mặt hàng túi xách,balo,vali xách tay" />
 
-<meta property="og:url" content="http://trafashion.com" />
-<meta name="description" content="Trafashion chuyên các mặt hàng túi xách,balo,vali xách tay">
-<meta property="og:description" content="Trafashion chuyên các mặt hàng túi xách,balo,vali xách tay" />
-<meta name="keywords" content="túi xách,balo,vali,hàng xách tay,hàng xách tay chất lượng cao,sản phẩm xách tay" />
-<meta property="og:image" content="http://trafashion.com/img/logo.png" />
-<meta property="og:image:width" content="600" />
-<meta property="og:image:height" content="315" />
+    <meta property="og:title" content="Trafashion chuyên các mặt hàng túi xách,balo,vali xách tay" />
+
+    <meta property="og:url" content="http://trafashion.com" />
+    <meta name="description" content="Trafashion chuyên các mặt hàng túi xách,balo,vali xách tay">
+    <meta property="og:description" content="Trafashion chuyên các mặt hàng túi xách,balo,vali xách tay" />
+    <meta name="keywords" content="túi xách,balo,vali,hàng xách tay,hàng xách tay chất lượng cao,sản phẩm xách tay" />
+    <meta property="og:image" content="http://trafashion.com/img/logo.png" />
+    <meta property="og:image:width" content="600" />
+    <meta property="og:image:height" content="315" />
 }
 
 
@@ -39,19 +44,28 @@
         <div id="about_block0" class="about_block">
             <div class="about-1">
                 <div class="about-box">
-                    <img src="~/img/client_photo-584x427.png" alt="about-1" class="img-responsive" />
+                    @*<img src="~/img/client_photo-584x427.png" alt="about-1" class="img-responsive" />*@
                     <div class="s-desc">
                         <div class="under-block">
                             <blockquote>
-                                <img src="~/img/client_signature.png">
-                                <p><q>Thanks a lot for the quick response. I was really impressed, your solution is excellent!! </q></p>
-                                <cite>Eva tomson</cite>
+                                <img src="~/img/Chuky.png">
+                                <p>
+                                    <q style="white-space:pre-line">
+                                        CAM KẾT VỀ CHẤT LƯỢNG 
+                                        -	CHÚNG TÔI CAM KẾT CÁC SẢN PHẨM CỦA TRAFASHION ĐƯỢC NHẬP KHẨU HOÀN TOÀN TỪ CÁC THƯƠNG HIỆU NỔI TIẾNG TRÊN THẾ GIỚI. CHẤT LƯỢNG CỦA SẢN PHẨM CHÍNH LÀ CHẤT LƯỢNG ĐƯỢC CAM KẾT TỪ CHÍNH HÃNG.
+                                    </q>
+                                </p>
+                                <cite></cite>
                             </blockquote>
                         </div>
                         <div class="right-block">
-                            <h2>About <span>our handbags store</span></h2>
-                            <p>
-                                We are glad to welcome you on our company website! It is rather content-rich and provides you with tons of information on various aspects of our business. Our team of professionals will happily help you to deal with any issue. Client is our first priority and a great amount of positive testimonials can prove this.
+                            <h2>TRAFASHION</h2>
+                            <p style="white-space:pre-line">
+                                -	CHÚNG TÔI RẤT VUI KHI ĐƯỢC BẠN GHÉ THĂM. TRAFASHION LÀ NƠI NHẬP KHẨU CÁC SẢN PHẨM TRỰC TIẾP TỪ CÁC THƯƠNG HIỆU NỔI TIẾNG TRÊN THẾ GIỚI.
+                                -	CHẤT LƯỢNG SẢN PHẨM ĐƯỢC ĐẢM BẢO HOÀN TOÀN 100% LÀ HÀNG HÓA NHẬP KHẨU CHÍNH HÃNG TỪ CÁC THƯƠNG HIỆU UY TÍN TRÊN THẾ GIỚI.
+                                -	LÀ THÀNH VIÊN CỦA TRAFASHION, CHÚNG TÔI LUÔN LUÔN ĐEM LẠI SỰ HÀI LÒNG CHO QUÝ KHÁCH VỀ CHẤT LƯỢNG, MẪU MÃ, THƯƠNG HIỆU CỦA SẢN PHẨM. CHƯƠNG TRÌNH SALE OFF SẢN PHẨM SẼ ĐƯỢC CẬP NHẬT TRÊN TRANG WEBWISTE.
+                                -	TRAFASHION LÀ NƠI ĐẢM BẢO TÀI SẢN CHO KHÁCH HÀNG, LÀ NƠI ĐÁNG TIN CẬY ĐỂ TRAO NIỀM TIN KẾT NỐI VỚI THẾ GIỚI.
+
                             </p>
                         </div>
                     </div>
@@ -96,7 +110,7 @@
                     </div>
                     <span id="tm-newsletter_error" class="newsletter-error"></span>
                     <span id="tm-newsletter_success" class="newsletter-success"></span>
-                    <button type="submit" id="tm-newsletter-button"  class="dropdown-btn"><i class="material-design-drafts"></i>Đăng ký</button>
+                    <button type="submit" id="tm-newsletter-button" class="dropdown-btn"><i class="material-design-drafts"></i>Đăng ký</button>
                 </form>
             </div>
         </div>

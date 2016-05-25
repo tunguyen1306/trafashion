@@ -7,6 +7,7 @@
       <Diagram DiagramId="fe566f3481da4837b7ec51acfdf0dac9" Name="Diagram1">
         <EntityTypeShape EntityType="TrafashionModel.tbl_slide_tra" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TrafashionModel.tbl_products_tra" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="TrafashionModel.tblSysPicture" Width="1.5" PointX="0.75" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

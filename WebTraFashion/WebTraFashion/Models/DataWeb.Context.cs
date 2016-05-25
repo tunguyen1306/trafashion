@@ -27,5 +27,6 @@ namespace WebTraFashion.Models
     
         public virtual DbSet<tbl_slide_tra> tbl_slide_tra { get; set; }
         public virtual DbSet<tbl_products_tra> tbl_products_tra { get; set; }
+        public virtual DbSet<tblSysPicture> tblSysPictures { get; set; }
     }
 }

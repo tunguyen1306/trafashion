@@ -4,7 +4,7 @@
 @using System.Web;
 @using System.Web.Mvc;
 @using System.Configuration
-@model IEnumerable<tbl_products_tra>
+@model IEnumerable<ClassAll>
 <div class="related-products product-section">
     <h3 class="product-section_title mod1">Sản phẩm liên quan</h3>
     <div class="box-carousel">
@@ -68,29 +68,29 @@
 
 
                             <button class="product-btn-add" type="button">
-                                <span>Add to Cart</span>
+                                <span>Mua hàng</span>
                             </button>
                         </div>
                     </div>
                 </div>
                 <div class="quick_info hidden-xs">
-                    <div id="quickview_latest_@item.id_products_tra" class="quickview-style">
+                    <div id="quickview_latest_@item.tblProdu.id_products_tra" class="quickview-style">
                         <div>
                             <div class="left col-sm-4">
                                 <div class="quickview_image image">
-                                    <a href="@Url.Action("Detail","Default",new { id=item.name_products_tra.UrlFrendly() + "-" + item.id_products_tra })">
-                                        @*data-src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra"*@
-                                        <img alt="@item.name_products_tra" title="@item.name_products_tra" class="img-responsive" src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra"  />
+                                    <a href="@Url.Action("Detail","Default",new { id=item.tblProdu.name_products_tra.UrlFrendly() + "-" + item.tblProdu.id_products_tra })">
+                                      
+                                        <img alt="@item.tblProdu.name_products_tra" title="@item.tblProdu.name_products_tra" class="img-responsive" src="@ConfigurationManager.AppSettings["domain"]@item.tblPicture.originalFilepath.ToString().Split('_')[0]/@item.tblPicture.originalFilepath"  />
                                     </a>
                                 </div>
                             </div>
                             <div class="right col-sm-8">
-                                <h2>@item.name_products_tra</h2>
+                                <h2>@item.tblProdu.name_products_tra</h2>
                                 <div class="inf">
-                                    <p class="product_model model">Model: @item.code_products_tra</p>
+                                    <p class="product_model model">Model: @item.tblProdu.code_products_tra</p>
                                     <div class="price">
-                                        <span class="price-new">@item.oldprice_products_tra</span>
-                                            <span class="price-old">@item.newprice_products_tra</span>
+                                        <span class="price-new">@item.tblProdu.newprice_products_tra</span>
+                                        <span class="price-old">@item.tblProdu.oldprice_products_tra</span>
                                     </div>
                                 </div>
                                 <div class="rating">
@@ -115,9 +115,9 @@
                                         <i class="material-icons-star star  fa-stack-1x"></i>
                                     </span>
                                 </div>
-                                <button class="product-btn-add" data-toggle="tooltip" title="Add to Cart" type="button">
+                                <button class="product-btn-add" data-toggle="tooltip" title="Mua hàng" type="button">
                                     <i class="mat-icons material-icons-shopping_basket"></i>
-                                    <span>Add to Cart</span>
+                                    <span>Mua hàng</span>
                                 </button>
                                 <ul class="product-buttons">
                                     <li>
@@ -138,34 +138,34 @@
                             <div class="col-sm-12">
                                 <div class="quickview_description description">
                                     <p style="white-space:pre-line;">
-                                        @item.des_products_tra
+                                        @item.tblProdu.des_products_tra
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="new_pr"><span>New</span></div>
+                 <div class="new_pr"><span>New</span></div><div class="new_pr1"><span>@item.tblProdu.discount_products_tra %</span></div>
                 <div class="aside-block">
                     <div class="image">
-                        <a class="quickview quickview-latest hidden-xs" data-rel="details" href="#quickview_latest_@item.id_products_tra">
+                        <a class="quickview quickview-latest hidden-xs" data-rel="details" href="#quickview_latest_@item.tblProdu.id_products_tra">
                             Xem nhanh
                         </a>
-                        <a class="lazy" style="padding-bottom: 100%" href="@Url.Action("Detail","Default",new { id=item.name_products_tra.UrlFrendly() + "-" + item.id_products_tra })">
-                            @*data-src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra"*@
-                            <img alt="@item.name_products_tra" title="@item.name_products_tra" class="img-responsive"  src="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.ToString().Split('_')[0]/@item.img_products_tra" />
+                        <a class="lazy" style="padding-bottom: 100%" href="@Url.Action("Detail","Default",new { id=item.tblProdu.name_products_tra.UrlFrendly() + "-" + item.tblProdu.id_products_tra })">
+                          
+                            <img alt="@item.tblProdu.name_products_tra" title="@item.tblProdu.name_products_tra" class="img-responsive"  src="@ConfigurationManager.AppSettings["domain"]@item.tblPicture.originalFilepath.ToString().Split('_')[0]/@item.tblPicture.originalFilepath" />
                         </a>
                     </div>
                     <div class="caption">
                         <div class="name">
-                            <a href="@Url.Action("Detail","Default",new { id= item.name_products_tra + "-" + item.id_products_tra })">
-                                @item.name_products_tra
+                            <a href="@Url.Action("Detail","Default",new { id= item.tblProdu.name_products_tra + "-" + item.tblProdu.id_products_tra })">
+                                @item.tblProdu.name_products_tra
                             </a>
                         </div>
 
                         <div class="price">
-                            <span class="price-new">@item.oldprice_products_tra</span>
-                            <span class="price-old">@item.newprice_products_tra</span>
+                            <span class="price-new">@item.tblProdu.oldprice_products_tra</span>
+                            <span class="price-old">@item.tblProdu.newprice_products_tra</span>
                         </div>
                     </div>
                     <div class="cart-button">
@@ -192,9 +192,13 @@
                             </span>
                         </div>
                         <div class="btns-block">
-                            <button class="product-btn-add" data-toggle="tooltip" title="Add to Cart" type="button">
+                            <button class="product-btn-add" data-toggle="tooltip" title="Mua hàng" type="button">
                                 <i class="mat-icons material-icons-shopping_basket"></i>
-                                <span class="hidden-xs hidden-sm hidden-md">Add to Cart</span>
+                                <span class="hidden-xs hidden-sm hidden-md">Mua hàng</span>
+                            </button>
+                            <button class="product-btn-add" data-toggle="tooltip" title="Mua hàng" type="button">
+                                <i class="mat-icons material-icons-shopping_basket"></i>
+                                <span class="hidden-xs hidden-sm hidden-md">Đặt hàng</span>
                             </button>
                             <button class="product-btn" type="button" data-toggle="tooltip" title="Add to Wish List">
                                 <i class="mat-icons material-icons-favorite_border"></i>

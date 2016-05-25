@@ -1,4 +1,5 @@
 ﻿$(document).ready(function () {
+
     var url = window.location.href;
     if (url.indexOf('/Default/ListProducts/')) {
 
@@ -64,6 +65,7 @@ jQuery(document).ready(function () {
         invert: false,
     });
 });
+
 function getCookie(c_name) {
     var search = c_name + "="
     var returnvalue = "";

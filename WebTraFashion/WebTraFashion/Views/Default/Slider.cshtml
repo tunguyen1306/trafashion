@@ -6,12 +6,12 @@
 
                 @foreach (var item in Model)
                 {
-                    <div title="slide-1" data-thumb="@ConfigurationManager.AppSettings["domain"]@item.img_slide_tra.ToString().Split('_')[0]/@item.img_slide_tra" data-src="@ConfigurationManager.AppSettings["domain"]@item.img_slide_tra.ToString().Split('_')[0]/@item.img_slide_tra">
+                    <div title="slide-1" data-thumb="@ConfigurationManager.AppSettings["domainslide"]@item.img_slide_tra.ToString().Split('_')[0]/@item.img_slide_tra" data-src="@ConfigurationManager.AppSettings["domainslide"]@item.img_slide_tra.ToString().Split('_')[0]/@item.img_slide_tra">
                         <div class="camera_caption fadeIn">
                             <div class="container">
                                 <h1 class="mod1">
-                                    THE LARGEST
-                                    <span>@item.title_slide_tra</span>
+                                    @item.title_slide_tra
+                                    <span style="font-size:20px">@item.title1_slide_tra</span>
                                 </h1>
                                 <div class="separator"></div>
                                 <p>

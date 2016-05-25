@@ -22,6 +22,7 @@
           <Property Name="oldprice_products_tra" Type="nvarchar" MaxLength="200" />
           <Property Name="type_products_tra" Type="int" />
           <Property Name="featured_products_tra" Type="int" />
+          <Property Name="discount_products_tra" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="tbl_slide_tra">
           <Key>
@@ -32,10 +33,34 @@
           <Property Name="title_slide_tra" Type="nvarchar" MaxLength="200" />
           <Property Name="des_slide_tra" Type="ntext" />
           <Property Name="status_slide_tra" Type="int" />
+          <Property Name="title1_slide_tra" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="tblSysPicture">
+          <Key>
+            <PropertyRef Name="picture_id" />
+          </Key>
+          <Property Name="picture_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="advert_id" Type="int" />
+          <Property Name="originalFilepath" Type="varchar" MaxLength="255" />
+          <Property Name="position" Type="tinyint" />
+          <Property Name="converted" Type="datetime" />
+          <Property Name="convertedFilename" Type="varchar" MaxLength="50" />
+          <Property Name="tocheck" Type="bit" />
+          <Property Name="isvalidated" Type="bit" />
+          <Property Name="convertedFilename90" Type="varchar" MaxLength="50" />
+          <Property Name="convertedFilename180" Type="varchar" MaxLength="50" />
+          <Property Name="convertedFilename270" Type="varchar" MaxLength="50" />
+          <Property Name="angleType" Type="tinyint" />
+          <Property Name="type_id" Type="tinyint" />
+          <Property Name="title" Type="nvarchar(max)" />
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="cms_sql_id" Type="int" />
+          <Property Name="shortdescription" Type="nvarchar(max)" />
         </EntityType>
         <EntityContainer Name="TrafashionModelStoreContainer">
           <EntitySet Name="tbl_products_tra" EntityType="Self.tbl_products_tra" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_slide_tra" EntityType="Self.tbl_slide_tra" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSysPicture" EntityType="Self.tblSysPicture" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -50,10 +75,12 @@
           <Property Name="title_slide_tra" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="des_slide_tra" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="status_slide_tra" Type="Int32" />
+          <Property Name="title1_slide_tra" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityContainer Name="TrafashionEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tbl_slide_tra" EntityType="Self.tbl_slide_tra" />
           <EntitySet Name="tbl_products_tra" EntityType="TrafashionModel.tbl_products_tra" />
+          <EntitySet Name="tblSysPictures" EntityType="TrafashionModel.tblSysPicture" />
         </EntityContainer>
         <EntityType Name="tbl_products_tra">
           <Key>
@@ -72,6 +99,29 @@
           <Property Name="oldprice_products_tra" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="type_products_tra" Type="Int32" />
           <Property Name="featured_products_tra" Type="Int32" />
+          <Property Name="discount_products_tra" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblSysPicture">
+          <Key>
+            <PropertyRef Name="picture_id" />
+          </Key>
+          <Property Name="picture_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="advert_id" Type="Int32" />
+          <Property Name="originalFilepath" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="position" Type="Byte" />
+          <Property Name="converted" Type="DateTime" Precision="3" />
+          <Property Name="convertedFilename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tocheck" Type="Boolean" />
+          <Property Name="isvalidated" Type="Boolean" />
+          <Property Name="convertedFilename90" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="convertedFilename180" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="convertedFilename270" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="angleType" Type="Byte" />
+          <Property Name="type_id" Type="Byte" />
+          <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="cms_sql_id" Type="Int32" />
+          <Property Name="shortdescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -82,6 +132,7 @@
           <EntitySetMapping Name="tbl_slide_tra">
             <EntityTypeMapping TypeName="TrafashionModel.tbl_slide_tra">
               <MappingFragment StoreEntitySet="tbl_slide_tra">
+                <ScalarProperty Name="title1_slide_tra" ColumnName="title1_slide_tra" />
                 <ScalarProperty Name="id_slide_tra" ColumnName="id_slide_tra" />
                 <ScalarProperty Name="img_slide_tra" ColumnName="img_slide_tra" />
                 <ScalarProperty Name="title_slide_tra" ColumnName="title_slide_tra" />
@@ -93,6 +144,7 @@
           <EntitySetMapping Name="tbl_products_tra">
             <EntityTypeMapping TypeName="TrafashionModel.tbl_products_tra">
               <MappingFragment StoreEntitySet="tbl_products_tra">
+                <ScalarProperty Name="discount_products_tra" ColumnName="discount_products_tra" />
                 <ScalarProperty Name="featured_products_tra" ColumnName="featured_products_tra" />
                 <ScalarProperty Name="type_products_tra" ColumnName="type_products_tra" />
                 <ScalarProperty Name="oldprice_products_tra" ColumnName="oldprice_products_tra" />
@@ -106,6 +158,29 @@
                 <ScalarProperty Name="img1_products_tra" ColumnName="img1_products_tra" />
                 <ScalarProperty Name="img_products_tra" ColumnName="img_products_tra" />
                 <ScalarProperty Name="id_products_tra" ColumnName="id_products_tra" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSysPictures">
+            <EntityTypeMapping TypeName="TrafashionModel.tblSysPicture">
+              <MappingFragment StoreEntitySet="tblSysPicture">
+                <ScalarProperty Name="shortdescription" ColumnName="shortdescription" />
+                <ScalarProperty Name="cms_sql_id" ColumnName="cms_sql_id" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="type_id" ColumnName="type_id" />
+                <ScalarProperty Name="angleType" ColumnName="angleType" />
+                <ScalarProperty Name="convertedFilename270" ColumnName="convertedFilename270" />
+                <ScalarProperty Name="convertedFilename180" ColumnName="convertedFilename180" />
+                <ScalarProperty Name="convertedFilename90" ColumnName="convertedFilename90" />
+                <ScalarProperty Name="isvalidated" ColumnName="isvalidated" />
+                <ScalarProperty Name="tocheck" ColumnName="tocheck" />
+                <ScalarProperty Name="convertedFilename" ColumnName="convertedFilename" />
+                <ScalarProperty Name="converted" ColumnName="converted" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="originalFilepath" ColumnName="originalFilepath" />
+                <ScalarProperty Name="advert_id" ColumnName="advert_id" />
+                <ScalarProperty Name="picture_id" ColumnName="picture_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -6,16 +6,28 @@
 @using PagedList
 @using WebTraFashion.Models
 @using System.Configuration
-@model IEnumerable<tbl_products_tra>
+@model IEnumerable< ClassAll>
+
 @{
 
     TrafashionEntities db = new TrafashionEntities();
     Random ran = new Random();
 
-    var queryProductFeature = from data in db.tbl_products_tra where data.status_products_tra == 1 && data.featured_products_tra==1 orderby data.id_products_tra descending select data;
+    var queryProductFeature = from data in db.tbl_products_tra
+                              join datapic in db.tblSysPictures on data.id_products_tra equals datapic.advert_id
+                              where data.status_products_tra == 1 && datapic.position == 1 && data.featured_products_tra==1
+                              orderby data.id_products_tra descending
+                              select new ClassAll { tblProdu = data, tblPicture = datapic };
+
     var dataProductFeature = queryProductFeature.OrderBy(x => Guid.NewGuid()).Take(5);
 
-    var queryLatestProducts = from data in db.tbl_products_tra where data.status_products_tra == 1 orderby data.id_products_tra descending select data;
+    var queryLatestProducts = from data in db.tbl_products_tra
+                              join datapic in db.tblSysPictures on data.id_products_tra equals datapic.advert_id
+                              where data.status_products_tra == 1 && datapic.position == 1
+                              orderby data.id_products_tra descending
+                              select new ClassAll { tblProdu = data, tblPicture = datapic };
+
+
     var dataLatestProducts = queryLatestProducts.OrderBy(x => Guid.NewGuid()).Take(5);
 
     }
