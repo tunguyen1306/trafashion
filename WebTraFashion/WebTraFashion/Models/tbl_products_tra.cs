@@ -28,5 +28,6 @@ namespace WebTraFashion.Models
         public Nullable<int> type_products_tra { get; set; }
         public Nullable<int> featured_products_tra { get; set; }
         public string discount_products_tra { get; set; }
+        public Nullable<int> yes_products_tra { get; set; }
     }
 }

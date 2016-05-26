@@ -35,29 +35,29 @@
                     @foreach (var item in Model.tblistPicture.Where(x => x.position == 1))
                     {
 
-                    <div id="product-image" class="product-image">
-                        <div class="magnificent-wrap hidden-xs">
-                            <div class="magnificent" data-magnificent="product-image">
-                                <div class="polaroid">
+                        <div id="product-image" class="product-image">
+                            <div class="magnificent-wrap hidden-xs">
+                                <div class="magnificent" data-magnificent="product-image">
+                                    <div class="polaroid">
+                                        <div class="inner">
+                                            <img src="@ConfigurationManager.AppSettings["domain"]@item.originalFilepath.ToString().Split('_')[0]/@item.originalFilepath" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="magnificent-viewport-wrap">
+                                <div data-magnificent-viewport="product-image">
                                     <div class="inner">
                                         <img src="@ConfigurationManager.AppSettings["domain"]@item.originalFilepath.ToString().Split('_')[0]/@item.originalFilepath" />
                                     </div>
                                 </div>
                             </div>
+                            <script class="source">
+                                $(function () {
+                                    $('#product-image [data-magnificent]').magnificent();
+                                });
+                            </script>
                         </div>
-                        <div class="magnificent-viewport-wrap">
-                            <div data-magnificent-viewport="product-image">
-                                <div class="inner">
-                                    <img src="@ConfigurationManager.AppSettings["domain"]@item.originalFilepath.ToString().Split('_')[0]/@item.originalFilepath" />
-                                </div>
-                            </div>
-                        </div>
-                        <script class="source">
-                            $(function () {
-                                $('#product-image [data-magnificent]').magnificent();
-                            });
-                        </script>
-                    </div>
                     }
                     <div class="image-thumb">
 
@@ -65,11 +65,11 @@
                         <ul id="image-additional" class="image-additional">
                             @foreach (var item in Model.tblistPicture.OrderBy(x => x.position))
                             {
-                            <li>
-                                <a href="#" data-image="@ConfigurationManager.AppSettings["domain"]@item.originalFilepath.ToString().Split('_')[0]/@item.originalFilepath">
-                                    <img src="@ConfigurationManager.AppSettings["domain"]@item.originalFilepath.ToString().Split('_')[0]/@item.originalFilepath" />
-                                </a>
-                            </li>
+                                <li>
+                                    <a href="#" data-image="@ConfigurationManager.AppSettings["domain"]@item.originalFilepath.ToString().Split('_')[0]/@item.originalFilepath">
+                                        <img src="@ConfigurationManager.AppSettings["domain"]@item.originalFilepath.ToString().Split('_')[0]/@item.originalFilepath" />
+                                    </a>
+                                </li>
                             }
 
                         </ul>
@@ -80,11 +80,11 @@
                     <ul id="gallery">
                         @foreach (var item in Model.tblistPicture.OrderBy(x => x.position))
                         {
-                        <li>
-                            <a href="#" data-image="@ConfigurationManager.AppSettings["domain"]@item.originalFilepath.ToString().Split('_')[0]/@item.originalFilepath">
-                                <img src="@ConfigurationManager.AppSettings["domain"]@item.originalFilepath.ToString().Split('_')[0]/@item.originalFilepath" />
-                            </a>
-                        </li>
+                            <li>
+                                <a href="#" data-image="@ConfigurationManager.AppSettings["domain"]@item.originalFilepath.ToString().Split('_')[0]/@item.originalFilepath">
+                                    <img src="@ConfigurationManager.AppSettings["domain"]@item.originalFilepath.ToString().Split('_')[0]/@item.originalFilepath" />
+                                </a>
+                            </li>
                         }
 
                     </ul>
@@ -92,196 +92,293 @@
             </div>
             @foreach (var item in Model.tblistPro)
             {
-            <div class="col-sm-7 col-lg-5 product_page-right">
-                <div class="general_info product-info">
-                    <h2 class="product-title">@item.name_products_tra</h2>
-                    <div class="separator1"></div>
-                    <div class="price-section">
-                        <span class="price-new">@item.newprice_products_tra</span>
-                        <span class="price-old">@item.oldprice_products_tra</span>
-                        <div class="reward-block">
+                <div class="col-sm-7 col-lg-5 product_page-right">
+                    <div class="general_info product-info">
+                        <h2 class="product-title">@item.name_products_tra</h2>
+                        <div class="separator1"></div>
+                        <div class="price-section">
+                            <span class="price-new">@item.newprice_products_tra</span>
+                            <span class="price-old">@item.oldprice_products_tra</span>
+                            <div class="reward-block">
+                            </div>
                         </div>
+
+                        <div class="rating-section product-rating-status">
+                            <div class="rating">
+                                <span class="fa-stack">
+                                    <i class="material-icons-star   fa-stack-1x"></i>
+                                    <i class="material-icons-star star  fa-stack-1x"></i>
+                                </span>
+                                <span class="fa-stack">
+                                    <i class="material-icons-star   fa-stack-1x"></i>
+                                    <i class="material-icons-star star  fa-stack-1x"></i>
+                                </span>
+                                <span class="fa-stack">
+                                    <i class="material-icons-star   fa-stack-1x"></i>
+                                    <i class="material-icons-star star  fa-stack-1x"></i>
+                                </span>
+                                <span class="fa-stack">
+                                    <i class="material-icons-star   fa-stack-1x"></i>
+                                    <i class="material-icons-star star  fa-stack-1x"></i>
+                                </span>
+                                <span class="fa-stack">
+                                    <i class="material-icons-star   fa-stack-1x"></i>
+                                    <i class="material-icons-star star  fa-stack-1x"></i>
+                                </span>
+                                <span class="review-link review-link-show">
+                                    <a href="#">1 reviews</a>
+                                </span>
+                                <span class="review-link review-link-write">
+                                    <a href="#">Write a review</a>
+                                </span>
+                            </div>
+                        </div>
+                        <ul class="list-unstyled product-section">
+                            @*<li>
+                                <strong>Thương hiệu:</strong>
+                                <a href="apple"></a>
+                            </li>*@
+                            <li><strong>Mã sản phẩm:</strong> <span>@item.code_products_tra</span></li>
+                            <li>
+                                <strong>Trạng thái hàng: </strong><span class="stock">
+                                    @if (item.yes_products_tra == 1)
+                                    {
+                                        @("Đã về")
+                                    }
+                                                                   @if (item.yes_products_tra == 0)
+                                                                   {
+                                                                       @("Chưa về")
+                                                                   }
+                                </span>
+                            </li>
+                        </ul>
+
                     </div>
 
-                    <div class="rating-section product-rating-status">
-                        <div class="rating">
-                            <span class="fa-stack">
-                                <i class="material-icons-star   fa-stack-1x"></i>
-                                <i class="material-icons-star star  fa-stack-1x"></i>
-                            </span>
-                            <span class="fa-stack">
-                                <i class="material-icons-star   fa-stack-1x"></i>
-                                <i class="material-icons-star star  fa-stack-1x"></i>
-                            </span>
-                            <span class="fa-stack">
-                                <i class="material-icons-star   fa-stack-1x"></i>
-                                <i class="material-icons-star star  fa-stack-1x"></i>
-                            </span>
-                            <span class="fa-stack">
-                                <i class="material-icons-star   fa-stack-1x"></i>
-                                <i class="material-icons-star star  fa-stack-1x"></i>
-                            </span>
-                            <span class="fa-stack">
-                                <i class="material-icons-star   fa-stack-1x"></i>
-                                <i class="material-icons-star star  fa-stack-1x"></i>
-                            </span>
-                            <span class="review-link review-link-show">
-                                <a href="#">1 reviews</a>
-                            </span>
-                            <span class="review-link review-link-write">
-                                <a href="#">Write a review</a>
-                            </span>
-                        </div>
+                    <div class="product-reccurings">
                     </div>
-                    <ul class="list-unstyled product-section">
-                        <li>
-                            <strong>Brand:</strong>
-                            <a href="apple">Versace</a>
-                        </li>
-                        <li><strong>Product Code:</strong> <span>@item.code_products_tra</span></li>
-                        <li>
-                            <strong>Availability: </strong><span class="stock">In Stock</span>
-                        </li>
-                    </ul>
-                </div>
 
-                <div class="product-reccurings">
-                </div>
+                    <div class="form-group form-horizontal add-to-cart-form">
+                        <div class="form-group">
+                            <div class="col-sm-12 quantity">
+                                @if (item.yes_products_tra == 1)
+                                {
+                                    <button type="button" id="button-cart" data-loading-text="Loading..." class="product-btn-add" data-toggle="modal" data-target="#myModal_@item.id_products_tra"><i class="mat-icons material-icons-shopping_basket"></i>Mua hàng</button>
+                                }
+                               @if (item.yes_products_tra == 0)
+                               {
+                                <button type="button" id="button-cart" data-loading-text="Loading..." class="product-btn-add" data-toggle="modal" data-target="#myModalbuy_@item.id_products_tra"><i class="mat-icons material-icons-shopping_basket"></i>Đặt hàng</button>
+                               }
+                               
 
-                <div class="form-group form-horizontal add-to-cart-form">
-                    <div class="form-group">
-                        <div class="col-sm-12 quantity">
+                            </div>
+                        </div>
+                        <ul class="product-buttons">
+                            <li>
+                                <button class="product-btn" data-toggle="tooltip" title="Add to Wish List"><i class="mat-icons material-icons-favorite_border"></i></button>
+                            </li>
+                            <li>
+                                <button type="button" class="product-btn" data-toggle="tooltip" title="Compare this Product">
+                                    <i class="mat-icons material-icons-sort"></i>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="product">
 
-                            <button type="button" id="button-cart" data-loading-text="Loading..." class="product-btn-add" data-toggle="modal" data-target="#myModal_@item.id_products_tra"><i class="mat-icons material-icons-shopping_basket"></i>Mua hàng</button>
-                            <button type="button" id="button-cart" data-loading-text="Loading..." class="product-btn-add"><i class="mat-icons material-icons-shopping_basket"></i>Đặt hàng</button>
+
+                        <div class="product-share">
+
+                            <div class="addthis_sharing_toolbox"></div>
+
+                            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55e053ac02ebd38e" async="async"></script>
 
                         </div>
                     </div>
-                    <ul class="product-buttons">
-                        <li>
-                            <button class="product-btn" data-toggle="tooltip" title="Add to Wish List"><i class="mat-icons material-icons-favorite_border"></i></button>
-                        </li>
-                        <li>
-                            <button type="button" class="product-btn" data-toggle="tooltip" title="Compare this Product">
-                                <i class="mat-icons material-icons-sort"></i>
-                            </button>
-                        </li>
-                    </ul>
                 </div>
-                <div id="product">
 
+                <!-- Trigger the modal with a button -->
+                <!-- Modal -->
 
-                    <div class="product-share">
+                <div id="myModal_@item.id_products_tra" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        @using (Html.BeginForm("buy", "Default"))
+                        {
 
-                        <div class="addthis_sharing_toolbox"></div>
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">@item.name_products_tra</h4>
+                                <input type="hidden" value='@item.name_products_tra.UrlFrendly()-@item.id_products_tra' name="idpro" />
+                                <input type="hidden" value="@item.name_products_tra" name="nameproduct" />
+                                <input type="hidden" value="@item.code_products_tra" name="codeproduct" />
+                                <input type="hidden" value="@item.newprice_products_tra" name="price" />
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        Mã sản phẩm: @item.code_products_tra<br />
+                                        Giá: @item.newprice_products_tra
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Họ và tên</label>
+                                            <input class="form-control" name="name">
+                                        </div>
 
-                        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55e053ac02ebd38e" async="async"></script>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Số điện thoại</label>
+                                            <input class="form-control" name="phone">
+                                        </div>
 
-                    </div>
-                </div>
-            </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input class="form-control" name="mail">
+                                        </div>
 
-            <!-- Trigger the modal with a button -->
-            <!-- Modal -->
-            <div id="myModal_@item.id_products_tra" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">@item.name_products_tra</h4>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col-lg-3">
-                                    Mã sản phẩm: @item.code_products_tra<br />
-                                    Giá: @item.newprice_products_tra
+                                    </div>
                                 </div>
-                                <div class="col-lg-3">
-                                    <div class="form-group">
-                                        <label>Họ và tên</label>
-                                        <input class="form-control" name="txtName">
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                    </div>
+                                    <div class="col-lg-9">
+                                        <div class="form-group">
+                                            <label>Nội dung</label>
+                                            <textarea class="form-control" style="width:100%;height: 50px;" name="content" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-default">Mua hàng</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                        }
+
+                    </div>
+                </div>
+
+
+                <div id="myModalbuy_@item.id_products_tra" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        @using (Html.BeginForm("Order", "Default"))
+                        {
+
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">@item.name_products_tra</h4>
+                                    <input type="hidden" value='@item.name_products_tra.UrlFrendly()-@item.id_products_tra' name="idproo" />
+                                    <input type="hidden" value="@item.name_products_tra" name="nameproducto" />
+                                    <input type="hidden" value="@item.code_products_tra" name="codeproducto" />
+                                    <input type="hidden" value="@item.newprice_products_tra" name="priceo" />
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-lg-3">
+                                            Mã sản phẩm: @item.code_products_tra<br />
+                                            Giá: @item.newprice_products_tra
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="form-group">
+                                                <label>Họ và tên</label>
+                                                <input class="form-control" name="nameo">
+                                            </div>
+
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="form-group">
+                                                <label>Số điện thoại</label>
+                                                <input class="form-control" name="phoneo">
+                                            </div>
+
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="form-group">
+                                                <label>Email</label>
+                                                <input class="form-control" name="mailo">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-3">
+                                        </div>
+                                        <div class="col-lg-9">
+                                            <div class="form-group">
+                                                <label>Nội dung</label>
+                                                <textarea class="form-control" style="width:100%;height: 50px;" name="content" rows="3"></textarea>
+                                            </div>
+                                        </div>
                                     </div>
 
-                                </div>
-                                <div class="col-lg-3">
-                                    <div class="form-group">
-                                        <label>Số điện thoại</label>
-                                        <input class="form-control" name="txtPhone">
-                                    </div>
 
                                 </div>
-                                <div class="col-lg-3">
-                                    <div class="form-group">
-                                        <label>Email</label>
-                                        <input class="form-control" name="txtEmail">
-                                    </div>
-
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-default">Đặt hàng</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-lg-3">
-                                </div>
-                                <div class="col-lg-9">
-                                    <div class="form-group">
-                                        <label>Nội dung</label>
-                                        <textarea class="form-control" name="txtContent"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
+                        }
+
                     </div>
-
                 </div>
-            </div>
-            @section share_fb{
+                
+                
+                
 
-            <meta property="og:title" content="@item.name_products_tra" />
+                @section share_fb{
 
-            <meta property="og:url" content="http://trafashion.com/Default/Detail/@item.id_products_tra" />
-            <meta name="description" content="@item.des_products_tra">
-            <meta property="og:description" content="@item.des_products_tra" />
-            <meta name="keywords" content="túi xách,balo,vali,hàng xách tay,hàng xách tay chất lượng cao,sản phẩm xách tay" />
-            @*<meta property="og:image" content="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.Split('_')[0]/@item.img_products_tra" />*@
-            <meta property="og:image:width" content="600" />
-            <meta property="og:image:height" content="315" />
-            @foreach (var item1 in Model.tblistPicture.Where(x => x.position == 1))
-            {
-            <meta property="og:image" content="@ConfigurationManager.AppSettings["domain"]@item1.originalFilepath.Split('_')[0]/@item1.originalFilepath" />
-            }
+                    <meta property="og:title" content="@item.name_products_tra" />
 
-            }
+                    <meta property="og:url" content="http://trafashion.com/Default/Detail/@item.id_products_tra" />
+                    <meta name="description" content="@item.des_products_tra">
+                    <meta property="og:description" content="@item.des_products_tra" />
+                    <meta name="keywords" content="túi xách,balo,vali,hàng xách tay,hàng xách tay chất lượng cao,sản phẩm xách tay" />
+                    @*<meta property="og:image" content="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.Split('_')[0]/@item.img_products_tra" />*@
+                    <meta property="og:image:width" content="600" />
+                    <meta property="og:image:height" content="315" />
+                    @foreach (var item1 in Model.tblistPicture.Where(x => x.position == 1))
+                    {
+                        <meta property="og:image" content="@ConfigurationManager.AppSettings["domain"]@item1.originalFilepath.Split('_')[0]/@item1.originalFilepath" />
+                    }
+
+                }
             }
 
         </div>
     </div>
 </div>
+
 @foreach (var item in Model.tblistPro)
 {
-<div class="product-info-section">
-    <div class="product-info">
-        <div class="info_1">
-            <div class="info_cnt">
-                <h3 class="mod1">Mô tả</h3>
-                <div class="description_paragraph">
-                    <p style="white-space:pre-line;">
-                        @item.des_products_tra
-                    </p>
+    <div class="product-info-section">
+        <div class="product-info">
+            <div class="info_1">
+                <div class="info_cnt">
+                    <h3 class="mod1">Mô tả</h3>
+                    <div class="description_paragraph">
+                        <p style="white-space:pre-line;">
+                            @item.des_products_tra
+                        </p>
+                    </div>
                 </div>
+                <img src="~/img/prod_inf_img1.jpg" alt="">
             </div>
-            <img src="~/img/prod_inf_img1.jpg" alt="">
-        </div>
 
-        <div class="info_3">
-            <img src="~/img/prod_inf_img3.jpg" alt="">
-            <img src="~/img/prod_inf_img4.jpg" alt="">
+            <div class="info_3">
+                <img src="~/img/prod_inf_img3.jpg" alt="">
+                <img src="~/img/prod_inf_img4.jpg" alt="">
+            </div>
         </div>
     </div>
-</div>
 }
 
 <div class="container">

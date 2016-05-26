@@ -2587,7 +2587,7 @@ fieldset[disabled] .form-control {
   cursor: not-allowed;
 }
 textarea.form-control {
-  height: auto;
+  height: auto!important;
 }
 input[type="search"] {
   -webkit-appearance: none;
@@ -2724,7 +2724,7 @@ select.form-group-sm .form-control {
 }
 textarea.form-group-sm .form-control,
 select[multiple].form-group-sm .form-control {
-  height: auto;
+  height: auto!important;
 }
 .form-group-sm .form-control-static {
   height: 30px;
@@ -2746,7 +2746,7 @@ select.input-lg {
 }
 textarea.input-lg,
 select[multiple].input-lg {
-  height: auto;
+  height: auto!important;
 }
 .form-group-lg .form-control {
   height: 46px;
@@ -2761,7 +2761,7 @@ select.form-group-lg .form-control {
 }
 textarea.form-group-lg .form-control,
 select[multiple].form-group-lg .form-control {
-  height: auto;
+  height: auto!important;
 }
 .form-group-lg .form-control-static {
   height: 46px;

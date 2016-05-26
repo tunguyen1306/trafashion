@@ -3022,7 +3022,7 @@ input[type="text"][size="1"] {
 }
 
 textarea:not([class*="habla"]) {
-  min-height: 200px;
+  min-height: 70px;
 }
 
 #habla_window_div #habla_topbar_div {
