@@ -97,8 +97,23 @@
                         <h2 class="product-title">@item.name_products_tra</h2>
                         <div class="separator1"></div>
                         <div class="price-section">
-                            <span class="price-new">@item.newprice_products_tra</span>
-                            <span class="price-old">@item.oldprice_products_tra</span>
+                            <span class="price-new">
+                                <script>
+                                                $(function () {
+
+                                                    $('.price-new').text(tien(@item.newprice_products_tra) + ' ' + 'đ');
+                                                }) </script>
+                            </span>
+
+                            <span class="price-old">
+                                <script>
+                                                    $(function () {
+
+                                                        $('.price-old').text(tien(@item.oldprice_products_tra)+' '+'đ');
+                                                    })
+                                </script>
+
+                            </span>
                             <div class="reward-block">
                             </div>
                         </div>
@@ -135,9 +150,9 @@
                         </div>
                         <ul class="list-unstyled product-section">
                             @*<li>
-                                <strong>Thương hiệu:</strong>
-                                <a href="apple"></a>
-                            </li>*@
+                                    <strong>Thương hiệu:</strong>
+                                    <a href="apple"></a>
+                                </li>*@
                             <li><strong>Mã sản phẩm:</strong> <span>@item.code_products_tra</span></li>
                             <li>
                                 <strong>Trạng thái hàng: </strong><span class="stock">
@@ -145,10 +160,10 @@
                                     {
                                         @("Đã về")
                                     }
-                                                                   @if (item.yes_products_tra == 0)
-                                                                   {
-                                                                       @("Chưa về")
-                                                                   }
+                                    @if (item.yes_products_tra == 0)
+                                    {
+                                        @("Chưa về")
+                                    }
                                 </span>
                             </li>
                         </ul>
@@ -165,11 +180,11 @@
                                 {
                                     <button type="button" id="button-cart" data-loading-text="Loading..." class="product-btn-add" data-toggle="modal" data-target="#myModal_@item.id_products_tra"><i class="mat-icons material-icons-shopping_basket"></i>Mua hàng</button>
                                 }
-                               @if (item.yes_products_tra == 0)
-                               {
-                                <button type="button" id="button-cart" data-loading-text="Loading..." class="product-btn-add" data-toggle="modal" data-target="#myModalbuy_@item.id_products_tra"><i class="mat-icons material-icons-shopping_basket"></i>Đặt hàng</button>
-                               }
-                               
+                                @if (item.yes_products_tra == 0)
+                                {
+                                    <button type="button" id="button-cart" data-loading-text="Loading..." class="product-btn-add" data-toggle="modal" data-target="#myModalbuy_@item.id_products_tra"><i class="mat-icons material-icons-shopping_basket"></i>Đặt hàng</button>
+                                }
+
 
                             </div>
                         </div>
@@ -205,61 +220,61 @@
                         @using (Html.BeginForm("buy", "Default"))
                         {
 
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">@item.name_products_tra</h4>
-                                <input type="hidden" value='@item.name_products_tra.UrlFrendly()-@item.id_products_tra' name="idpro" />
-                                <input type="hidden" value="@item.name_products_tra" name="nameproduct" />
-                                <input type="hidden" value="@item.code_products_tra" name="codeproduct" />
-                                <input type="hidden" value="@item.newprice_products_tra" name="price" />
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-lg-3">
-                                        Mã sản phẩm: @item.code_products_tra<br />
-                                        Giá: @item.newprice_products_tra
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
-                                            <label>Họ và tên</label>
-                                            <input class="form-control" name="name">
-                                        </div>
-
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
-                                            <label>Số điện thoại</label>
-                                            <input class="form-control" name="phone">
-                                        </div>
-
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="form-group">
-                                            <label>Email</label>
-                                            <input class="form-control" name="mail">
-                                        </div>
-
-                                    </div>
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">@item.name_products_tra</h4>
+                                    <input type="hidden" value='@item.name_products_tra.UrlFrendly()-@item.id_products_tra' name="idpro" />
+                                    <input type="hidden" value="@item.name_products_tra" name="nameproduct" />
+                                    <input type="hidden" value="@item.code_products_tra" name="codeproduct" />
+                                    <input type="hidden" value="@item.newprice_products_tra" name="price" />
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-3">
-                                    </div>
-                                    <div class="col-lg-9">
-                                        <div class="form-group">
-                                            <label>Nội dung</label>
-                                            <textarea class="form-control" style="width:100%;height: 50px;" name="content" rows="3"></textarea>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-lg-3">
+                                            Mã sản phẩm: @item.code_products_tra<br />
+                                            Giá: @item.newprice_products_tra
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="form-group">
+                                                <label>Họ và tên</label>
+                                                <input class="form-control" name="name">
+                                            </div>
+
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="form-group">
+                                                <label>Số điện thoại</label>
+                                                <input class="form-control" name="phone">
+                                            </div>
+
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="form-group">
+                                                <label>Email</label>
+                                                <input class="form-control" name="mail">
+                                            </div>
+
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-lg-3">
+                                        </div>
+                                        <div class="col-lg-9">
+                                            <div class="form-group">
+                                                <label>Nội dung</label>
+                                                <textarea class="form-control" style="width:100%;height: 50px;" name="content" rows="3"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
                                 </div>
-
-
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-default">Mua hàng</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
                             </div>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-default">Mua hàng</button>
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
                         }
 
                     </div>
@@ -330,9 +345,9 @@
 
                     </div>
                 </div>
-                
-                
-                
+
+
+
 
                 @section share_fb{
 
@@ -357,10 +372,11 @@
     </div>
 </div>
 
-@foreach (var item in Model.tblistPro)
-{
+
     <div class="product-info-section">
         <div class="product-info">
+@foreach (var item in Model.tblistPro)
+{
             <div class="info_1">
                 <div class="info_cnt">
                     <h3 class="mod1">Mô tả</h3>
@@ -372,14 +388,14 @@
                 </div>
                 <img src="~/img/prod_inf_img1.jpg" alt="">
             </div>
-
+}
             <div class="info_3">
                 <img src="~/img/prod_inf_img3.jpg" alt="">
                 <img src="~/img/prod_inf_img4.jpg" alt="">
             </div>
         </div>
     </div>
-}
+
 
 <div class="container">
     <div class="row">

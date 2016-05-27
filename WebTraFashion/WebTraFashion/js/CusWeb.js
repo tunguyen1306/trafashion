@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-
+    
     var url = window.location.href;
     if (url.indexOf('/Default/ListProducts/')) {
 

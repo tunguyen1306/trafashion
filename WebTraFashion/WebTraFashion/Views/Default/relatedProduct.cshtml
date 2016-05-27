@@ -89,8 +89,23 @@
                                 <div class="inf">
                                     <p class="product_model model">Model: @item.tblProdu.code_products_tra</p>
                                     <div class="price">
-                                        <span class="price-new">@item.tblProdu.newprice_products_tra</span>
-                                        <span class="price-old">@item.tblProdu.oldprice_products_tra</span>
+                                        <span class="price-new">
+                                            <script>
+                                                $(function () {
+
+                                                    $('.price-new').text(tien(@item.tblProdu.newprice_products_tra) + ' ' + 'đ');
+                                                }) </script>
+                                        </span>
+
+                                        <span class="price-old">
+                                            <script>
+                                                    $(function () {
+
+                                                        $('.price-old').text(tien(@item.tblProdu.oldprice_products_tra)+' '+'đ');
+                                                    })
+                                            </script>
+
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="rating">
@@ -164,8 +179,23 @@
                         </div>
 
                         <div class="price">
-                            <span class="price-new">@item.tblProdu.oldprice_products_tra</span>
-                            <span class="price-old">@item.tblProdu.newprice_products_tra</span>
+                            <span class="price-new">
+                                <script>
+                                                $(function () {
+
+                                                    $('.price-new').text(tien(@item.tblProdu.newprice_products_tra) + ' ' + 'đ');
+                                                }) </script>
+                            </span>
+
+                            <span class="price-old">
+                                <script>
+                                                    $(function () {
+
+                                                        $('.price-old').text(tien(@item.tblProdu.oldprice_products_tra)+' '+'đ');
+                                                    })
+                                </script>
+
+                            </span>
                         </div>
                     </div>
                     <div class="cart-button">

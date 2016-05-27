@@ -13,7 +13,7 @@
         <h2 class="mod1">
             @foreach (var item in Model.Take(1))
             {
-                if (item.tblProdu.type_products_tra==1)
+                if (item.tblProdu.type_products_tra == 1)
                 {
                     @("Ví")
                 }
@@ -38,26 +38,56 @@
                     @("Túi xách")
                 }
             }
-              
+
         </h2>
         <div class="separator1"></div>
         <div class="row">
 
             <div class="col-sm-12 cat_desc">
-                <p>
-                    <b>
-                        Welcome to the world of fashion.
-                    </b> We are proud to present you the largest choice of handbags on the web.
-                    Here you can find a great number of different goods. Our store offers stylish, premium quality handbags at the lowest possible prices.
-                </p>
-                <p>
-                    <b>
-                        We have a perfect reputation and great experience
-                    </b> in this sphere and that is why our products are so popular and
-                    have many faithful fans all over the country.What we sell are not just simple handbags; the products of our shop are the
-                   part of a style because nowadays handbag is the essential detail of the women’s wardrobe.We know how important it is for the
-                   modern women to have several interesting and trendy bags.
-                </p>
+                @foreach (var item in Model.Take(1))
+            {
+                if (item.tblProdu.type_products_tra == 1)
+                {
+                        <p>
+                            ZARA
+                            “tôi thích nhãn hiệu zara, tôi thích thay đổi nhưng cực chất cùng ZARA”
+                            nhãn hiệu ZARA được người mỹ ưa chuộng nhất. ZARA đáp ứng nhu cầu lớn thời trang hiện đại, với nhiều mẫu thiết kế mới luôn được cập nhật theo các xu hướng mới nhất.
+
+                        </p>
+                    }
+                    if (item.tblProdu.type_products_tra == 2)
+                    {
+                        <p>
+
+                        </p>
+                    }
+                    if (item.tblProdu.type_products_tra == 3)
+                    {
+                        <p>
+
+                        </p>
+                    }
+                    if (item.tblProdu.type_products_tra == 4)
+                    {
+                        <p>
+
+                        </p>
+                    }
+                    if (item.tblProdu.type_products_tra == 5)
+                    {
+                        <p>
+
+                        </p>
+                    }
+                    if (item.tblProdu.type_products_tra == 6)
+                    {
+                        <p>
+                            Bạn cần tìm CHARLES KEITH, bạn phải qua Singapore để mua? không cần tốn thời gian, chi phí đi lại, chúng tôi sẽ đem CHARLES KEITH đến tận nhà bạn. hãy tin ở chúng tôi.
+                        </p>
+                    }
+                }
+               
+              
             </div>
         </div>
 
@@ -68,9 +98,9 @@
         <div class="row pages_info">
             <div class="col-sm-6 text-left">
                 <ul class="pagination">
-                        @Html.PagedListPager((IPagedList)Model, page => Url.Action("PartialDemo", "Default", new { page }),
+                    @Html.PagedListPager((IPagedList)Model, page => Url.Action("PartialDemo", "Default", new { page }),
                         PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions() { UpdateTargetId = "loader" }))
-                    </ul>
+                </ul>
             </div>
 
         </div>
@@ -98,8 +128,23 @@
                                         <h2>@item.tblProdu.name_products_tra</h2>
                                         <div class="inf">
                                             <p class="product_model model">Model: @item.tblProdu.code_products_tra</p>
-                                            <span class="price-new">@item.tblProdu.newprice_products_tra</span>
-                                            <span class="price-old">@item.tblProdu.oldprice_products_tra</span>
+                                            <span class="price-new">
+                                                <script>
+                                                $(function () {
+
+                                                    $('.price-new').text(tien(@item.tblProdu.newprice_products_tra) + ' ' + 'đ');
+                                                }) </script>
+                                            </span>
+
+                                            <span class="price-old">
+                                                <script>
+                                                    $(function () {
+
+                                                        $('.price-old').text(tien(@item.tblProdu.oldprice_products_tra)+' '+'đ');
+                                                    })
+                                                </script>
+
+                                            </span>
                                         </div>
                                         <div class="rating">
                                             <span class="fa-stack">
@@ -172,8 +217,23 @@
                                     </a>
                                 </div>
 
-                                <span class="price-new">@item.tblProdu.newprice_products_tra</span>
-                                <span class="price-old">@item.tblProdu.oldprice_products_tra</span>
+                                <span class="price-new">
+                                    <script>
+                                                $(function () {
+
+                                                    $('.price-new').text(tien(@item.tblProdu.newprice_products_tra) + ' ' + 'đ');
+                                                }) </script>
+                                </span>
+
+                                <span class="price-old">
+                                    <script>
+                                                    $(function () {
+
+                                                        $('.price-old').text(tien(@item.tblProdu.oldprice_products_tra)+' '+'đ');
+                                                    })
+                                    </script>
+
+                                </span>
                             </div>
                             <div class="cart-button">
                                 <div class="rating">
@@ -228,9 +288,9 @@
         <div class="row pages_info mod1">
             <div class="col-sm-6 text-left">
                 <ul class="pagination">
-                        @Html.PagedListPager((IPagedList)Model, page => Url.Action("PartialDemo", "Default", new { page }),
+                    @Html.PagedListPager((IPagedList)Model, page => Url.Action("PartialDemo", "Default", new { page }),
                         PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions() { UpdateTargetId = "loader" }))
-                    </ul>
+                </ul>
             </div>
 
         </div>

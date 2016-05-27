@@ -2044,6 +2044,7 @@ header .nav {
 .product-thumb .price-old {
   font-size: 13px;
   line-height: 25px;
+  
 }
 
 .price-new, .price-old, .price {
@@ -2058,6 +2059,7 @@ header .nav {
   font-size: 18px;
   text-decoration: line-through;
   vertical-align: top;
+  float:right;
 }
 
 .price-section {
@@ -3555,6 +3557,7 @@ input[type="checkbox"][name="agree"] + label:before, input[type="checkbox"][name
   -o-transition: 0.3s cubic-bezier(0.55, 0, 0.1, 1);
   -webkit-transition: 0.3s cubic-bezier(0.55, 0, 0.1, 1);
   transition: 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+  z-index:9999999999;
 }
 .rd-mobilemenu.active .rd-mobilemenu_ul {
   -moz-transform: translateX(0);
