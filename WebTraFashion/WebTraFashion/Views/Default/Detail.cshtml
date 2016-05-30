@@ -163,6 +163,9 @@
                                     @if (item.yes_products_tra == 0)
                                     {
                                         @("Chưa về")
+                                    } @if (item.yes_products_tra == 3)
+                                    {
+                                        @("Hết hàng")
                                     }
                                 </span>
                             </li>
@@ -184,7 +187,10 @@
                                 {
                                     <button type="button" id="button-cart" data-loading-text="Loading..." class="product-btn-add" data-toggle="modal" data-target="#myModalbuy_@item.id_products_tra"><i class="mat-icons material-icons-shopping_basket"></i>Đặt hàng</button>
                                 }
-
+                                @if (item.yes_products_tra == 0)
+                                {
+                                    <button type="button" id="button-cart" data-loading-text="Loading..." class="product-btn-add"><i class="mat-icons material-icons-shopping_basket"></i>Hết hàng</button>
+                                }
 
                             </div>
                         </div>
