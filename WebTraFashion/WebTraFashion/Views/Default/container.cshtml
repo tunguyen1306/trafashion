@@ -37,19 +37,19 @@
                 <div id="banner0" class="banners">
                     <div class="fleft	banner-1">
                         <div class="banner-box">
-                            <a class="clearfix" href="@Url.Action("ListProducts","Default",new { id= ("sale").UrlFrendly() + "-" + 5 })">
+                            <a class="clearfix" href="@Url.Action("ListProducts","Default",new { id= ("sale").UrlFrendly() + "-" + 5,idd=123 })">
                                 <img src="~/img/banner-1-780x390.jpg" alt="banner-1" class="img-responsive" />
-                                <div class="s-desc"><h2>Sale <span>get up to </span> <em>20% off</em></h2></div>
+                                <div class="s-desc"><h2>Sale</h2></div>
                             </a>
                         </div>
                     </div>
                     <div class="fleft	banner-2">
                         <div class="banner-box">
-                            <a class="clearfix" href="@Url.Action("ListProducts","Default",new { id=("Balo").UrlFrendly()+"-"+2})">
+                            <a class="clearfix" href="@Url.Action("ListProducts","Default",new { id=("Balo").UrlFrendly()+"-"+2,idd=1})">
                                 <img src="~/img/banner-2-780x390.jpg" alt="banner-2" class="img-responsive" />
                                 <div class="s-desc">
                                     <h2 class="mod1">PHONG CÁCH HIỆN ĐẠI </h2>
-                                   
+
                                     <span class="button">Shop now!</span>
                                 </div>
                             </a>
@@ -57,7 +57,7 @@
                     </div>
                     <div class="fleft	banner-3">
                         <div class="banner-box">
-                            <a class="clearfix" href="@Url.Action("ListProducts","Default",new { id=("Túi xách").UrlFrendly()+"-"+6})">
+                            <a class="clearfix" href="@Url.Action("ListProducts","Default",new { id=("Túi xách").UrlFrendly()+"-"+6,idd=1})">
                                 <img src="~/img/banner-3-780x390.jpg" alt="banner-3" class="img-responsive" />
                                 <div class="s-desc"><h2 class="mod2">THỜI TRANG ĐẲNG CẤP</h2></div>
                             </a>
@@ -65,11 +65,11 @@
                     </div>
                     <div class="fleft	banner-4">
                         <div class="banner-box">
-                            <a class="clearfix" href="@Url.Action("ListProducts","Default",new { id=("Ví").UrlFrendly()+"-"+1})">
+                            <a class="clearfix" href="@Url.Action("ListProducts","Default",new { id=("Ví").UrlFrendly()+"-"+1,idd=1})">
                                 <img src="~/img/banner-4-780x390.jpg" alt="banner-4" class="img-responsive" />
                                 <div class="s-desc">
                                     <h2 class="mod1">MẪU MÃ ĐA DẠNG</h2>
-                                   
+
                                     <span class="button">Shop now!</span>
                                 </div>
                             </a>
@@ -99,7 +99,7 @@
                                             <div>
                                                 <div class="left col-sm-4">
                                                     <div class="quickview_image image">
-                                                        <a href="@Url.Action("Detail","Default",new { id=item.tblProdu.name_products_tra.UrlFrendly() + "-" + item.tblProdu.id_products_tra })">
+                                                        <a href="@Url.Action("Detail", "Default", new { id = item.tblProdu.name_products_tra.UrlFrendly() + "-" + item.tblProdu.id_products_tra })">
 
                                                             <img alt="@item.tblProdu.name_products_tra" title="@item.tblProdu.name_products_tra" class="img-responsive" src="@ConfigurationManager.AppSettings["domain"]@item.tblPicture.originalFilepath.ToString().Split('_')[0]/@item.tblPicture.originalFilepath" />
                                                         </a>
@@ -110,20 +110,20 @@
                                                     <div class="inf">
                                                         <p class="product_model model">Model: @item.tblProdu.code_products_tra</p>
 
-                                                        <span class="price-new">
+                                                        <span class="price-new price-new_@item.tblProdu.id_products_tra">
                                                             <script>
-                                                $(function () {
+                                                                $(function () {
 
-                                                    $('.price-new').text(tien(@item.tblProdu.newprice_products_tra) + ' ' + 'đ');
-                                                }) </script>
+                                                                    $('.price-new_@item.tblProdu.id_products_tra').text(tien(@item.tblProdu.newprice_products_tra) );
+                                                                }) </script>
                                                         </span>
 
-                                                        <span class="price-old">
+                                                        <span class="price-old price-old_@item.tblProdu.id_products_tra">
                                                             <script>
-                                                    $(function () {
+                                                                $(function () {
 
-                                                        $('.price-old').text(tien(@item.tblProdu.oldprice_products_tra)+' '+'đ');
-                                                    })
+                                                                    $('.price-old_@item.tblProdu.id_products_tra').text(tien(@item.tblProdu.oldprice_products_tra) );
+                                                                })
                                                             </script>
 
                                                         </span>
@@ -185,42 +185,52 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="new_pr"><span>New</span></div><div class="new_pr1"><span>@item.tblProdu.discount_products_tra%</span></div>
+                                    <div class="new_pr"><span>New</span></div>
+                                    @if (item.tblProdu.discount_products_tra == null)
+                                    {
+
+                                    }
+                                    else
+                                    {
+                                        <div class="new_pr1"><span>@item.tblProdu.discount_products_tra%</span></div>
+                                    }
+                                  
 
                                     <div class="aside-block">
                                         <div class="image">
                                             <a class="quickview quickview-latest hidden-xs" data-rel="details" href="#quickview_latest_@item.tblProdu.id_products_tra">
                                                 Xem nhanh
                                             </a>
-                                            <a class="lazy" style="padding-bottom: 100%" href="@Url.Action("Detail","Default",new { id=item.tblProdu.name_products_tra.UrlFrendly() + "-" + item.tblProdu.id_products_tra })">
+                                            <a class="lazy" style="padding-bottom: 100%" href="@Url.Action("Detail", "Default", new { id = item.tblProdu.name_products_tra.UrlFrendly() + "-" + item.tblProdu.id_products_tra })">
 
                                                 <img alt="@item.tblProdu.name_products_tra" title="@item.tblProdu.name_products_tra" class="img-responsive" src="@ConfigurationManager.AppSettings["domain"]@item.tblPicture.originalFilepath.ToString().Split('_')[0]/@item.tblPicture.originalFilepath" />
                                             </a>
                                         </div>
                                         <div class="caption">
                                             <div class="name">
-                                                <a href="@Url.Action("Detail","Default",new { id= item.tblProdu.name_products_tra + "-" + item.tblProdu.id_products_tra })">
+                                                <a href="@Url.Action("Detail", "Default", new { id = item.tblProdu.name_products_tra + "-" + item.tblProdu.id_products_tra })">
                                                     @item.tblProdu.name_products_tra
                                                 </a>
                                             </div>
 
-                                            <span class="price-new">
-                                                <script>
-                                                $(function () {
-
-                                                    $('.price-new').text(tien(@item.tblProdu.newprice_products_tra) + ' ' + 'đ');
-                                                }) </script>
-                                            </span>
+                                            <span class="price-new price-new_@item.tblProdu.id_products_tra">
                                                
-                                            <span class="price-old">
-                                                <script>
+                                            </span>
+                                            <script>
                                                     $(function () {
 
-                                                        $('.price-old').text(tien(@item.tblProdu.oldprice_products_tra)+' '+'đ');
-                                                    })
-                                                </script>
+                                                        $('.price-new_@item.tblProdu.id_products_tra').text(tien(@item.tblProdu.newprice_products_tra) );
+                                                    }) </script>
+                                            <span class="price-old price-old_@item.tblProdu.id_products_tra">
+                                               
+                                                $(function () {
 
+                                                $('.price-old_@item.tblProdu.id_products_tra').text(tien(@item.tblProdu.oldprice_products_tra) );
+                                                })
                                             </span>
+                                            <script>
+                                                 
+                                            </script>
                                         </div>
                                         <div class="cart-button">
                                             <div class="rating">
@@ -273,7 +283,7 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <h1 class="mod1" style="font-size:25px">
-                                       
+
 
                                         TRAFASHION là nơi cung cấp cho bạn một thế giới hàng hiệu uy tín
                                         <span style="font-size:40px">Dù bạn ở đâu bạn vẫn nổi bật thật phong cách</span>

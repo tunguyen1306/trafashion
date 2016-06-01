@@ -44,7 +44,10 @@
         <div class="row">
 
             <div class="col-sm-12 cat_desc">
-                @foreach (var item in Model.Take(1))
+                Michael Kors, Zara, Charles & Keith, Coach, Kate Spade, Marc Jacobs, …. Là các nhãn hiệu thời trang nổi tiếng trên thế giới được ưa chuộng bởi nhiều phong cách khác nhau. Có xu hướng cổ điển cũng có xu hướng hiện đại, trẻ trung , với nhiều tiện nghi khác nhau phù hợp với những hoàn cảnh khác nhau.
+                <img src="~/img/Logo.png" width="132" />   nơi kết nối đẳng cấp của Bạn!
+
+                @*@foreach (var item in Model.Take(1))
             {
                 if (item.tblProdu.type_products_tra == 1)
                 {
@@ -85,7 +88,7 @@
                             Bạn cần tìm CHARLES KEITH, bạn phải qua Singapore để mua? không cần tốn thời gian, chi phí đi lại, chúng tôi sẽ đem CHARLES KEITH đến tận nhà bạn. hãy tin ở chúng tôi.
                         </p>
                     }
-                }
+                }*@
                
               
             </div>
@@ -128,19 +131,19 @@
                                         <h2>@item.tblProdu.name_products_tra</h2>
                                         <div class="inf">
                                             <p class="product_model model">Model: @item.tblProdu.code_products_tra</p>
-                                            <span class="price-new">
+                                            <span class="price-new price-new_@item.tblProdu.id_products_tra">
                                                 <script>
                                                 $(function () {
 
-                                                    $('.price-new').text(tien(@item.tblProdu.newprice_products_tra) + ' ' + 'đ');
+                                                    $('.price-new_@item.tblProdu.id_products_tra').text(tien(@item.tblProdu.newprice_products_tra) );
                                                 }) </script>
                                             </span>
 
-                                            <span class="price-old">
+                                            <span class="price-old price-old_@item.tblProdu.id_products_tra">
                                                 <script>
                                                     $(function () {
 
-                                                        $('.price-old').text(tien(@item.tblProdu.oldprice_products_tra)+' '+'đ');
+                                                        $('.price-old_@item.tblProdu.id_products_tra').text(tien(@item.tblProdu.oldprice_products_tra));
                                                     })
                                                 </script>
 
@@ -199,6 +202,14 @@
                             </div>
                         </div>
                         <div class="new_pr"><span>New</span></div>
+                        @if (item.tblProdu.discount_products_tra == null)
+                        {
+
+                        }
+                        else
+                        {
+                            <div class="new_pr1"><span>@item.tblProdu.discount_products_tra%</span></div>
+                        }
 
                         <div class="aside-block">
                             <div class="image">
@@ -217,19 +228,19 @@
                                     </a>
                                 </div>
 
-                                <span class="price-new">
+                                <span class="price-new price-new_@item.tblProdu.id_products_tra">
                                     <script>
                                                 $(function () {
 
-                                                    $('.price-new').text(tien(@item.tblProdu.newprice_products_tra) + ' ' + 'đ');
+                                                    $('.price-new_@item.tblProdu.id_products_tra').text(tien(@item.tblProdu.newprice_products_tra) );
                                                 }) </script>
                                 </span>
 
-                                <span class="price-old">
+                                <span class="price-old price-old_@item.tblProdu.id_products_tra">
                                     <script>
                                                     $(function () {
 
-                                                        $('.price-old').text(tien(@item.tblProdu.oldprice_products_tra)+' '+'đ');
+                                                        $('.price-old_@item.tblProdu.id_products_tra').text(tien(@item.tblProdu.oldprice_products_tra));
                                                     })
                                     </script>
 

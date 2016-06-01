@@ -89,19 +89,19 @@
                                 <div class="inf">
                                     <p class="product_model model">Model: @item.tblProdu.code_products_tra</p>
                                     <div class="price">
-                                        <span class="price-new">
+                                        <span class="price-new price-new_@item.tblProdu.id_products_tra">
                                             <script>
                                                 $(function () {
 
-                                                    $('.price-new').text(tien(@item.tblProdu.newprice_products_tra) + ' ' + 'đ');
+                                                    $('.price-new_@item.tblProdu.id_products_tra').text(tien(@item.tblProdu.newprice_products_tra) );
                                                 }) </script>
                                         </span>
 
-                                        <span class="price-old">
+                                        <span class="price-old price-old_@item.tblProdu.id_products_tra">
                                             <script>
                                                     $(function () {
 
-                                                        $('.price-old').text(tien(@item.tblProdu.oldprice_products_tra)+' '+'đ');
+                                                        $('.price-old_@item.tblProdu.id_products_tra').text(tien(@item.tblProdu.oldprice_products_tra));
                                                     })
                                             </script>
 
@@ -160,7 +160,15 @@
                         </div>
                     </div>
                 </div>
-                 <div class="new_pr"><span>New</span></div><div class="new_pr1"><span>@item.tblProdu.discount_products_tra %</span></div>
+                 <div class="new_pr"><span>New</span></div>
+                @if (item.tblProdu.discount_products_tra == null)
+                {
+
+                }
+                else
+                {
+                    <div class="new_pr1"><span>@item.tblProdu.discount_products_tra%</span></div>
+                }
                 <div class="aside-block">
                     <div class="image">
                         <a class="quickview quickview-latest hidden-xs" data-rel="details" href="#quickview_latest_@item.tblProdu.id_products_tra">
@@ -179,19 +187,19 @@
                         </div>
 
                         <div class="price">
-                            <span class="price-new">
+                            <span class="price-new price-new_@item.tblProdu.id_products_tra">
                                 <script>
                                                 $(function () {
 
-                                                    $('.price-new').text(tien(@item.tblProdu.newprice_products_tra) + ' ' + 'đ');
+                                                    $('.price-new_@item.tblProdu.id_products_tra').text(tien(@item.tblProdu.newprice_products_tra) );
                                                 }) </script>
                             </span>
 
-                            <span class="price-old">
+                            <span class="price-old price-old_@item.tblProdu.id_products_tra">
                                 <script>
                                                     $(function () {
 
-                                                        $('.price-old').text(tien(@item.tblProdu.oldprice_products_tra)+' '+'đ');
+                                                        $('.price-old_@item.tblProdu.id_products_tra').text(tien(@item.tblProdu.oldprice_products_tra));
                                                     })
                                 </script>
 

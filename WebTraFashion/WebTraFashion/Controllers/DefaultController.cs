@@ -27,17 +27,30 @@ namespace WebTraFashion.Controllers
 
             return View();
         }
-        public ActionResult ListProducts(string id)
+        public ActionResult ListProducts(string id,int idd)
         {
             var id_ = int.Parse(id.Split('-').Last());
-            var queryProducts =
-             from data in db.tbl_products_tra
-             join datapic in db.tblSysPictures on data.id_products_tra equals datapic.advert_id
-             where data.status_products_tra == 1 && datapic.position == 1 && data.type_products_tra==id_
-             orderby data.id_products_tra descending
-             select new ClassAll { tblProdu = data, tblPicture = datapic };
         
-      return View(queryProducts.ToList().ToPagedList(pageNumber: 1, pageSize: 12));
+            if (idd==123)
+            {
+                var queryProducts =
+                from data in db.tbl_products_tra
+                join datapic in db.tblSysPictures on data.id_products_tra equals datapic.advert_id
+                where data.status_products_tra == 1 && datapic.position == 1 && (data.type_products_tra == id_ || data.discount_products_tra!=null)
+                orderby data.id_products_tra descending
+                select new ClassAll { tblProdu = data, tblPicture = datapic };
+                return View(queryProducts.ToList().ToPagedList(pageNumber: 1, pageSize: 12));
+            }
+            else
+            {
+                var queryProducts1 =
+               from data in db.tbl_products_tra
+               join datapic in db.tblSysPictures on data.id_products_tra equals datapic.advert_id
+               where data.status_products_tra == 1 && datapic.position == 1 && data.type_products_tra == id_
+               orderby data.id_products_tra descending
+               select new ClassAll { tblProdu = data, tblPicture = datapic };
+                return View(queryProducts1.ToList().ToPagedList(pageNumber: 1, pageSize: 12));
+            }
 
         }
 

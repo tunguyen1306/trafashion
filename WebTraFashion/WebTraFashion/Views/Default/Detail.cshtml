@@ -97,19 +97,19 @@
                         <h2 class="product-title">@item.name_products_tra</h2>
                         <div class="separator1"></div>
                         <div class="price-section">
-                            <span class="price-new">
+                            <span class="price-new price-new_@item.id_products_tra">
                                 <script>
                                                 $(function () {
 
-                                                    $('.price-new').text(tien(@item.newprice_products_tra) + ' ' + 'đ');
+                                                    $('.price-new_@item.id_products_tra').text(tien(@item.newprice_products_tra) );
                                                 }) </script>
                             </span>
 
-                            <span class="price-old">
+                            <span class="price-old price-old_@item.id_products_tra">
                                 <script>
                                                     $(function () {
 
-                                                        $('.price-old').text(tien(@item.oldprice_products_tra)+' '+'đ');
+                                                        $('.price-old_@item.id_products_tra').text(tien(@item.oldprice_products_tra));
                                                     })
                                 </script>
 
