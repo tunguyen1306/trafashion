@@ -643,6 +643,7 @@
     <Content Include="img\banner-2-780x390.jpg" />
     <Content Include="img\banner-3-780x390.jpg" />
     <Content Include="img\banner-4-780x390.jpg" />
+    <Content Include="img\chuky.jpg" />
     <Content Include="img\Chuky.png" />
     <Content Include="img\client_photo-584x427.png" />
     <Content Include="img\client_signature.png" />

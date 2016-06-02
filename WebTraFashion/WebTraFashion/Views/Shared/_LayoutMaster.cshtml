@@ -91,7 +91,7 @@
         function tien(val) {
            
             if (val != null) {
-                debugger;
+             
                 while (/(\d+)(\d{3})/.test(val.toString())) {
                     val = val.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
                 }

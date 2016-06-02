@@ -5092,7 +5092,7 @@ aside #blog-search a:hover {
 }
 @media (max-width: 439px) {
   .about_block .about-box .s-desc .under-block img {
-    opacity: 0;
+    opacity: 1;
   }
   .about_block .about-box .s-desc .under-block p {
     padding-left: 15px;
