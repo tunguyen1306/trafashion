@@ -115,7 +115,7 @@
                                                                 $(function () {
 
                                                                     $('.price-new_@item.tblProdu.id_products_tra').text(tien(@item.tblProdu.newprice_products_tra) );
-                                                                }) </script>
+}) </script>
                                                         </span>
 
                                                         <span class="price-old price-old_@item.tblProdu.id_products_tra">
@@ -151,14 +151,18 @@
                                                             <i class="material-icons-star star  fa-stack-1x"></i>
                                                         </span>
                                                     </div>
-                                                    <button class="product-btn-add" data-toggle="tooltip" title="Mua hàng" type="button">
-                                                        <i class="mat-icons material-icons-shopping_basket"></i>
-                                                        <span>Mua hàng</span>
-                                                    </button>
-                                                    <button class="product-btn-add" data-toggle="tooltip" title="Mua hàng" type="button">
-                                                        <i class="mat-icons material-icons-shopping_basket"></i>
-                                                        <span class="hidden-xs hidden-sm hidden-md">Đặt hàng</span>
-                                                    </button>
+                                                    @if (item.tblProdu.yes_products_tra == 1)
+                                                    {
+                                                        <button type="button" id="button-cart" data-loading-text="Loading..." class="product-btn-add" data-toggle="modal" data-target="#myModal_@item.tblProdu.id_products_tra"><i class="mat-icons material-icons-shopping_basket"></i>Mua hàng</button>
+                                                    }
+                                                    @if (item.tblProdu.yes_products_tra == 0)
+                                                    {
+                                                        <button type="button" id="button-cart" data-loading-text="Loading..." class="product-btn-add" data-toggle="modal" data-target="#myModalbuy_@item.tblProdu.id_products_tra"><i class="mat-icons material-icons-shopping_basket"></i>Đặt hàng</button>
+                                                    }
+                                                    @if (item.tblProdu.yes_products_tra == 3)
+                                                    {
+                                                        <button type="button" id="button-cart" data-loading-text="Loading..." class="product-btn-add"><i class="mat-icons material-icons-shopping_basket"></i>Hết hàng</button>
+                                                    }
                                                     <ul class="product-buttons">
                                                         <li>
                                                             <button class="btn btn-icon" type="button" data-toggle="tooltip" title="Add to Wish List">
@@ -185,6 +189,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                    
+              
+
                                     <div class="new_pr"><span>New</span></div>
                                     @if (item.tblProdu.discount_products_tra == null)
                                     {
@@ -278,7 +285,7 @@
                     </div>
                 </div>
                 <div id="parallax_0" class="parallax">
-                    <div data-source-url="/img/parallax-1-1600x1228.jpg" style="background-image('url:')" class="parallax-1 img-responsive">
+                    <div data-source-url="/img/parallax-1-1600x1228.jpg" class="parallax-1 img-responsive">
                         <div class="container">
                             <div class="row">
                                 <div class="col-sm-12">
