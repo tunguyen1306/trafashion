@@ -2,6 +2,19 @@
   border-top: 0 solid #e3e3e3 !important;
 
 }
-.about_block .about-box .s-desc .right-block{
-    padding:0 70px!important;
+
+.product-title {
+    font-size: 35px!important;
+   
+}
+.banners > div .s-desc h2.mod2 {
+  
+  line-height: 75px!important;
+}
+.banners > div .s-desc h2.mod1 {
+  line-height: 50px!important;
+}
+.about_block .about-box .s-desc blockquote {
+    
+    padding: 25px 34px 59px!important;
 }

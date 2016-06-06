@@ -5081,7 +5081,10 @@ aside #blog-search a:hover {
 }
 @media (max-width: 767px) and (max-width: 539px) {
   .about_block .about-box .s-desc .under-block img {
-    width: 94px;
+    width: 225px;
+  }
+  .cusimqt{
+      width: 100px;
   }
 }
 @media (max-width: 767px) {

@@ -108,43 +108,83 @@ namespace WebTraFashion.Controllers
             return View("Default");
         }
         [HttpPost]
-        public ActionResult buy(string email, string name, int phone, string content, string nameproduct,string codeproduct,string price,string idpro)
+        public ActionResult buy(string email, string name, string phone, string content, string nameproduct,string codeproduct,string price,string idpro)
         {
-            var t = email;
-            var mail = new MailMessage();
-            mail.To.Add("trafashion.com@gmail.com");
-            mail.From = new MailAddress("trafashion.com@gmail.com");
-            mail.Subject = "Khách hàng mua sản phẩm: " + " " + nameproduct + " ------- Mã sản phẩm " + codeproduct+" -------Giá: "+price;
-            mail.Body = "Tên khách hàng: " + name + "------- Số điện thoại: " + phone + "------- Email của khách là:" + email + " ------- Nội dung: " + content;
-            mail.IsBodyHtml = true;
-            var smtp = new SmtpClient();
-            smtp.Host = "smtp.gmail.com";
-            smtp.Port = 587;
-            smtp.UseDefaultCredentials = false;
-            smtp.Credentials = new NetworkCredential
-               ("mailorderthung@gmail.com", "a1234@1234");
-            smtp.EnableSsl = true;
-            smtp.Send(mail);
-            return RedirectToAction("Detail",new {id=idpro});
+            var index = 0;
+            if (name=="")
+            {
+                ViewData["error"] = "vui lòng nhập ho và tên";
+                index++;
+            }
+            if (phone == "")
+            {
+                ViewData["error"] = "vui lòng nhập ho và tên";
+                index++;
+            }
+            if (email == "")
+            {
+                ViewData["error"] = "vui lòng nhập ho và tên";
+                index++;
+            }
+            if (index==0)
+            {
+
+                var t = email;
+                var mail = new MailMessage();
+                mail.To.Add("trafashion.com@gmail.com");
+                mail.From = new MailAddress("trafashion.com@gmail.com");
+                mail.Subject = "Khách hàng mua sản phẩm: " + " " + nameproduct + " ------- Mã sản phẩm " + codeproduct + " -------Giá: " + price;
+                mail.Body = "<label style='color:red'>Tên khách hàng: </label><label style='color:blue'>" + name + " </label><br> <label style='color:red'>Số điện thoại:</label><label style='color:blue'> " + phone + " </label><br><label style='color:red'>Email của khách là:</label><label style='color:blue'> " + email + " </label><br> <label style='color:red'>Nội dung: </label><label style='color:blue'>" + content + " </label>";
+                mail.IsBodyHtml = true;
+                var smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.Port = 587;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new NetworkCredential
+                   ("mailorderthung@gmail.com", "a1234@1234");
+                smtp.EnableSsl = true;
+                smtp.Send(mail);
+                return RedirectToAction("Detail", new { id = idpro });
+            }
+            return RedirectToAction("Detail", new { id = idpro });
         }
         [HttpPost]
-        public ActionResult Order(string emailo, string nameo, int phoneo, string contento, string nameproducto, string codeproducto, string priceo, string idproo)
+        public ActionResult Order(string emailo, string nameo, string phoneo, string contento, string nameproducto, string codeproducto, string priceo, string idproo)
         {
-            
-            var mail = new MailMessage();
-            mail.To.Add("trafashion.com@gmail.com");
-            mail.From = new MailAddress("trafashion.com@gmail.com");
-            mail.Subject = "Khách hàng đặt sản phẩm: " + " " + nameproducto + " ------- Mã sản phẩm " + codeproducto + " -------Giá: " + priceo;
-            mail.Body = "Tên khách hàng: " + nameo + "------- Số điện thoại: " + phoneo + "------- Email của khách là:" + emailo + " ------- Nội dung: " + contento;
-            mail.IsBodyHtml = true;
-            var smtp = new SmtpClient();
-            smtp.Host = "smtp.gmail.com";
-            smtp.Port = 587;
-            smtp.UseDefaultCredentials = false;
-            smtp.Credentials = new NetworkCredential
-               ("mailorderthung@gmail.com", "a1234@1234");
-            smtp.EnableSsl = true;
-            smtp.Send(mail);
+            var index = 0;
+            if (nameo == "")
+            {
+                ViewData["error"] = "vui lòng nhập ho và tên";
+                index++;
+            }
+            if (phoneo == "")
+            {
+                ViewData["error"] = "vui lòng nhập ho và tên";
+                index++;
+            }
+            if (emailo == "")
+            {
+                ViewData["error"] = "vui lòng nhập ho và tên";
+                index++;
+            }
+            if (index == 0)
+            {
+                var mail = new MailMessage();
+                mail.To.Add("trafashion.com@gmail.com");
+                mail.From = new MailAddress("trafashion.com@gmail.com");
+                mail.Subject = "Khách hàng đặt sản phẩm: " + " " + nameproducto + " ------- Mã sản phẩm " + codeproducto + " -------Giá: " + priceo;
+                mail.Body = "<label style='color:red'>Tên khách hàng: </label><label style='color:blue'>" + nameo + " </label><br> <label style='color:red'>Số điện thoại:</label><label style='color:blue'> " + phoneo + " </label><br><label style='color:red'>Email của khách là:</label><label style='color:blue'> " + emailo + " </label><br> <label style='color:red'>Nội dung: </label><label style='color:blue'>" + contento + " </label>";
+                mail.IsBodyHtml = true;
+                var smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.Port = 587;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new NetworkCredential
+                   ("mailorderthung@gmail.com", "a1234@1234");
+                smtp.EnableSsl = true;
+                smtp.Send(mail);
+                return RedirectToAction("Detail", new { id = idproo });
+            }
             return RedirectToAction("Detail", new { id = idproo });
         }
         public ActionResult Contact()
@@ -152,14 +192,14 @@ namespace WebTraFashion.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult SendMail(string email, string name, int phone, string content)
+        public ActionResult SendMail(string email, string name, string phone, string content)
         {
             var t = email;
             var mail = new MailMessage();
             mail.To.Add("trafashion.com@gmail.com");
             mail.From = new MailAddress("trafashion.com@gmail.com");
             mail.Subject = "Thông tin khách hàng";
-            mail.Body = "Tên khách hàng: " + name + "--- Số điện thoại: " + phone + "------ Email của khách là:" + email + " ------- Nội dung: " + content;
+            mail.Body = "<label style='color:red'>Tên khách hàng: </label><label style='color:blue'>" + name + " </label><br> <label style='color:red'>Số điện thoại:</label><label style='color:blue'> " + phone + " </label><br><label style='color:red'>Email của khách là:</label><label style='color:blue'> " + email + " </label><br> <label style='color:red'>Nội dung: </label><label style='color:blue'>" + content + " </label>";
             mail.IsBodyHtml = true;
             var smtp = new SmtpClient();
             smtp.Host = "smtp.gmail.com";
