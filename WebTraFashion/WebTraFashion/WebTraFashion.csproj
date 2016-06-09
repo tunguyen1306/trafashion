@@ -648,6 +648,7 @@
     <Content Include="img\client_photo-584x427.png" />
     <Content Include="img\client_signature.png" />
     <Content Include="img\favicon.png" />
+    <Content Include="img\imgH.jpg" />
     <Content Include="img\logo-footer.png" />
     <Content Include="img\Logo.png" />
     <Content Include="img\logoFooter.png" />

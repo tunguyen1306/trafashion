@@ -16,7 +16,7 @@
             orderby data.id_products_tra descending
             select new ClassAll { tblProdu = data, tblPicture = datapic };
 
-
+    var queryslide = from data in db.tbl_slide_tra where data.status_slide_tra==0 select data;
 }
 
 
@@ -390,25 +390,50 @@
 
     <div class="product-info-section">
         <div class="product-info">
-@foreach (var item in Model.tblistPro)
-{
-            <div class="info_1">
-                <div class="info_cnt">
-                    <h3 class="mod1">Mô tả</h3>
+
+            <div class="info_1" style="height:600px;">
+                <div class="info_cnt cusinfo_cnt" >
+                    <h3 class="mod1" style="text-align:left;">Mô tả</h3>
                     <div class="description_paragraph">
-                        <p style="white-space:pre-line;">
-                            @item.des_products_tra
-                        </p>
+                        @foreach (var item in Model.tblistPro)
+                        {<p style="white-space:pre-line;text-align:left !important;font-size:18px;line-height:25px" class="cusp">
+                           @item.des_products_tra
+                        </p>}
                     </div>
                 </div>
-                <img src="~/img/prod_inf_img1.jpg" alt="">
+              
+                @foreach (var item in queryslide.ToList())
+                {
+                    <img src="@ConfigurationManager.AppSettings["domainslide"]@item.img_slide_tra.ToString().Split('_')[0]/@item.img_slide_tra" style="height:600px"/>
+                        
+                   
+                }
+             
             </div>
-}
-            <div class="info_3">
-                <img src="~/img/prod_inf_img3.jpg" alt="">
-                <img src="~/img/prod_inf_img4.jpg" alt="">
+            <div class="info_2 ">
+                <img alt="" src="~/img/imgH.jpg" style="height:auto;">
+                @*<div class="info_cnt info_cnt1">
+                    <h3 class="mod1" style="color:#b4a376;text-align:left;font-size:18px;">Chính sách và hướng dẫn mua hàng sau đây được xem là bản hợp đồng chính thức với khách hàng</h3>
+                    <div class="description_paragraph cusdescription_paragraph">
+                        A.	Hướng dẫn mua hàng
+                         1.	Đối với sản phẩm có sẵn:
+                          - Quý khách xem sản phẩm và chọn mục mua ngay để mua sản phẩm.
+                         2.	Đối với sản phẩm order ( đặt hàng):
+                          - Sau khi chọn sản phẩm, quý khách có nhu cầu mua sản phẩm nào vui lòng chọn mục order ( đặt hàng) sản phẩm.
+                          - Sau khi order ( đặt hàng) hàng hóa quý khách vui lòng thanh toán trên 50% giá trị tiền hàng của sản phẩm quý khách order ( đặt hàng).
+                         3.	Hàng hóa – sản phẩm được thông tin rõ ràng minh bạch bao gồm: nhãn hiệu, chất liệu,….. Quý khách vui lòng kiểm tra sản phẩm cẩn thận trước khi thanh toán nhằm đảm bảo quyền lợi tuyệt đối cho quý khách.
+                        </div>
+                   
+                    </div>*@
             </div>
+            <div class="info_3 ">
+              
+                <img alt="" src="/img/prod_inf_img3.jpg">
+                <img alt="" src="/img/prod_inf_img4.jpg">
+            </div>
+          
         </div>
+       
     </div>
 
 

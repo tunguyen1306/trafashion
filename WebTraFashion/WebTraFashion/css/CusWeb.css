@@ -18,3 +18,83 @@
     
     padding: 25px 34px 59px!important;
 }
+.product-info-section .product-info > div .cusinfo_cnt {
+  position: absolute;
+  width: 85%!important;
+  text-align:center;
+  left: 9.5%;
+  top: 17.5%;
+  color: #fff;
+  max-width: 800px;
+}
+h3.mod2{
+    font-size: 20px;
+    line-height: 39px;
+    margin-top: 0!important;
+}
+@media (max-width: 479px) and (max-width: 767px)
+{
+    .cusimgdes{
+        height:500px;
+
+    }
+    .cusp{
+        font-size:14px!important;
+        line-height:20px!important;
+    }
+    .cusinfo_2{height:800px!important}
+    .cusdescription_paragraph{
+   
+    width:290px!important;
+    height:800px;
+}
+
+}
+.cusbox{
+    border: 2px solid #b4a376;
+    color: #b4a376;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 27px;
+    padding: 10px 29px;
+    position: relative;
+    transition: all 0.3s ease 0s;
+}
+.product-info-section .product-info .info_2 img + .info_cnt, .product-info-section .product-info .info_3 img + .info_cnt1
+{
+     /*background: #fff none repeat scroll 0 0;*/
+    bottom: 0;
+    color: #888;
+    left: 0%!important;
+    padding-left: 7%;
+    padding-top: 10%;
+    top: 0;
+    width:85%!important;
+}
+.product-info-section .product-info > div .info_cnt1 {
+  position: absolute;
+  width: 85%!important;
+  text-align:center;
+  left: 9.5%;
+  top: 0!important;
+  color: #fff;
+  max-width: 800px;
+}
+.cusinfo_2{height:600px}
+.cusdescription_paragraph{
+    color:#b4a376;
+    white-space:pre-line;
+    text-align:left;
+    width:470px;
+    font-size:17px;
+}
+.cusdescription_paragraph1{
+    color:#b4a376;
+    white-space:pre-line;
+    text-align:left;
+    width:470px;
+    font-size:17px;
+    right:50%;
+}
