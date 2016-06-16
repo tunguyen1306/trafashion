@@ -98,3 +98,20 @@ h3.mod2{
     font-size:17px;
     right:50%;
 }
+.banners > div.banner-2 .banner-box {
+    margin-left: 48%!important;
+}
+.banners > div.banner-2 {
+    width: 65%;
+}
+.cuss-desc {
+    width: 365px!important;
+}
+.banners > div .banner-box {
+    background: #ffffff!important;
+}
+@media (max-width: 767px) {
+.banners > div.banner-2 .banner-box {
+    margin-left: 0!important;
+}
+}
