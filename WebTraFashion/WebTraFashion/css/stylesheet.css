@@ -859,7 +859,7 @@ div.required .control-label:after {
 header {
   background: #fff;
   position: relative;
-  z-index: 99999;
+  /*z-index: 99999;*/
 }
 header .box-language, header .box-currency {
   display: inline-block;
