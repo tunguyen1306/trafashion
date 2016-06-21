@@ -1,4 +1,8 @@
-﻿
+﻿@using WebTraFashion.Models
+@using System.Linq;
+@using System.Web;
+@using System.Web.Mvc;
+@using System.Configuration
 <footer>
 
     <div class="container">
@@ -12,24 +16,26 @@
                         </li>
 
                         <li>
-                            <a href="@Url.Action("ListProducts","Default",new { id=6})">TÚI XÁCH</a>
+                            <a href="@Url.Action("ListProducts","Default",new { id= ("Túi xách").UrlFrendly() + "-" + 6,idd=1})">TÚI XÁCH</a>
                         </li>
                         <li>
-                            <a href="@Url.Action("ListProducts","Default",new { id=1})">VÍ </a>
+                            <a href="@Url.Action("ListProducts","Default",new { id= ("Ví").UrlFrendly() + "-" + 1,idd=1})">VÍ </a>
                         </li>
                         <li>
-                            <a href="@Url.Action("ListProducts","Default",new { id=2})">BALO</a>
+                            <a href="@Url.Action("ListProducts","Default",new { id= ("Balo").UrlFrendly() + "-" + 2,idd=1})">BALO</a>
                         </li>
                         <li>
-                            <a href="@Url.Action("ListProducts","Default",new { id=3})">VALI</a>
+                            <a href="@Url.Action("ListProducts","Default",new { id= ("Vali").UrlFrendly() + "-" + 3,idd=1})">VALI</a>
                         </li>
                         <li>
-                            <a href="@Url.Action("ListProducts","Default",new { id=4})">PHỤ KIỆN</a>
+                            <a href="@Url.Action("ListProducts","Default",new { id= ("Phụ kiện").UrlFrendly() + "-" + 4,idd=1})">PHỤ KIỆN</a>
                         </li>
                         <li>
-                            <a href="@Url.Action("ListProducts","Default",new { id=5})">SALE</a>
+                            <a href="@Url.Action("ListProducts","Default",new { id = ("sale").UrlFrendly() + "-" + 5, idd=123})">SALE</a>
                         </li>
-                       
+                        <li>
+                            <a href="http://vangia.net/">VẠN GIA</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -83,7 +89,7 @@
                     <dl>
                         <dt>Địa chỉ:</dt>
                         <dd>
-                            store 2: A2-14-04 Chung cư 4S Linh Đông, Đường 30, Phường Linh Đông, Thủ Đức, Hồ Chí Minh.
+                            Store 2: A2-14-04 Chung cư 4S Linh Đông, Đường 30, Phường Linh Đông, Thủ Đức, Hồ Chí Minh.
                         </dd>
                     </dl>
                 </div>

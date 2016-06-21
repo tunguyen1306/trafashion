@@ -208,7 +208,7 @@
   bottom: 100px;
   right: 13%;
   font-size: 27px;
-  color: #fff;
+  /*color: #fff;*/
   z-index: 5;
   -moz-transition: 0.5s all ease;
   -o-transition: 0.5s all ease;

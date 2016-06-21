@@ -114,7 +114,7 @@
                         </div>
                         <div class="caption">
                             <div class="name">
-                                <a href="@Url.Action("Detail","Default",new { id= item.tblProdu.name_products_tra + "-" + item.tblProdu.id_products_tra })">
+                                <a href="@Url.Action("Detail","Default",new { id= item.tblProdu.name_products_tra.UrlFrendly() + "-" + item.tblProdu.id_products_tra })">
                                     @item.tblProdu.name_products_tra
                                 </a>
                             </div>
@@ -146,10 +146,18 @@
                                 </span>
                             </div>
                             <div class="btns-block">
-                                <button class="product-btn-add" data-toggle="tooltip" title="Mua hàng" type="button">
-                                    <i class="mat-icons material-icons-shopping_basket"></i>
-                                    <span class="hidden-xs hidden-sm hidden-md">Mua hàng</span>
-                                </button>
+                                @if (item.tblProdu.yes_products_tra == 1)
+                                {
+                                    <button type="button" title="Mua hàng" class="product-btn-add" data-toggle="modal" data-target="#myModal_@item.tblProdu.id_products_tra"><i class="mat-icons material-icons-shopping_basket"></i><span class="hidden-xs hidden-sm hidden-md">Mua hàng</span></button>
+                                }
+                                @if (item.tblProdu.yes_products_tra == 0)
+                                {
+                                    <button type="button" title="Đặt hàng" class="product-btn-add" data-toggle="modal" data-target="#myModalbuy_@item.tblProdu.id_products_tra"><i class="mat-icons material-icons-shopping_basket"></i><span class="hidden-xs hidden-sm hidden-md">Đặt hàng</span></button>
+                                }
+                                @if (item.tblProdu.yes_products_tra == 3)
+                                {
+                                    <button type="button" title="Hết hàng" class="product-btn-add"><i class="mat-icons material-icons-shopping_basket"></i><span class="hidden-xs hidden-sm hidden-md">Hết hàng</span></button>
+                                }
                                 <button class="product-btn" type="button" data-toggle="tooltip" title="Add to Wish List">
                                     <i class="mat-icons material-icons-favorite_border"></i>
                                 </button>
@@ -170,3 +178,146 @@
     </div>
 </div>
 
+
+@foreach (var item in Model)
+{
+    <div id="myModal_@item.tblProdu.id_products_tra" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            @using (Html.BeginForm("buy", "Default"))
+            {
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">@item.tblProdu.name_products_tra</h4>
+                        <input type="hidden" value='@item.tblProdu.name_products_tra.UrlFrendly()-@item.tblProdu.id_products_tra' name="idpro" />
+                        <input type="hidden" value="@item.tblProdu.name_products_tra" name="nameproduct" />
+                        <input type="hidden" value="@item.tblProdu.code_products_tra" name="codeproduct" />
+                        <input type="hidden" value="@item.tblProdu.newprice_products_tra" name="price" />
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                Mã sản phẩm: @item.tblProdu.code_products_tra<br />
+                                Giá: <label class="showPrice__@item.tblProdu.id_products_tra"></label>
+                                <script>
+                                                $(function () {
+                                                    $('.showPrice__@item.tblProdu.id_products_tra').text(tien(@item.tblProdu.newprice_products_tra));
+                                                }) </script>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Họ và tên</label>
+                                    <input class="form-control" name="name">
+                                </div>
+
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Số điện thoại</label>
+                                    <input class="form-control" name="phone">
+                                </div>
+
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input class="form-control" name="email">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3">
+                            </div>
+                            <div class="col-lg-9">
+                                <div class="form-group">
+                                    <label>Nội dung</label>
+                                    <textarea class="form-control" style="width:100%;height: 50px;" name="content" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-default">Mua hàng</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+
+
+    <div id="myModalbuy_@item.tblProdu.id_products_tra" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            @using (Html.BeginForm("Order", "Default"))
+            {
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">@item.tblProdu.name_products_tra</h4>
+                        <input type="hidden" value='@item.tblProdu.name_products_tra.UrlFrendly()-@item.tblProdu.id_products_tra' name="idproo" />
+                        <input type="hidden" value="@item.tblProdu.name_products_tra" name="nameproducto" />
+                        <input type="hidden" value="@item.tblProdu.code_products_tra" name="codeproducto" />
+                        <input type="hidden" value="@item.tblProdu.newprice_products_tra" name="priceo" />
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                Mã sản phẩm: @item.tblProdu.code_products_tra<br />
+                                Giá: <label class="showPrice__@item.tblProdu.id_products_tra"></label>
+                                <script>
+                                                $(function () {
+                                                    $('.showPrice__@item.tblProdu.id_products_tra').text(tien(@item.tblProdu.newprice_products_tra));
+                                                }) </script>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Họ và tên</label>
+                                    <input class="form-control" name="nameo">
+                                    @ViewData["error"]
+                                </div>
+
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Số điện thoại</label>
+                                    <input class="form-control" name="phoneo">
+                                </div>
+
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input class="form-control" name="emailo">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3">
+                            </div>
+                            <div class="col-lg-9">
+                                <div class="form-group">
+                                    <label>Nội dung</label>
+                                    <textarea class="form-control" style="width:100%;height: 50px;" name="content" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-default">Đặt hàng</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+}

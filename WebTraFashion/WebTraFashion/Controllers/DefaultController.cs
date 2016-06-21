@@ -30,7 +30,37 @@ namespace WebTraFashion.Controllers
         public ActionResult ListProducts(string id,int idd)
         {
             var id_ = int.Parse(id.Split('-').Last());
-        
+            if (id_ == 1)
+            {
+                ViewData["showname"]="Ví";
+                   
+                    
+            }
+            if (id_ == 2)
+            {
+                  
+                    ViewData["showname"] = "Balo";
+            }
+            if (id_ == 3)
+            {
+                   
+                    ViewData["showname"] = "Vali";
+            }
+            if (id_ == 4)
+            {
+                   
+                    ViewData["showname"] = "Phụ kiện";
+            }
+            if (id_ == 5)
+            {
+                  
+                    ViewData["showname"] = "Sale";
+            }
+            if (id_ == 6)
+            {
+                  
+                    ViewData["showname"] = "Túi xách";
+            }
             if (idd==123)
             {
                 var queryProducts =
