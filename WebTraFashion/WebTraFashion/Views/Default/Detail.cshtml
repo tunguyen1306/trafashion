@@ -391,20 +391,22 @@
     <div class="product-info-section">
         <div class="product-info">
 
-            <div class="info_1" style="height:600px;">
+            <div class="info_1">
                 <div class="info_cnt cusinfo_cnt" >
                     <h3 class="mod1" style="text-align:left;">Mô tả</h3>
-                    <div class="description_paragraph">
+                    <div class="description_paragraph" style="height:300px;overflow: scroll;white-space:pre-line">
                         @foreach (var item in Model.tblistPro)
-                        {<p style="white-space:pre-line;text-align:left !important;font-size:18px;line-height:25px" class="cusp">
-                           @item.des_products_tra
-                        </p>}
+                        { @item.des_products_tra
+                            @*<label style="white-space:pre-line;text-align:left !important;font-size:18px;color:white;" class="cusp">
+                          
+                        </label>*@
+                        }
                     </div>
                 </div>
               
                 @foreach (var item in queryslide.ToList())
                 {
-                    <img src="@ConfigurationManager.AppSettings["domainslide"]@item.img_slide_tra.ToString().Split('_')[0]/@item.img_slide_tra" style="height:600px;width:1600px;"/>
+                    <img src="@ConfigurationManager.AppSettings["domainslide"]@item.img_slide_tra.ToString().Split('_')[0]/@item.img_slide_tra" style="height:auto;width: 100%"/>
                         
                    
                 }

@@ -38,7 +38,7 @@
     <div class="row">
 
 
-        @Html.Partial("ListProductsByID", Model)
+        @Html.Partial("ListProductsByID", Model.ToPagedList(1,1))
 
 
         <aside class="col-sm-3 " id="column-right">

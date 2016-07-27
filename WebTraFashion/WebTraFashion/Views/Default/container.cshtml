@@ -38,7 +38,7 @@
                     <div class="fleft	banner-1">
                         <div class="banner-box">
                             <a class="clearfix" href="@Url.Action("ListProducts","Default",new { id= ("sale").UrlFrendly() + "-" + 5,idd=123 })">
-                                <img src="~/img/banner-1-780x390.jpg" alt="banner-1" class="img-responsive" />
+                                <img src="~/img/sale.jpg" alt="banner-1" class="img-responsive" />
                                 <div class="s-desc"><h2>Sale</h2></div>
                             </a>
                         </div>
@@ -46,7 +46,7 @@
                     <div class="fleft	banner-2">
                         <div class="banner-box">
                             <a class="clearfix" href="@Url.Action("ListProducts","Default",new { id=("Balo").UrlFrendly()+"-"+2,idd=1})">
-                                <img src="~/img/banner-2-780x390.jpg" alt="banner-2" class="img-responsive" />
+                                <img style="width: 415px;height: 390px;" src="~/img/phongcach.jpg" alt="banner-2" class="img-responsive" />
                                 <div class="s-desc cuss-desc">
                                     <h2 class="mod1">PHONG CÁCH <br />HIỆN ĐẠI </h2>
 
@@ -58,7 +58,7 @@
                     <div class="fleft	banner-3">
                         <div class="banner-box">
                             <a class="clearfix" href="@Url.Action("ListProducts","Default",new { id=("Túi xách").UrlFrendly()+"-"+6,idd=1})">
-                                <img src="~/img/banner-3-780x390.jpg" alt="banner-3" class="img-responsive" />
+                                <img style="width: 390px;height: 780px;" src="~/img/thoitra.jpg" alt="banner-3" class="img-responsive" />
                                 <div class="s-desc"><h2 class="mod2">THỜI TRANG ĐẲNG CẤP</h2></div>
                             </a>
                         </div>
@@ -66,7 +66,7 @@
                     <div class="fleft	banner-4">
                         <div class="banner-box">
                             <a class="clearfix" href="@Url.Action("ListProducts","Default",new { id=("Ví").UrlFrendly()+"-"+1,idd=1})">
-                                <img src="~/img/banner-4-780x390.jpg" alt="banner-4" class="img-responsive" />
+                                <img style="width: 780px;height: 390px;" src="~/img/mauma.jpg" alt="banner-4" class="img-responsive" />
                                 <div class="s-desc">
                                     <h2 class="mod1">MẪU MÃ ĐA DẠNG</h2>
 
@@ -192,7 +192,15 @@
 
 
 
-                                    <div class="new_pr"><span>New</span></div>
+                                    @if (item.tblProdu.new_products_tra == 0)
+                                    {
+
+                                    }
+                                    else
+                                    {
+                                        <div class="new_pr"><span>New</span></div>
+                                    }
+
                                     @if (item.tblProdu.discount_products_tra == null)
                                     {
 
@@ -444,7 +452,7 @@
                 }
 
                 <div id="parallax_0" class="parallax">
-                    <div data-source-url="/img/parallax-1-1600x1228.jpg" class="parallax-1 img-responsive">
+                    <div data-source-url="/img/background2.jpg" class="parallax-1 img-responsive">
                         <div class="container">
                             <div class="row">
                                 <div class="col-sm-12">

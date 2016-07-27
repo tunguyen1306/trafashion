@@ -201,7 +201,17 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="new_pr"><span>New</span></div>
+                      
+                        @if (item.tblProdu.new_products_tra == 0)
+                        {
+
+                        }
+                        else
+                        {
+                            <div class="new_pr"><span>New</span></div>
+                        }
+
+
                         @if (item.tblProdu.discount_products_tra == null)
                         {
 

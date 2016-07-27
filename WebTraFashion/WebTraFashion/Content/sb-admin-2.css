@@ -25,6 +25,10 @@ body {
         padding: 0 30px;
         border-left: 1px solid #e7e7e7;
     }
+    .cusp{
+        font-size:10px;
+        line-height:15px;
+    }
 }
 
 .navbar-top-links {

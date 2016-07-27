@@ -19,13 +19,13 @@
     padding: 25px 34px 59px!important;
 }
 .product-info-section .product-info > div .cusinfo_cnt {
-  position: absolute;
+  /*position: absolute;
   width: 85%!important;
   text-align:center;
   left: 9.5%;
   top: 17.5%;
   color: #fff;
-  max-width: 800px;
+  max-width: 800px;*/
 }
 h3.mod2{
     font-size: 20px;
@@ -39,8 +39,8 @@ h3.mod2{
 
     }
     .cusp{
-        font-size:14px!important;
-        line-height:20px!important;
+        font-size:10px!important;
+        line-height:15px!important;
     }
     .cusinfo_2{height:800px!important}
     .cusdescription_paragraph{

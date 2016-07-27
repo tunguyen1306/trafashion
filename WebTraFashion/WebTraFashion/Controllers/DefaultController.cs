@@ -110,7 +110,7 @@ namespace WebTraFashion.Controllers
             return View();
         }
 
-        public PartialViewResult PartialDemo(int page = 1, int pagesize = 12)
+        public PartialViewResult PartialDemo(int page = 1, int pagesize = 1)
         {
             var dataNew = (from datanew in db.tbl_products_tra where datanew.status_products_tra == 1 && (datanew.type_products_tra == 1) orderby datanew.id_products_tra descending select datanew).ToList();
             return PartialView("ListProductsByID", dataNew.ToPagedList(page, pagesize));
