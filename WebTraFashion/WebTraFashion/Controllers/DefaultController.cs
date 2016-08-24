@@ -30,6 +30,7 @@ namespace WebTraFashion.Controllers
         public ActionResult ListProducts(string id,int idd)
         {
             var id_ = int.Parse(id.Split('-').Last());
+            ViewBag.TypeID = id_;
             if (id_ == 1)
             {
                 ViewData["showname"]="Ví";
@@ -110,10 +111,11 @@ namespace WebTraFashion.Controllers
             return View();
         }
 
-        public PartialViewResult PartialDemo(int page = 1, int pagesize = 1)
+        public PartialViewResult PartialDemo(int id,int page = 1, int pagesize = 12)
         {
-            var dataNew = (from datanew in db.tbl_products_tra where datanew.status_products_tra == 1 && (datanew.type_products_tra == 1) orderby datanew.id_products_tra descending select datanew).ToList();
-            return PartialView("ListProductsByID", dataNew.ToPagedList(page, pagesize));
+           var dataNew = (from datanew in db.tbl_products_tra where datanew.status_products_tra == 1 && (datanew.type_products_tra == id) orderby datanew.id_products_tra descending select datanew).ToList();
+
+           return PartialView("ListProductsByID", dataNew.ToPagedList(page, pagesize));
         }
 
 
