@@ -9,10 +9,10 @@
 }
 .banners > div .s-desc h2.mod2 {
   
-  line-height: 75px!important;
+  line-height: 65px!important;
 }
 .banners > div .s-desc h2.mod1 {
-  line-height: 50px!important;
+  line-height: 25px!important;
 }
 .about_block .about-box .s-desc blockquote {
     
@@ -98,12 +98,12 @@ h3.mod2{
     font-size:17px;
     right:50%;
 }
-.banners > div.banner-2 .banner-box {
+/*.banners > div.banner-2 .banner-box {
     margin-left: 48%!important;
-}
-.banners > div.banner-2 {
+}*/
+/*.banners > div.banner-2 {
     width: 65%;
-}
+}*/
 .cuss-desc {
     width: 365px!important;
 }

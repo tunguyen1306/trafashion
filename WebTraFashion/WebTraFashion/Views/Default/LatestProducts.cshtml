@@ -36,23 +36,47 @@
                                     <h2>@item.tblProdu.name_products_tra</h2>
                                     <div class="inf">
                                         <p class="product_model model">Model: @item.tblProdu.code_products_tra</p>
-                                        <span class="price-new price-new_@item.tblProdu.id_products_tra">
-                                            <script>
-                                                $(function () {
+                                        @if (item.tblProdu.newprice_products_tra != null)
+                                        {
+                                            <span class="price-new price-new_@item.tblProdu.id_products_tra">
+                                                <script>
+                                                    $(function () {
 
-                                                    $('.price-new_@item.tblProdu.id_products_tra').text(tien(@item.tblProdu.newprice_products_tra) );
-                                                }) </script>
-                                        </span>
+                                                        $('.price-new_@item.tblProdu.id_products_tra').text(tien(@item.tblProdu.newprice_products_tra));
+                                                    })
+                                                </script>
+                                            </span>
+                                        }
 
-                                        <span class="price-old price-old_@item.tblProdu.id_products_tra">
-                                            <script>
+                                        @if (item.tblProdu.oldprice_products_tra != null)
+                                        {
+                                            <span class="price-old price-old_@item.tblProdu.id_products_tra">
+                                                <script>
                                                     $(function () {
 
                                                         $('.price-old_@item.tblProdu.id_products_tra').text(tien(@item.tblProdu.oldprice_products_tra));
                                                     })
-                                            </script>
+                                                </script>
 
-                                        </span>
+                                            </span>
+                                        }
+                                        @*<span class="price-new price-new_@item.tblProdu.id_products_tra">
+                                                <script>
+                                                    $(function () {
+
+                                                        $('.price-new_@item.tblProdu.id_products_tra').text(tien(@item.tblProdu.newprice_products_tra) );
+                                                    }) </script>
+                                            </span>
+
+                                            <span class="price-old price-old_@item.tblProdu.id_products_tra">
+                                                <script>
+                                                        $(function () {
+
+                                                            $('.price-old_@item.tblProdu.id_products_tra').text(tien(@item.tblProdu.oldprice_products_tra));
+                                                        })
+                                                </script>
+
+                                            </span>*@
                                     </div>
                                     <div class="rating">
                                         <span class="fa-stack">
@@ -138,24 +162,47 @@
                                     @item.tblProdu.name_products_tra
                                 </a>
                             </div>
+                            @if (item.tblProdu.newprice_products_tra != null)
+                            {
+                                <span class="price-new price-new_@item.tblProdu.id_products_tra">
+                                    <script>
+                                        $(function () {
 
-                            <span class="price-new price-new_@item.tblProdu.id_products_tra">
-                                <script>
-                                                $(function () {
+                                            $('.price-new_@item.tblProdu.id_products_tra').text(tien(@item.tblProdu.newprice_products_tra));
+                                        })
+                                    </script>
+                                </span>
+                            }
 
-                                                    $('.price-new_@item.tblProdu.id_products_tra').text(tien(@item.tblProdu.newprice_products_tra) );
-                                                }) </script>
-                            </span>
+                            @if (item.tblProdu.oldprice_products_tra != null)
+                            {
+                                <span class="price-old price-old_@item.tblProdu.id_products_tra">
+                                    <script>
+                                        $(function () {
 
-                            <span class="price-old price-old_@item.tblProdu.id_products_tra">
-                                <script>
+                                            $('.price-old_@item.tblProdu.id_products_tra').text(tien(@item.tblProdu.oldprice_products_tra));
+                                        })
+                                    </script>
+
+                                </span>
+                            }
+                            @*<span class="price-new price-new_@item.tblProdu.id_products_tra">
+                                    <script>
                                                     $(function () {
 
-                                                        $('.price-old_@item.tblProdu.id_products_tra').text(tien(@item.tblProdu.oldprice_products_tra));
-                                                    })
-                                </script>
+                                                        $('.price-new_@item.tblProdu.id_products_tra').text(tien(@item.tblProdu.newprice_products_tra) );
+                                                    }) </script>
+                                </span>
 
-                            </span>
+                                <span class="price-old price-old_@item.tblProdu.id_products_tra">
+                                    <script>
+                                                        $(function () {
+
+                                                            $('.price-old_@item.tblProdu.id_products_tra').text(tien(@item.tblProdu.oldprice_products_tra));
+                                                        })
+                                    </script>
+
+                                </span>*@
                         </div>
                         <div class="cart-button">
                             <div class="rating">
@@ -234,9 +281,9 @@
                                 Mã sản phẩm: @item.tblProdu.code_products_tra<br />
                                 Giá: <label class="showPrice__@item.tblProdu.id_products_tra"></label>
                                 <script>
-                                                $(function () {
-                                                    $('.showPrice__@item.tblProdu.id_products_tra').text(tien(@item.tblProdu.newprice_products_tra));
-                                                }) </script>
+                                    $(function () {
+                                        $('.showPrice__@item.tblProdu.id_products_tra').text(tien(@item.tblProdu.newprice_products_tra));
+                                    }) </script>
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group">
@@ -304,9 +351,9 @@
                                 Mã sản phẩm: @item.tblProdu.code_products_tra<br />
                                 Giá: <label class="showPrice__@item.tblProdu.id_products_tra"></label>
                                 <script>
-                                                $(function () {
-                                                    $('.showPrice__@item.tblProdu.id_products_tra').text(tien(@item.tblProdu.newprice_products_tra));
-                                                }) </script>
+                                    $(function () {
+                                        $('.showPrice__@item.tblProdu.id_products_tra').text(tien(@item.tblProdu.newprice_products_tra));
+                                    }) </script>
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group">

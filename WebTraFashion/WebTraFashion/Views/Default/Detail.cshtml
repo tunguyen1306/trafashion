@@ -16,7 +16,7 @@
             orderby data.id_products_tra descending
             select new ClassAll { tblProdu = data, tblPicture = datapic };
 
-    var queryslide = from data in db.tbl_slide_tra where data.status_slide_tra==0 select data;
+    var queryslide = from data in db.tbl_slide_tra where data.status_slide_tra == 0 select data;
 }
 
 
@@ -97,23 +97,31 @@
                         <h2 class="product-title">@item.name_products_tra</h2>
                         <div class="separator1"></div>
                         <div class="price-section">
-                            <span class="price-new price-new_@item.id_products_tra">
-                                <script>
-                                                $(function () {
+                            @if (item.newprice_products_tra != null)
+                            {
+                                <span class="price-new price-new_@item.id_products_tra">
+                                    <script>
+                                    $(function() {
 
-                                                    $('.price-new_@item.id_products_tra').text(tien(@item.newprice_products_tra) );
-                                                }) </script>
-                            </span>
+                                        $('.price-new_@item.id_products_tra').text(tien(@item.newprice_products_tra));
+                                    })
+                                    </script>
+                                </span>
+                            }
+                          
+                            @if (item.oldprice_products_tra != null)
+                            {
+                                <span class="price-old price-old_@item.id_products_tra">
+                                    <script>
+                                        $(function() {
 
-                            <span class="price-old price-old_@item.id_products_tra">
-                                <script>
-                                                    $(function () {
+                                            $('.price-old_@item.id_products_tra').text(tien(@item.oldprice_products_tra));
+                                        })
+                                    </script>
 
-                                                        $('.price-old_@item.id_products_tra').text(tien(@item.oldprice_products_tra));
-                                                    })
-                                </script>
+                                </span>
+                            }
 
-                            </span>
                             <div class="reward-block">
                             </div>
                         </div>
@@ -310,7 +318,7 @@
                                         <div class="col-lg-3">
                                             Mã sản phẩm: @item.code_products_tra<br />
                                             Giá: <label class="showPrice__@item.id_products_tra"></label>
-<script>
+                                            <script>
                                                 $(function () {
                                                     $('.showPrice__@item.id_products_tra').text(tien(@item.newprice_products_tra));
                                                 }) </script>
@@ -388,57 +396,57 @@
 </div>
 
 
-    <div class="product-info-section">
-        <div class="product-info">
+<div class="product-info-section">
+    <div class="product-info">
 
-            <div class="info_1">
-                <div class="info_cnt cusinfo_cnt" >
-                    <h3 class="mod1" style="text-align:left;">Mô tả</h3>
-                    <div class="description_paragraph" style="height:300px;overflow: scroll;white-space:pre-line">
-                        @foreach (var item in Model.tblistPro)
-                        { @item.des_products_tra
-                            @*<label style="white-space:pre-line;text-align:left !important;font-size:18px;color:white;" class="cusp">
-                          
-                        </label>*@
-                        }
-                    </div>
+        <div class="info_1">
+            <div class="info_cnt cusinfo_cnt">
+                <h3 class="mod1" style="text-align:left;">Mô tả</h3>
+                <div class="description_paragraph" style="white-space:pre-line">
+                    @foreach (var item in Model.tblistPro)
+                    { @item.des_products_tra
+                        @*<label style="white-space:pre-line;text-align:left !important;font-size:18px;color:white;" class="cusp">
+
+                            </label>*@
+                    }
                 </div>
-              
-                @foreach (var item in queryslide.ToList())
-                {
-                    <img src="@ConfigurationManager.AppSettings["domainslide"]@item.img_slide_tra.ToString().Split('_')[0]/@item.img_slide_tra" style="height:auto;width: 100%"/>
-                        
-                   
-                }
-             
-            </div>
-            <div class="info_2 ">
-                <img alt="" src="~/img/HuongDanMuaHang.jpg" style="height:auto;width: 100%">
-                @*<div class="info_cnt info_cnt1">
-                    <h3 class="mod1" style="color:#b4a376;text-align:left;font-size:18px;">Chính sách và hướng dẫn mua hàng sau đây được xem là bản hợp đồng chính thức với khách hàng</h3>
-                    <div class="description_paragraph cusdescription_paragraph">
-                        A.	Hướng dẫn mua hàng
-                         1.	Đối với sản phẩm có sẵn:
-                          - Quý khách xem sản phẩm và chọn mục mua ngay để mua sản phẩm.
-                         2.	Đối với sản phẩm order ( đặt hàng):
-                          - Sau khi chọn sản phẩm, quý khách có nhu cầu mua sản phẩm nào vui lòng chọn mục order ( đặt hàng) sản phẩm.
-                          - Sau khi order ( đặt hàng) hàng hóa quý khách vui lòng thanh toán trên 50% giá trị tiền hàng của sản phẩm quý khách order ( đặt hàng).
-                         3.	Hàng hóa – sản phẩm được thông tin rõ ràng minh bạch bao gồm: nhãn hiệu, chất liệu,….. Quý khách vui lòng kiểm tra sản phẩm cẩn thận trước khi thanh toán nhằm đảm bảo quyền lợi tuyệt đối cho quý khách.
-                        </div>
-                   
-                    </div>*@
             </div>
 
-            <div class="info_3 " style="background-color:#b4a376 ">
+            @foreach (var item in queryslide.ToList())
+            {
+                <img src="@ConfigurationManager.AppSettings["domainslide"]@item.img_slide_tra.ToString().Split('_')[0]/@item.img_slide_tra" style="height:auto;width: 100%" />
 
-              
-                <img alt="" src="/img/HuongDanMuaHang2.png" style="height:auto;width: 100%">
 
-            </div>
-          
+            }
+
         </div>
-       
+        <div class="info_2 ">
+            <img alt="" src="~/img/HuongDanMuaHang.jpg" style="height:auto;width: 100%">
+            @*<div class="info_cnt info_cnt1">
+                <h3 class="mod1" style="color:#b4a376;text-align:left;font-size:18px;">Chính sách và hướng dẫn mua hàng sau đây được xem là bản hợp đồng chính thức với khách hàng</h3>
+                <div class="description_paragraph cusdescription_paragraph">
+                    A.	Hướng dẫn mua hàng
+                     1.	Đối với sản phẩm có sẵn:
+                      - Quý khách xem sản phẩm và chọn mục mua ngay để mua sản phẩm.
+                     2.	Đối với sản phẩm order ( đặt hàng):
+                      - Sau khi chọn sản phẩm, quý khách có nhu cầu mua sản phẩm nào vui lòng chọn mục order ( đặt hàng) sản phẩm.
+                      - Sau khi order ( đặt hàng) hàng hóa quý khách vui lòng thanh toán trên 50% giá trị tiền hàng của sản phẩm quý khách order ( đặt hàng).
+                     3.	Hàng hóa – sản phẩm được thông tin rõ ràng minh bạch bao gồm: nhãn hiệu, chất liệu,….. Quý khách vui lòng kiểm tra sản phẩm cẩn thận trước khi thanh toán nhằm đảm bảo quyền lợi tuyệt đối cho quý khách.
+                    </div>
+
+                </div>*@
+        </div>
+
+        <div class="info_3 " style="background-color:#b4a376 ">
+
+
+            <img alt="" src="/img/HuongDanMuaHang2.png" style="height:auto;width: 100%">
+
+        </div>
+
     </div>
+
+</div>
 
 
 <div class="container">
@@ -490,7 +498,7 @@
                     </div>
                 </form>
             </div>
-          
+
             @Html.Partial("relatedProduct", queryProducts.ToList())
 
         </div>

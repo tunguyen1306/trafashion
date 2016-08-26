@@ -69,7 +69,7 @@ namespace WebTraFashion.Controllers
                 where data.status_products_tra == 1 && datapic.position == 1 && (data.type_products_tra == id_ || data.discount_products_tra!=null)
                 orderby data.id_products_tra descending
                 select new ClassAll { tblProdu = data, tblPicture = datapic };
-                return View(queryProducts.ToList().ToPagedList(pageNumber: 1, pageSize: 12));
+                return View(queryProducts.ToList().ToPagedList(pageNumber: 1, pageSize: 9));
             }
             else
             {
@@ -79,7 +79,7 @@ namespace WebTraFashion.Controllers
                where data.status_products_tra == 1 && datapic.position == 1 && data.type_products_tra == id_
                orderby data.id_products_tra descending
                select new ClassAll { tblProdu = data, tblPicture = datapic };
-                return View(queryProducts1.ToList().ToPagedList(pageNumber: 1, pageSize: 12));
+                return View(queryProducts1.ToList().ToPagedList(pageNumber: 1, pageSize: 9));
             }
 
         }
@@ -110,9 +110,9 @@ namespace WebTraFashion.Controllers
             return View();
         }
 
-        public PartialViewResult PartialDemo(int page = 1, int pagesize = 1)
+        public PartialViewResult PartialDemo(int id ,int page = 1, int pagesize = 9)
         {
-            var dataNew = (from datanew in db.tbl_products_tra where datanew.status_products_tra == 1 && (datanew.type_products_tra == 1) orderby datanew.id_products_tra descending select datanew).ToList();
+            var dataNew = (from datanew in db.tbl_products_tra where datanew.status_products_tra == 1 && (datanew.type_products_tra == id) orderby datanew.id_products_tra descending select datanew).Skip(pagesize* (page - 1)).Take(pagesize).ToList();
             return PartialView("ListProductsByID", dataNew.ToPagedList(page, pagesize));
         }
 
