@@ -101,7 +101,8 @@
         <div class="row pages_info">
             <div class="col-sm-6 text-left">
                 <ul class="pagination">
-                    @Html.PagedListPager((IPagedList)Model, page => Url.Action("PartialDemo", "Default", new { page,id=6 }),
+
+                    @Html.PagedListPager((IPagedList)Model, page => Url.Action("PartialDemo", "Default", new { page, id = ViewBag.TypeID }),
                         PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions() { UpdateTargetId = "loader" }))
                 </ul>
             </div>

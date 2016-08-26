@@ -12,4 +12,5 @@ namespace WebTraFashion.Models
         public tbl_products_tra tblProdu { get; set; }
         public List<tbl_products_tra> tblistPro { get; set; }
     }
+   
 }
