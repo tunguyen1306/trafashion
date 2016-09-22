@@ -5,6 +5,19 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="TrafashionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_blog_tra">
+          <Key>
+            <PropertyRef Name="id_blog_tra" />
+          </Key>
+          <Property Name="id_blog_tra" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="titile_blog_tra" Type="nvarchar" MaxLength="250" />
+          <Property Name="short_des_blog_tra" Type="nvarchar(max)" />
+          <Property Name="des_blog_tra" Type="nvarchar(max)" />
+          <Property Name="status_blog_tra" Type="int" />
+          <Property Name="type_blog_tra" Type="int" />
+          <Property Name="create_date_blog_tra" Type="datetime" />
+          <Property Name="img_blog_tra" Type="varchar" MaxLength="2000" />
+        </EntityType>
         <EntityType Name="tbl_products_tra">
           <Key>
             <PropertyRef Name="id_products_tra" />
@@ -60,6 +73,7 @@
           <Property Name="shortdescription" Type="nvarchar(max)" />
         </EntityType>
         <EntityContainer Name="TrafashionModelStoreContainer">
+          <EntitySet Name="tbl_blog_tra" EntityType="Self.tbl_blog_tra" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_products_tra" EntityType="Self.tbl_products_tra" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_slide_tra" EntityType="Self.tbl_slide_tra" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblSysPicture" EntityType="Self.tblSysPicture" Schema="dbo" store:Type="Tables" />
@@ -83,6 +97,7 @@
           <EntitySet Name="tbl_slide_tra" EntityType="Self.tbl_slide_tra" />
           <EntitySet Name="tbl_products_tra" EntityType="TrafashionModel.tbl_products_tra" />
           <EntitySet Name="tblSysPictures" EntityType="TrafashionModel.tblSysPicture" />
+          <EntitySet Name="tbl_blog_tra" EntityType="TrafashionModel.tbl_blog_tra" />
         </EntityContainer>
         <EntityType Name="tbl_products_tra">
           <Key>
@@ -126,6 +141,19 @@
           <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="cms_sql_id" Type="Int32" />
           <Property Name="shortdescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_blog_tra">
+          <Key>
+            <PropertyRef Name="id_blog_tra" />
+          </Key>
+          <Property Name="id_blog_tra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titile_blog_tra" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="short_des_blog_tra" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="des_blog_tra" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="status_blog_tra" Type="Int32" />
+          <Property Name="type_blog_tra" Type="Int32" />
+          <Property Name="create_date_blog_tra" Type="DateTime" Precision="3" />
+          <Property Name="img_blog_tra" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -187,6 +215,20 @@
                 <ScalarProperty Name="originalFilepath" ColumnName="originalFilepath" />
                 <ScalarProperty Name="advert_id" ColumnName="advert_id" />
                 <ScalarProperty Name="picture_id" ColumnName="picture_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_blog_tra">
+            <EntityTypeMapping TypeName="TrafashionModel.tbl_blog_tra">
+              <MappingFragment StoreEntitySet="tbl_blog_tra">
+                <ScalarProperty Name="img_blog_tra" ColumnName="img_blog_tra" />
+                <ScalarProperty Name="create_date_blog_tra" ColumnName="create_date_blog_tra" />
+                <ScalarProperty Name="type_blog_tra" ColumnName="type_blog_tra" />
+                <ScalarProperty Name="status_blog_tra" ColumnName="status_blog_tra" />
+                <ScalarProperty Name="des_blog_tra" ColumnName="des_blog_tra" />
+                <ScalarProperty Name="short_des_blog_tra" ColumnName="short_des_blog_tra" />
+                <ScalarProperty Name="titile_blog_tra" ColumnName="titile_blog_tra" />
+                <ScalarProperty Name="id_blog_tra" ColumnName="id_blog_tra" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

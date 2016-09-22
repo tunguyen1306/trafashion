@@ -1,0 +1,67 @@
+﻿@using System.Configuration
+@using PagedList.Mvc
+@model PagedList.IPagedList<WebTraFashion.Models.tbl_blog_tra>
+<div id="loader">
+    <div class="container">
+        @Html.Partial("Breadcrumb")
+        <div class="row">
+            <div id="content" class="col-sm-12">
+                <h1>Blog</h1>
+                @foreach (var item in Model)
+            {
+                    <article class="blog_article">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6">
+                                <figure class="article-image">
+                                    @if (item.img_blog_tra != null)
+                                    {
+                                        <img src="@ConfigurationManager.AppSettings["domain"]@item.img_blog_tra.Split('_')[0]/@item.img_blog_tra" alt="@item.titile_blog_tra"/>
+                                    }
+                                    else
+                                    {
+                                        <img src="/img/no-image-available.jpg" alt="@item.titile_blog_tra" />
+                                    }
+
+                                </figure>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <h2 class="article-title">
+                                    <a href='@Url.Action("DetailBlog","Default",new {id=item.id_blog_tra})'>@item.titile_blog_tra</a>
+                                </h2>
+                                <div class="article-sub-title">
+                                    <span class="article-date material-design-clock100">@item.create_date_blog_tra</span>
+                                    <span class="article-comments material-design-add183"><a href="#">25 Bình luận</a></span>
+                                    <span class="article-author material-design-user157"><a href="#">admin</a></span>
+                                </div>
+                                <div class="article-description">
+                                    @item.short_des_blog_tra
+                                </div>
+                                <div>
+                                    <a class="btn" href="@Url.Action("DetailBlog","Default",new {id=item.id_blog_tra})">
+                                        Xem thêm
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                }
+
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12 text-left">
+                        <ul class="pagination">
+                            @Html.PagedListPager(Model, page => Url.Action("Blog1", "Default", new { page}),PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions() { UpdateTargetId = "loader" }))
+                         </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .pagination > li:last-child > a, .pagination > li:last-child > span, .pagination > li:first-child > a, .pagination > li:first-child > span {
+            border-radius: 50%;
+        }
+    </style>
+</div>
+

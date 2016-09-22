@@ -1,0 +1,10 @@
+﻿
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_LayoutMaster.cshtml";
+}
+@using PagedList.Mvc
+@model PagedList.IPagedList<WebTraFashion.Models.tbl_blog_tra>
+@Html.Partial("Header")
+@Html.Partial("listBlog",Model)
+@Html.Partial("Footer")

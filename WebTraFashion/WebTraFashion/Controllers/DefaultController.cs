@@ -27,50 +27,53 @@ namespace WebTraFashion.Controllers
 
             return View();
         }
-        public ActionResult ListProducts(string id,int idd)
+        public ActionResult ListProducts(string id, int idd,int? page)
         {
+            var pagenum = page ?? 1;
+            var pageSize = 120;
             var id_ = int.Parse(id.Split('-').Last());
             ViewBag.TypeID = id_;
             if (id_ == 1)
             {
-                ViewData["showname"]="Ví";
-                   
-                    
+                ViewData["showname"] = "Ví";
+
+
             }
             if (id_ == 2)
             {
-                  
-                    ViewData["showname"] = "Balo";
+
+                ViewData["showname"] = "Balo";
             }
             if (id_ == 3)
             {
-                   
-                    ViewData["showname"] = "Vali";
+
+                ViewData["showname"] = "Vali";
             }
             if (id_ == 4)
             {
-                   
-                    ViewData["showname"] = "Phụ kiện";
+
+                ViewData["showname"] = "Phụ kiện";
             }
             if (id_ == 5)
             {
-                  
-                    ViewData["showname"] = "Sale";
+
+                ViewData["showname"] = "Sale";
             }
             if (id_ == 6)
             {
-                  
-                    ViewData["showname"] = "Túi xách";
+
+                ViewData["showname"] = "Túi xách";
             }
-            if (idd==123)
+            if (idd == 123)
             {
                 var queryProducts =
                 from data in db.tbl_products_tra
                 join datapic in db.tblSysPictures on data.id_products_tra equals datapic.advert_id
-                where data.status_products_tra == 1 && datapic.position == 1 && (data.type_products_tra == id_ || data.discount_products_tra!=null)
+                where data.status_products_tra == 1 && datapic.position == 1 && (data.type_products_tra == id_ || data.discount_products_tra != null)
+                && data.name_products_tra!=null
                 orderby data.id_products_tra descending
                 select new ClassAll { tblProdu = data, tblPicture = datapic };
-                return View(queryProducts.ToList().ToPagedList(pageNumber: 1, pageSize: 9));
+                return View(queryProducts.ToPagedList(pagenum, pageSize));
             }
             else
             {
@@ -78,12 +81,76 @@ namespace WebTraFashion.Controllers
                from data in db.tbl_products_tra
                join datapic in db.tblSysPictures on data.id_products_tra equals datapic.advert_id
                where data.status_products_tra == 1 && datapic.position == 1 && data.type_products_tra == id_
+               && data.name_products_tra != null
                orderby data.id_products_tra descending
                select new ClassAll { tblProdu = data, tblPicture = datapic };
-                return View(queryProducts1.ToList().ToPagedList(pageNumber: 1, pageSize: 9));
+                return View(queryProducts1.ToPagedList(pagenum, pageSize));
             }
 
         }
+        public PartialViewResult PartialDemo(string id, int idd, int? page)
+        {
+            var pagenum = page ?? 1;
+            var pageSize = 120;
+            var id_ = int.Parse(id.Split('-').Last());
+            ViewBag.TypeID = id_;
+            if (id_ == 1)
+            {
+                ViewData["showname"] = "Ví";
+
+
+            }
+            if (id_ == 2)
+            {
+
+                ViewData["showname"] = "Balo";
+            }
+            if (id_ == 3)
+            {
+
+                ViewData["showname"] = "Vali";
+            }
+            if (id_ == 4)
+            {
+
+                ViewData["showname"] = "Phụ kiện";
+            }
+            if (id_ == 5)
+            {
+
+                ViewData["showname"] = "Sale";
+            }
+            if (id_ == 6)
+            {
+
+                ViewData["showname"] = "Túi xách";
+            }
+            if (idd == 123)
+            {
+                var queryProducts =
+                from data in db.tbl_products_tra
+                join datapic in db.tblSysPictures on data.id_products_tra equals datapic.advert_id
+                where data.status_products_tra == 1 && datapic.position == 1 && (data.type_products_tra == id_ || data.discount_products_tra != null)
+                && data.name_products_tra != null
+                orderby data.id_products_tra descending
+                select new ClassAll { tblProdu = data, tblPicture = datapic };
+                return PartialView("ListProductsByID", queryProducts.ToPagedList(pagenum, pageSize));
+            }
+            else
+            {
+                var queryProducts1 =
+               from data in db.tbl_products_tra
+               join datapic in db.tblSysPictures on data.id_products_tra equals datapic.advert_id
+               where data.status_products_tra == 1 && datapic.position == 1 && data.type_products_tra == id_
+               && data.name_products_tra != null
+               orderby data.id_products_tra descending
+               select new ClassAll { tblProdu = data, tblPicture = datapic };
+                return PartialView("ListProductsByID", queryProducts1.ToPagedList(pagenum, pageSize));
+            }
+
+        }
+
+
 
         public ActionResult Detail(string id)
         {
@@ -105,20 +172,38 @@ namespace WebTraFashion.Controllers
 
             return View();
         }
+        public ActionResult Blog(int? page)
+        {
+            var pagenum = page ?? 1;
+            var query = from data in db.tbl_blog_tra
+                        orderby data.id_blog_tra
+                        select data;
+            return View(query.ToPagedList(pagenum, 1));
+        }
+        public PartialViewResult Blog1(int? page)
+        {
+            var pagenum = page ?? 1;
+            var query = from data in db.tbl_blog_tra
+                        orderby data.id_blog_tra
+                        select data;
+            return PartialView("listBlog", query.ToPagedList(pagenum, 1));
+        }
+        public ActionResult DetailBlog(int id)
+        {
+
+            var query = from data in db.tbl_blog_tra
+                        where data.id_blog_tra==id
+                        orderby data.id_blog_tra
+                        select data;
+            return View(query.ToList());
+        }
         public ActionResult relatedProduct()
         {
 
             return View();
         }
 
-        public PartialViewResult PartialDemo(int id ,int page = 1, int pagesize = 9)
-        {
-            var dataNew = (from datanew in db.tbl_products_tra where datanew.status_products_tra == 1 && (datanew.type_products_tra == id) orderby datanew.id_products_tra descending select datanew).Skip(pagesize* (page - 1)).Take(pagesize).ToList();
-            return PartialView("ListProductsByID", dataNew.ToPagedList(page, pagesize));
-
-        }
-
-
+      
         [HttpPost]
         public ActionResult RegisMail(string email)
         {
@@ -140,10 +225,10 @@ namespace WebTraFashion.Controllers
             return View("Default");
         }
         [HttpPost]
-        public ActionResult buy(string email, string name, string phone, string content, string nameproduct,string codeproduct,string price,string idpro)
+        public ActionResult buy(string email, string name, string phone, string content, string nameproduct, string codeproduct, string price, string idpro)
         {
             var index = 0;
-            if (name=="")
+            if (name == "")
             {
                 ViewData["error"] = "vui lòng nhập ho và tên";
                 index++;
@@ -158,7 +243,7 @@ namespace WebTraFashion.Controllers
                 ViewData["error"] = "vui lòng nhập ho và tên";
                 index++;
             }
-            if (index==0)
+            if (index == 0)
             {
 
                 var t = email;

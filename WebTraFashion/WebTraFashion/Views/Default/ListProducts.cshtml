@@ -3,10 +3,11 @@
     ViewBag.Title = "ListProducts";
     Layout = "~/Views/Shared/_LayoutMaster.cshtml";
 }
-@using PagedList
+
 @using WebTraFashion.Models
 @using System.Configuration
-@model IEnumerable< ClassAll>
+@using PagedList.Mvc
+@model PagedList.IPagedList<ClassAll>
 
 @{
 

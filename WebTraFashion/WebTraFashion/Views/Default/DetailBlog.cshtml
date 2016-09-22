@@ -1,0 +1,222 @@
+﻿
+@{
+    ViewBag.Title = "DetailBlog";
+    Layout = "~/Views/Shared/_LayoutMaster.cshtml";
+}
+@using System.Configuration
+@model IEnumerable<WebTraFashion.Models.tbl_blog_tra>
+@Html.Partial("Header")
+<div class="container">
+    @Html.Partial("Breadcrumb")
+
+
+    @foreach (var item in Model)
+    {
+        <div class="form-group">
+            <div id="content" class="col-sm-12">
+                <div class="row form-group">
+                    <article class="article-info">
+                        <div class="article-title">
+                            <h1>@item.titile_blog_tra</h1>
+                        </div>
+                        <div class="article-sub-title">
+                            <span class="article-date material-design-clock100">15.04.16</span>
+                            <span class="article-comments material-design-add183">3 Comments</span>
+                            <span class="article-author material-design-user157">Posted by <a href="http://livedemo00.template-help.com/opencart_57682_v1/index.php?route=simple_blog/author&amp;simple_blog_author_id=1">Jessica Prinston</a></span>
+                        </div>
+                        <div class="article-image">
+                            @if (@item.img_blog_tra != null)
+                            {
+                                <img src="@ConfigurationManager.AppSettings["domain"]@item.img_blog_tra.Split('_')[0]/@item.img_blog_tra" alt="@item.titile_blog_tra"/>
+                            }
+                            else
+                            {
+                                <img src="~/img/no-image-available.jpg" alt="@item.titile_blog_tra"/>
+                            }
+
+                        </div>
+                        <div class="fb-like" data-href="http://trafashion.com/Default/DetailBlog/@item.id_blog_tra" data-layout="standard" data-action="recommend" data-show-faces="true"></div>
+                        <div class="article-description">
+
+                            @Html.Raw(item.des_blog_tra);
+                        </div>
+                        <span class="article-share">
+                        <div class="addthis_sharing_toolbox"></div>
+
+                        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55e053ac02ebd38e" async="async"></script>
+                    </span>
+                        <div class="product_tabs">
+                            <ul class="nav nav-tabs">
+                                @*<li>
+                                 <a href="#tab-author" data-toggle="tab">Author</a>
+                             </li>*@
+                                <li>
+                                    <a href="#tab-comments" data-toggle="tab">Bình Luận</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                @*<div id="tab-author" class="tab-pane author-info">
+                                 <div class="image">
+                                     <img src="http://livedemo00.template-help.com/opencart_57682_v1/image/cache/catalog/avatar-100x100.jpg" alt="Going Green Is So Much Simpler Than Most People Think"/>
+                                 </div>
+                                 <h3>Jessica Prinston</h3>
+                                 <p>Mega positive shop assistant always ready to help you make the right choice and charm you with a smile.</p>
+                             </div>*@
+                                <div id="tab-comments" class="tab-pane">
+                                    <div class="fb-comments" data-href="http://trafashion.com/Default/DetailBlog/@item.id_blog_tra" data-numposts="10"></div>
+                                    @*<h2>Comments</h2>
+                                    <div class="form-group">
+                                        <div id="comments" class="blog-comment-info">
+                                            <div id="comment-list"></div>
+                                            <div id="comment-section"></div>
+                                            <h2 id="review-title">
+                                                Leave your comment
+                                                <div class="reply-cancel">
+                                                    <span id="reply-remove" style="display: none; cursor: pointer;" onclick="removeCommentId();">
+                                                    Cancel reply
+                                                </span>
+                                                </div>
+                                            </h2>
+                                            <input type="hidden" name="blog_article_reply_id" value="0" id="blog-reply-id"/>
+                                            <div class="comment-left">
+                                                <div class="form-group">
+                                                    <label for="comment-name">
+                                                        <strong>Your Name:</strong>
+                                                    </label>
+                                                    <input type="text" name="name" value="" id="comment-name" class="form-control"/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="comment-text">
+                                                        <strong>Your Comment:</strong>
+                                                    </label>
+                                                    <textarea name="text" class="form-control" id="comment-text"></textarea>
+                                                    <span style="font-size: 11px;">Note: HTML is not translated!</span>
+                                                </div>
+                                            </div>
+                                            <br/>
+                                            <div class="text-right">
+                                                <a id="button-comment" class="btn btn-info">
+                                                    <span>Submit comment</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>*@
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+        var item1 = item;
+@section share_fb{
+
+    <meta property="og:title" content="@item1.titile_blog_tra"/>
+
+    <meta property="og:url" content="http://trafashion.com/Default/DetailBlog/@item1.id_blog_tra"/>
+    <meta name="description" content="@item1.short_des_blog_tra">
+    <meta property="og:description" content="@item1.short_des_blog_tra"/>
+    <meta name="keywords" content="túi xách,balo,vali,hàng xách tay,hàng xách tay chất lượng cao,sản phẩm xách tay"/>
+    @*<meta property="og:image" content="@ConfigurationManager.AppSettings["domain"]@item.img_products_tra.Split('_')[0]/@item.img_products_tra" />*@
+    <meta property="og:image:width" content="600"/>
+    <meta property="og:image:height" content="315"/>
+
+    <meta property="og:image" content="@ConfigurationManager.AppSettings["domain"]@item1.img_blog_tra.Split('_')[0]/@item1.img_blog_tra"/>
+
+
+}
+    }
+
+
+</div>
+<div id="fb-root"></div>
+<script>
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.7&appId=1542874159340791";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+            function removeCommentId() {
+                $("#blog-reply-id").val(0);
+                $("#reply-remove").css('display', 'none');
+            }
+</script>
+<script type="text/javascript">
+            $('#comment-list .pagination a').delegate('click', function () {
+                $('#comment-list').fadeOut('slow');
+
+                $('#comment-list').load(this.href);
+
+                $('#comment-list').fadeIn('slow');
+
+                return false;
+            });
+
+            $('#comment-list').load('index.php?route=simple_blog/article/comment&simple_blog_article_id=10');
+
+            $('.product_tabs li:first-child a').tab('show');
+
+</script>
+<script type="text/javascript">
+    $('#button-comment')
+        .bind('click',
+            function() {
+                $.ajax({
+                    type: 'POST',
+                    url: 'index.php?route=simple_blog/article/writeComment&simple_blog_article_id=10',
+                    dataType: 'json',
+                    data: 'name=' +
+                        encodeURIComponent($('input[name=\'name\']').val()) +
+                        '&text=' +
+                        encodeURIComponent($('textarea[name=\'text\']').val()) +
+                        '&captcha=' +
+                        encodeURIComponent($('input[name=\'captcha\']').val()) +
+                        '&reply_id=' +
+                        encodeURIComponent($('input[name=\'blog_article_reply_id\']').val()),
+                    beforeSend: function() {
+                        $('.success, .warning').remove();
+                        $('#button-comment').attr('disabled', true);
+                        $('#review-title')
+                            .after('<div class="attention"><img src="catalog/view/theme/default/image/loading.gif" alt="" /> Wait</div>');
+                    },
+                    complete: function() {
+                        $('#button-comment').attr('disabled', false);
+                        $('.attention').remove();
+                    },
+                    success: function(data) {
+
+                        $('.alert').remove();
+
+                        if (data['error']) {
+                            $('#review-title')
+                                .after('<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> ' +
+                                    data['error'] +
+                                    '</div>');
+                        }
+
+                        if (data['success']) {
+                            $('#review-title')
+                                .after('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' +
+                                    data['success'] +
+                                    '</div>');
+
+                            $('input[name=\'name\']').val('');
+                            $('textarea[name=\'text\']').val('');
+                            $('input[name=\'captcha\']').val('');
+                            $("#blog-reply-id").val(0);
+                            $("#reply-remove").css('display', 'none');
+
+                            $('#comment-list')
+                                .load('index.php?route=simple_blog/article/comment&simple_blog_article_id=10');
+                        }
+                    }
+                });
+            });
+</script>
+@Html.Partial("Footer")
+
+
+

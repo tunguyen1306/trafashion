@@ -4,37 +4,39 @@
 @using System.Web.Mvc;
 @using System.Configuration
 
+
+
 <header>
     <div class="top-menu">
         <div class="fleft">
             <div class="box-language">
-                  
-                        <ul class="language-list">
-                            <li>
-                                <a class="active">
-                                    vn
-                                </a>
-                            </li>
-                            <li>
-                                <a >
-                                    en
-                                </a>
-                            </li>
-                            <li>
-                                <a >
-                                    de
-                                </a>
-                            </li>
-                            <li>
-                                <a >
-                                    ru
-                                </a>
-                            </li>
-                        </ul>
-                     
-                
-                </div>
-                @*<div class="box-currency">
+
+                <ul class="language-list">
+                    <li>
+                        <a class="active">
+                            vn
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            en
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            de
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            ru
+                        </a>
+                    </li>
+                </ul>
+
+
+            </div>
+            @*<div class="box-currency">
                     <div class="fb-like" data-href="https://www.facebook.com/Trafashion-1609427949376965/timeline" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
                   <form action="" method="post" enctype="multipart/form-data" id="currency">
                         <ul class="currency-list">
@@ -66,7 +68,7 @@
             <nav id="top-links" class="nav toggle-wrap">
                 <a class="toggle material-design-settings49"></a>
                 <ul class="toggle_cont nav-toggle-cont">
-                   
+
                     <li class="toggle-wrap">
                         <a>
                             <i class="material-design-user157"></i>
@@ -104,73 +106,94 @@
             </div>
         </div>
     </div>
-    <div id="stuck" class="stuck-menu">
+
+    <div class="stuck-menu" id="stuck" style="">
         <div id="logo" class="logo">
-            <a href="@Url.Action("Default","Default")"><img src="~/img/logo.png" width="300" title="TraFashion" alt="TraFashion" class="img-responsive" /></a>
+            <a href="@Url.Action("Default", "Default")"><img src="~/img/logo.png" width="300" title="TraFashion" alt="TraFashion" class="img-responsive" /></a>
         </div>
         <div id="menu-gadget" class="menu-gadget">
             <ul class="menu">
                 <li>
-                    <a href="@Url.Action("ListProducts","Default",new { id= ("Túi xách").UrlFrendly() + "-" + 6,idd=1})">TÚI XÁCH</a>
+                    <a href="@Url.Action("ListProducts", "Default", new {id = ("Túi xách").UrlFrendly() + "-" + 6, idd = 1})">TÚI XÁCH</a>
                 </li>
                 <li>
-                    <a href="@Url.Action("ListProducts","Default",new { id= ("Ví").UrlFrendly() + "-" + 1,idd=1})">VÍ </a>
+                    <a href="@Url.Action("ListProducts", "Default", new {id = ("Ví").UrlFrendly() + "-" + 1, idd = 1})">VÍ </a>
                 </li>
                 <li>
-                    <a href="@Url.Action("ListProducts","Default",new { id= ("Balo").UrlFrendly() + "-" + 2,idd=1})">BALO</a>
+                    <a href="@Url.Action("ListProducts", "Default", new {id = ("Balo").UrlFrendly() + "-" + 2, idd = 1})">BALO</a>
                 </li>
                 <li>
-                    <a href="@Url.Action("ListProducts","Default",new { id= ("Vali").UrlFrendly() + "-" + 3,idd=1})">VALI</a>
+                    <a href="@Url.Action("ListProducts", "Default", new {id = ("Vali").UrlFrendly() + "-" + 3, idd = 1})">VALI</a>
                 </li>
                 <li>
-                    <a href="@Url.Action("ListProducts","Default",new { id= ("Phụ kiện").UrlFrendly() + "-" + 4,idd=1})">PHỤ KIỆN</a>
+                    <a href="@Url.Action("ListProducts", "Default", new {id = ("Phụ kiện").UrlFrendly() + "-" + 4, idd = 1})">PHỤ KIỆN</a>
                 </li>
                 <li>
-                    <a href="@Url.Action("ListProducts","Default",new { id = ("sale").UrlFrendly() + "-" + 5, idd=123})">SALE</a>
+                    <a href="@Url.Action("ListProducts", "Default", new {id = ("sale").UrlFrendly() + "-" + 5, idd = 123})">SALE</a>
                 </li>
                 <li>
-                 
+
                     <a href="http://vangia.net/">VẠN GIA</a>
+                </li>
+                <li>
+
+                    <a href="@Url.Action("Blog","Default")">Blog</a>
                 </li>
             </ul>
         </div>
-        <div class="container">
-            <div id="tm_menu" class="nav__primary " >
-                <ul class="menu" style="font-family:Roboto !important;font-weight:bold;color:#b4a376 !important;">
-                    <li>
-                        <a href="@Url.Action("ListProducts","Default",new { id= ("Túi xách").UrlFrendly() + "-" + 6,idd=1})">TÚI XÁCH</a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("ListProducts","Default",new { id= ("Ví").UrlFrendly() + "-" + 1,idd=1})">VÍ </a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("ListProducts","Default",new { id= ("Balo").UrlFrendly() + "-" + 2,idd=1})">BALO</a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("ListProducts","Default",new { id= ("Vali").UrlFrendly() + "-" + 3,idd=1})">VALI</a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("ListProducts","Default",new { id= ("Phụ kiện").UrlFrendly() + "-" + 4,idd=1})">PHỤ KIỆN</a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("ListProducts","Default",new { id = ("sale").UrlFrendly() + "-" + 5, idd=123})">SALE</a>
-                    </li>
-                    <li>
-                        <a href="http://vangia.net/">VẠN GIA</a>
-                    </li>
-                </ul>
-                <div class="clear"></div>
+        <div class="navigation">
+            <div class="container">
+                <div class="megamenu">
+                    <ul class="sf-menu sf-js-enabled sf-arrows">
+
+                        <li>
+                            <a href="@Url.Action("ListProducts", "Default", new {id = ("Túi xách").UrlFrendly() + "-" + 6, idd = 1})">TÚI XÁCH</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("ListProducts", "Default", new {id = ("Ví").UrlFrendly() + "-" + 1, idd = 1})">VÍ </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("ListProducts", "Default", new {id = ("Balo").UrlFrendly() + "-" + 2, idd = 1})">BALO</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("ListProducts", "Default", new {id = ("Vali").UrlFrendly() + "-" + 3, idd = 1})">VALI</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("ListProducts", "Default", new {id = ("Phụ kiện").UrlFrendly() + "-" + 4, idd = 1})">PHỤ KIỆN</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("ListProducts", "Default", new {id = ("sale").UrlFrendly() + "-" + 5, idd = 123})">SALE</a>
+                        </li>
+                        <li>
+                            <a href="http://vangia.net/">VẠN GIA</a>
+                        </li>
+                        <li>
+
+                            <a href="@Url.Action("Blog","Default")">Blog</a>
+                        </li>
+                    </ul>
+                </div>
+
             </div>
         </div>
         @*<div class="search toggle-wrap">
-            <div class="toggle-search"></div>
-            <div class="toggle_cont">
-                <div id="search">
-                    <input type="text" name="search" value="" placeholder="Search..." />
-                    <button type="button" class="button-search"></button>
-                    <i class="closebtn"></i>
+                <div class="toggle-search"></div>
+                <div class="toggle_cont">
+                    <div id="search">
+                        <input type="text" placeholder="Search" value="" name="search">
+                        <button class="button-search" type="button"></button>
+                        <i class="closebtn"></i>
+                    </div>
                 </div>
-            </div>
-        </div>*@
+            </div>*@
     </div>
+    <style>
+        .sf-menu li > a {
+            color: #b4a376!important;
+            display: block!important;
+            font-size: 20px!important;
+            font-weight: bold;
+            text-transform: uppercase!important;
+        }
+    </style>
 </header>

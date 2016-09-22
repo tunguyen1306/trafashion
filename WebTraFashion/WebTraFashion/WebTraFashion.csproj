@@ -170,6 +170,9 @@
     <Compile Include="Models\tblSysPicture.cs">
       <DependentUpon>DataWeb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\tbl_blog_tra.cs">
+      <DependentUpon>DataWeb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\tbl_products_tra.cs">
       <DependentUpon>DataWeb.tt</DependentUpon>
     </Compile>
@@ -659,6 +662,7 @@
     <Content Include="img\logoFooter.png" />
     <Content Include="img\mauma.jpg" />
     <Content Include="img\menu-bg.jpg" />
+    <Content Include="img\no-image-available.jpg" />
     <Content Include="img\parallax-1-1600x1228.jpg" />
     <Content Include="img\parallax-2.jpg" />
     <Content Include="img\phongcach.jpg" />
@@ -1056,6 +1060,8 @@
     <Content Include="Scripts\sb-admin-2.js" />
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="TeamplateBlog.html" />
+    <Content Include="TeamplateDetailBlog.html" />
     <Content Include="template.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -1111,6 +1117,9 @@
     <Content Include="Views\Default\LatestProducts.cshtml" />
     <Content Include="Views\Default\Footer.cshtml" />
     <Content Include="Views\Default\Contact.cshtml" />
+    <Content Include="Views\Default\Blog.cshtml" />
+    <Content Include="Views\Default\DetailBlog.cshtml" />
+    <Content Include="Views\Default\listBlog.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,10 +1,6 @@
 ﻿
-@using PagedList
 @using WebTraFashion.Models
 @using PagedList.Mvc
-@using System.Linq;
-@using System.Web;
-@using System.Web.Mvc;
 @using System.Configuration
 @model PagedList.IPagedList<ClassAll>
 
@@ -102,8 +98,9 @@
             <div class="col-sm-6 text-left">
                 <ul class="pagination">
 
-                    @Html.PagedListPager((IPagedList)Model, page => Url.Action("PartialDemo", "Default", new { page, id = ViewBag.TypeID }),
+                    @Html.PagedListPager(Model, page => Url.Action("PartialDemo", "Default", new { page, id = ViewBag.TypeID, idd=1 }),
                         PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions() { UpdateTargetId = "loader" }))
+
                 </ul>
             </div>
 
@@ -458,7 +455,7 @@
         <div class="row pages_info mod1">
             <div class="col-sm-6 text-left">
                 <ul class="pagination">
-                    @Html.PagedListPager((IPagedList)Model, page => Url.Action("PartialDemo", "Default", new { page }),
+                    @Html.PagedListPager(Model, page => Url.Action("PartialDemo", "Default", new { page, id = ViewBag.TypeID , idd =1}),
                         PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions() { UpdateTargetId = "loader" }))
                 </ul>
             </div>
