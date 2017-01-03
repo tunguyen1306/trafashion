@@ -1,13 +1,43 @@
-﻿@using System.Configuration
+﻿@using WebTraFashion.Models
+@using System.Configuration
 @using PagedList.Mvc
 @model PagedList.IPagedList<WebTraFashion.Models.tbl_blog_tra>
+
+@{
+
+    TrafashionEntities db = new TrafashionEntities();
+    Random ran = new Random();
+
+    var queryProductFeature = from data in db.tbl_products_tra
+                              join datapic in db.tblSysPictures on data.id_products_tra equals datapic.advert_id
+                              where data.status_products_tra == 1 && datapic.position == 1 && data.featured_products_tra == 1
+                              orderby data.id_products_tra descending
+                              select new ClassAll { tblProdu = data, tblPicture = datapic };
+
+    var dataProductFeature = queryProductFeature.OrderBy(x => Guid.NewGuid()).Take(5);
+
+    var queryLatestProducts = from data in db.tbl_products_tra
+                              join datapic in db.tblSysPictures on data.id_products_tra equals datapic.advert_id
+                              where data.status_products_tra == 1 && datapic.position == 1
+                              orderby data.id_products_tra descending
+                              select new ClassAll { tblProdu = data, tblPicture = datapic };
+
+
+    var dataLatestProducts = queryLatestProducts.OrderBy(x => Guid.NewGuid()).Take(5);
+
+}
 <div id="loader">
     <div class="container">
         @Html.Partial("Breadcrumb")
         <div class="row">
-            <div id="content" class="col-sm-12">
+            <aside id="column-left" class="col-sm-3">
+
+                @Html.Partial("Featured", dataProductFeature.ToList())
+                @Html.Partial("LatestProducts", dataLatestProducts.ToList())
+            </aside>
+            <div id="content" class="col-sm-9">
                 <h1>Blog</h1>
-                @foreach (var item in Model)
+                @foreach (var item in Model )
             {
                     <article class="blog_article">
                         <div class="row">
@@ -15,7 +45,7 @@
                                 <figure class="article-image">
                                     @if (item.img_blog_tra != null)
                                     {
-                                        <img src="@ConfigurationManager.AppSettings["domain"]@item.img_blog_tra.Split('_')[0]/@item.img_blog_tra" alt="@item.titile_blog_tra"/>
+                                        <img width="570" height="321" src="@ConfigurationManager.AppSettings["domain"]@item.img_blog_tra.Split('_')[0]/@item.img_blog_tra" alt="@item.titile_blog_tra"/>
                                     }
                                     else
                                     {

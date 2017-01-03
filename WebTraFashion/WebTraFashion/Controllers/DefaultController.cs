@@ -176,17 +176,19 @@ namespace WebTraFashion.Controllers
         {
             var pagenum = page ?? 1;
             var query = from data in db.tbl_blog_tra
-                        orderby data.id_blog_tra
+                        where data.id_company==1 
+                        orderby data.id_blog_tra descending
                         select data;
-            return View(query.ToPagedList(pagenum, 1));
+            return View(query.ToPagedList(pagenum, 2));
         }
         public PartialViewResult Blog1(int? page)
         {
             var pagenum = page ?? 1;
             var query = from data in db.tbl_blog_tra
+                        where data.id_company == 1
                         orderby data.id_blog_tra
                         select data;
-            return PartialView("listBlog", query.ToPagedList(pagenum, 1));
+            return PartialView("listBlog", query.ToPagedList(pagenum, 2));
         }
         public ActionResult DetailBlog(int id)
         {
