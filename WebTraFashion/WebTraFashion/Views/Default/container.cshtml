@@ -9,74 +9,89 @@
     <div class="container">
         <div class="row">
             <div id="content" class="col-sm-12">
-                <div id="tm-newsletter-popup" class="newsletter-popup-wrap">
-                    <div class="newsletter-popup" style="background-image: url(~/img/newsletter-popup-732x515.jpg)">
-                        <div class="box-content">
+                @*<div id="tm-newsletter-popup" class="newsletter-popup-wrap">
+        <div class="newsletter-popup" style="background-image: url(~/img/newsletter-popup-732x515.jpg)">
+            <div class="box-content">
 
-                            <h3 class="mod1">Bản Tin</h3>
-                            <p>
-                                Đăng ký Email để nhận tin tức mới về sản phẩm
-                            </p>
-                            <form method="post" enctype="multipart/form-data" id="tm-newsletter-popup-form">
-                                <div class="tm-login-form">
-                                    <label class="control-label" for="input-tm-newsletter-popup-email"></label>
-                                    <input type="text" name="tm_newsletter_popup_email" value="" placeholder="Enter your e-mail" id="input-tm-newsletter-popup-email" class="form-control" />
-                                    <button type="submit" id="tm-newsletter-popup-button" class="newsletter-popup-btn"><i class="material-design-drafts"></i>Đăng ký</button>
-                                    <span id="tm-newsletter-popup_error" class="newsletter-error"></span>
-                                    <span id="tm-newsletter-popup_success" class="newsletter-success"></span>
-                                </div>
-                            </form>
+                <h3 class="mod1">Bản Tin</h3>
+                <p>
+                    Đăng ký Email để nhận tin tức mới về sản phẩm
+                </p>
+                <form method="post" enctype="multipart/form-data" id="tm-newsletter-popup-form">
+                    <div class="tm-login-form">
+                        <label class="control-label" for="input-tm-newsletter-popup-email"></label>
+                        <input type="text" name="tm_newsletter_popup_email" value="" placeholder="Enter your e-mail" id="input-tm-newsletter-popup-email" class="form-control" />
+                        <button type="submit" id="tm-newsletter-popup-button" class="newsletter-popup-btn"><i class="material-design-drafts"></i>Đăng ký</button>
+                        <span id="tm-newsletter-popup_error" class="newsletter-error"></span>
+                        <span id="tm-newsletter-popup_success" class="newsletter-success"></span>
+                    </div>
+                </form>
+            </div>
+            <a href="#" id="newsletter-popup-close-btn" class="newsletter-popup-close-btn fa fa-times"></a>
+            <a href='#' id="newsletter-popup-dont-show" class="newsletter-popup-dont-show">
+                Don't show this message again
+            </a>
+        </div>
+    </div>*@
+                <div class="banners " id="banner0">
+                   <div class="row">
+                       <div class="fleft	banner-4">
+                           <div class="banner-box">
+                               <img class="img-responsive" alt="banner-1" src="~/img/h0.jpg">
+                           </div>
+                       </div>
+                       <div class="fleft	banner-3">
+                           <div class="banner-box">
+                               <img class="img-responsive" alt="banner-2" src="~/img/h1.png">
+                           </div>
+                       </div>
+                   </div>
+                       
+                      
+                   
+                    @*<div class="fleft	banner-1">
+                        <div class="banner-box">
+                            <a href="@Url.Action("ListProducts","Default",new { id= ("sale").UrlFrendly() + "-" + 5,idd=123 })" class="clearfix">
+                                <img class="img-responsive" alt="banner-1" src="~/img/sale1.png">
+                                <div class="s-desc"><h2>Sale <span></span> <em></em></h2></div>
+                            </a>
                         </div>
-                        <a href="#" id="newsletter-popup-close-btn" class="newsletter-popup-close-btn fa fa-times"></a>
-                        <a href='#' id="newsletter-popup-dont-show" class="newsletter-popup-dont-show">
-                            Don't show this message again
-                        </a>
                     </div>
+                    <div class="fleft	banner-2">
+                        <div class="banner-box">
+                            <a href="@Url.Action("ListProducts","Default",new { id=("Balo").UrlFrendly()+"-"+2,idd=1})" class="clearfix">
+                                <img class="img-responsive" alt="banner-2" src="~/img/banner-2-780x390.jpg">
+                                <div class="s-desc">
+                                    <h2 class="mod1">PHONG CÁCH HIỆN ĐẠI</h2>
+
+                                    <span class="button">Shop now!</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="fleft	banner-3">
+                        <div class="banner-box">
+                            <a href="@Url.Action("ListProducts","Default",new { id=("Túi xách").UrlFrendly()+"-"+6,idd=1})" class="clearfix">
+                                <img class="img-responsive" alt="banner-3" src="~/img/banner-3-780x390.jpg">
+                                <div class="s-desc"><h2 class="mod2">THỜI TRANG ĐẲNG CẤP</h2></div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="fleft	banner-4">
+                        <div class="banner-box">
+                            <a href="@Url.Action("ListProducts","Default",new { id=("Ví").UrlFrendly()+"-"+1,idd=1})" class="clearfix">
+                                <img class="img-responsive" alt="banner-4" src="~/img/banner-4-780x390.jpg">
+                                <div class="s-desc">
+                                    <h2 class="mod1">MẪU MÃ <span>ĐA DẠNG </span></h2>
+                                    <p>
+
+                                    </p>
+                                    <span class="button">Shop now!</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>*@
                 </div>
-                <div class="banners" id="banner0">
-        <div class="fleft	banner-1">
-            <div class="banner-box">
-                <a href="@Url.Action("ListProducts","Default",new { id= ("sale").UrlFrendly() + "-" + 5,idd=123 })" class="clearfix">
-                    <img class="img-responsive" alt="banner-1" src="~/img/sale.jpg">
-                    <div class="s-desc"><h2>Sale <span></span> <em></em></h2></div>
-                </a>
-            </div>
-        </div>
-        <div class="fleft	banner-2">
-            <div class="banner-box">
-                <a href="@Url.Action("ListProducts","Default",new { id=("Balo").UrlFrendly()+"-"+2,idd=1})" class="clearfix">
-                    <img class="img-responsive" alt="banner-2" src="~/img/banner-2-780x390.jpg">
-                    <div class="s-desc">
-                        <h2 class="mod1">PHONG CÁCH HIỆN ĐẠI</h2>
-                        
-                        <span class="button">Shop now!</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="fleft	banner-3">
-            <div class="banner-box">
-                <a href="@Url.Action("ListProducts","Default",new { id=("Túi xách").UrlFrendly()+"-"+6,idd=1})" class="clearfix">
-                    <img class="img-responsive" alt="banner-3" src="~/img/banner-3-780x390.jpg">
-                    <div class="s-desc"><h2 class="mod2">THỜI TRANG ĐẲNG CẤP</h2></div>
-                </a>
-            </div>
-        </div>
-        <div class="fleft	banner-4">
-            <div class="banner-box">
-                <a href="@Url.Action("ListProducts","Default",new { id=("Ví").UrlFrendly()+"-"+1,idd=1})" class="clearfix">
-                    <img class="img-responsive" alt="banner-4" src="~/img/banner-4-780x390.jpg">
-                    <div class="s-desc">
-                        <h2 class="mod1">MẪU MÃ <span>ĐA DẠNG </span></h2>
-                        <p>
-                           
-                        </p>
-                        <span class="button">Shop now!</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
 
                 @*<div id="banner0" class="banners">
                     <div class="fleft	banner-1">
@@ -123,7 +138,7 @@
 
 
                 </div>*@
-                <div class="box latest">
+                <div class="box latest" style="margin-top:10px;">
                     <div class="box-heading">
                         <h3 style="max-width:205px!important;">Sản phẩm mới</h3>
                         <span style="white-space:pre-line;">

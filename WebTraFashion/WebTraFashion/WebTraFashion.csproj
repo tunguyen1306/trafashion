@@ -654,6 +654,8 @@
     <Content Include="img\client_photo-584x427.png" />
     <Content Include="img\client_signature.png" />
     <Content Include="img\favicon.png" />
+    <Content Include="img\h0.jpg" />
+    <Content Include="img\h1.png" />
     <Content Include="img\HuongDanMuaHang.jpg" />
     <Content Include="img\HuongDanMuaHang2.jpg" />
     <Content Include="img\HuongDanMuaHang2.png" />
@@ -671,6 +673,7 @@
     <Content Include="img\prod_inf_img3.jpg" />
     <Content Include="img\prod_inf_img4.jpg" />
     <Content Include="img\sale.jpg" />
+    <Content Include="img\sale1.png" />
     <Content Include="img\separator.png" />
     <Content Include="img\separator1.png" />
     <Content Include="img\thoitra.jpg" />
